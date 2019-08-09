@@ -9,7 +9,7 @@ var deceleration_factor := 0.2
 var zoom := 8.0 setget set_zoom
 var min_zoom := 4.0
 var max_zoom := 12.0
-var zoom_step := 4.0
+var zoom_step := 2.0
 var zoom_time := 0.6
 
 var move_velocity : Vector2
@@ -30,9 +30,9 @@ func set_zoom(value : float) -> void:
 		zoom_tween.start()
 
 func update_zoom() -> void:
-	if Input.is_action_just_pressed("camera_zoom_in"):
+	if Input.is_action_just_released("camera_zoom_in"):
 		set_zoom(zoom - zoom_step)
-	if Input.is_action_just_pressed("camera_zoom_out"):
+	if Input.is_action_just_released("camera_zoom_out"):
 		set_zoom(zoom + zoom_step)
 
 func update_velocity(delta : float) -> void:

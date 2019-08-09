@@ -14,8 +14,8 @@ func _physics_process(delta : float) -> void:
 		if highlighted:
 			if not selected:
 				select()
-		elif selected:
-			deselect()
+#		elif selected:
+#			deselect()
 
 func set_selectable(value : bool) -> void:
 	selectable = value

@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Vegetable Chess"
+run/main_scene="res://scenes/levels/level_test.tscn"
 config/icon="res://icon.png"
 
 [input]
