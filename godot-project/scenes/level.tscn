@@ -4,5 +4,11 @@
 
 [node name="level" type="Spatial"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="tiles" type="Spatial" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
