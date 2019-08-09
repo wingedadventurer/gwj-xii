@@ -3,8 +3,8 @@ extends Spatial
 onready var cam = get_node("pivot/cam")
 onready var zoom_tween = get_node("zoom_tween")
 
-var max_move_speed := 10.0
-var acceleration_strength := 40.0
+var max_move_speed := 8.0
+var acceleration_strength := 20.0
 var deceleration_factor := 0.2
 var zoom := 10.0 setget set_zoom
 var min_zoom := 4.0
