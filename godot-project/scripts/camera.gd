@@ -6,13 +6,16 @@ onready var zoom_tween = get_node("zoom_tween")
 var max_move_speed := 8.0
 var acceleration_strength := 20.0
 var deceleration_factor := 0.2
-var zoom := 10.0 setget set_zoom
+var zoom := 8.0 setget set_zoom
 var min_zoom := 4.0
 var max_zoom := 12.0
 var zoom_step := 4.0
 var zoom_time := 0.6
 
 var move_velocity : Vector2
+
+func _ready() -> void:
+	set_zoom(zoom)
 
 func _process(delta : float) -> void:
 	update_velocity(delta)
