@@ -6,6 +6,9 @@
 
 [node name="level" index="0" instance=ExtResource( 1 )]
 
+[node name="tiles" parent="." index="0"]
+editor/display_folded = true
+
 [node name="tile_dirt" parent="tiles" index="0" instance=ExtResource( 2 )]
 
 [node name="tile_dirt_2" parent="tiles" index="1" instance=ExtResource( 2 )]

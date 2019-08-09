@@ -1,12 +1,12 @@
 [gd_resource type="SpatialMaterial" load_steps=3 format=2]
 
-[sub_resource type="OpenSimplexNoise" id=1]
+[sub_resource type="OpenSimplexNoise" id=5]
 
 [sub_resource type="NoiseTexture" id=2]
 width = 256
 height = 256
 seamless = true
-noise = SubResource( 1 )
+noise = SubResource( 5 )
 
 [resource]
 albedo_color = Color( 0.772549, 0.592157, 0.262745, 1 )
