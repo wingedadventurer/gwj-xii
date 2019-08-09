@@ -4,3 +4,5 @@
 
 [node name="level" type="Spatial"]
 script = ExtResource( 1 )
+
+[node name="tiles" type="Spatial" parent="."]
