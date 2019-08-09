@@ -17,7 +17,4 @@ material/0 = null
 
 [node name="camera" parent="." index="1" instance=ExtResource( 3 )]
 
-[node name="camera" parent="camera" index="0"]
-current = true
-
 [editable path="camera"]

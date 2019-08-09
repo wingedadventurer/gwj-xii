@@ -1,16 +1,38 @@
 extends Spatial
 
+onready var cam = get_node("pivot/cam")
+onready var zoom_tween = get_node("zoom_tween")
+
 var max_move_speed := 10.0
 var acceleration_strength := 40.0
 var deceleration_factor := 0.2
+var zoom := 10.0 setget set_zoom
+var min_zoom := 4.0
+var max_zoom := 12.0
+var zoom_step := 4.0
+var zoom_time := 0.6
 
 var move_velocity : Vector2
 
 func _process(delta : float) -> void:
-	check_input_and_update_velocity(delta)
+	update_velocity(delta)
 	move(move_velocity, delta)
+	update_zoom()
 
-func check_input_and_update_velocity(delta : float) -> void:
+func set_zoom(value : float) -> void:
+	zoom = clamp(value, min_zoom, max_zoom)
+	
+	if zoom_tween:
+		zoom_tween.interpolate_property(cam, "transform:origin:z", cam.transform.origin.z, zoom, zoom_time, Tween.TRANS_BACK, Tween.EASE_OUT)
+		zoom_tween.start()
+
+func update_zoom() -> void:
+	if Input.is_action_just_pressed("camera_zoom_in"):
+		set_zoom(zoom - zoom_step)
+	if Input.is_action_just_pressed("camera_zoom_out"):
+		set_zoom(zoom + zoom_step)
+
+func update_velocity(delta : float) -> void:
 	var new_move_velocity := Vector2()
 	# forward-back movement
 	if Input.is_action_pressed("camera_move_forward"):

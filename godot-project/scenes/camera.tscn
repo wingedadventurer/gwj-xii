@@ -5,5 +5,10 @@
 [node name="camera" type="Spatial"]
 script = ExtResource( 1 )
 
-[node name="camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 6, 4 )
+[node name="pivot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 0, 0 )
+
+[node name="cam" type="Camera" parent="pivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8 )
+
+[node name="zoom_tween" type="Tween" parent="."]
