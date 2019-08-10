@@ -12,3 +12,8 @@ __meta__ = {
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="units" type="Spatial" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}

@@ -1,21 +1,43 @@
+tool
 extends Spatial
+class_name class_unit
 
 var selectable := true setget set_selectable
 var selected := false setget set_selected
 
 var highlighted := false setget set_highlighted
 
+export (int, "NONE", "CARROT", "POTATO") var unit_type setget set_unit_type
+
 func _ready() -> void:
-	$select_highlight.material_override = $select_highlight.material_override.duplicate()
-	$select_highlight.visible = false
+	if Engine.editor_hint:
+		pass
+	else:
+		$select_highlight.material_override = $select_highlight.material_override.duplicate()
+		$select_highlight.visible = false
 
 func _physics_process(delta : float) -> void:
-	if Input.is_action_just_pressed("select"):
-		if highlighted:
-			if not selected:
-				select()
-#		elif selected:
-#			deselect()
+	if Engine.editor_hint:
+		pass
+	else:
+		if Input.is_action_just_pressed("select"):
+			if highlighted:
+				if not selected:
+					select()
+					for unit_ui in get_tree().get_nodes_in_group("unit_ui"):
+						unit_ui.display_unit(unit_type)
+
+func set_unit_type(value : int) -> void:
+	unit_type = value
+	
+	if $mesh_carrot_temp and $mesh_potato_temp:
+		$mesh_carrot_temp.visible = false
+		$mesh_potato_temp.visible = false
+		match unit_type:
+			1:
+				$mesh_carrot_temp.visible = true
+			2:
+				$mesh_potato_temp.visible = true
 
 func set_selectable(value : bool) -> void:
 	selectable = value
@@ -34,6 +56,9 @@ func select() -> void:
 	for unit in get_tree().get_nodes_in_group("unit"):
 		unit.set_selected(false)
 		unit.set_highlighted(false)
+	for unit_ui in get_tree().get_nodes_in_group("unit_ui"):
+		unit_ui.show()
+	
 	set_highlighted(false)
 	set_selected(true)
 

@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/unit_ui.gd" type="Script" id=1]
+[ext_resource path="res://textures/unit_profiles/profile_empty.png" type="Texture" id=2]
+
+[node name="unit_ui" type="Control" groups=[
+"unit_ui",
+"unit_controls",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="vb" type="VBoxContainer" parent="."]
+anchor_bottom = 1.0
+margin_right = 141.0
+
+[node name="p" type="PanelContainer" parent="vb"]
+margin_right = 142.0
+margin_bottom = 160.0
+
+[node name="vb" type="VBoxContainer" parent="vb/p"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 135.0
+margin_bottom = 153.0
+
+[node name="unit_name" type="Label" parent="vb/p/vb"]
+margin_right = 128.0
+margin_bottom = 14.0
+text = "Carrot"
+align = 1
+
+[node name="unit_profile" type="TextureRect" parent="vb/p/vb"]
+margin_top = 18.0
+margin_right = 128.0
+margin_bottom = 146.0
+texture = ExtResource( 2 )
+
+[node name="p_2" type="PanelContainer" parent="vb"]
+margin_top = 164.0
+margin_right = 142.0
+margin_bottom = 300.0
+
+[node name="vb" type="VBoxContainer" parent="vb/p_2"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 135.0
+margin_bottom = 129.0
+custom_constants/separation = 16
+
+[node name="label" type="Label" parent="vb/p_2/vb"]
+margin_right = 128.0
+margin_bottom = 14.0
+text = "Unit controls"
+align = 1
+
+[node name="vb" type="VBoxContainer" parent="vb/p_2/vb"]
+margin_top = 30.0
+margin_right = 128.0
+margin_bottom = 122.0
+
+[node name="button_move" type="Button" parent="vb/p_2/vb/vb"]
+margin_right = 128.0
+margin_bottom = 20.0
+text = "Move"
+
+[node name="button_bury" type="Button" parent="vb/p_2/vb/vb"]
+margin_top = 24.0
+margin_right = 128.0
+margin_bottom = 44.0
+text = "Bury"
+
+[node name="button_unbury" type="Button" parent="vb/p_2/vb/vb"]
+margin_top = 48.0
+margin_right = 128.0
+margin_bottom = 68.0
+text = "Unbury"
+
+[node name="button_fire_signal" type="Button" parent="vb/p_2/vb/vb"]
+margin_top = 72.0
+margin_right = 128.0
+margin_bottom = 92.0
+text = "Fire Signal"

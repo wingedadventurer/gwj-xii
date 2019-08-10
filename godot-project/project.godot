@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Spatial",
+"class": "class_unit",
+"language": "GDScript",
+"path": "res://scripts/unit.gd"
+}, {
+"base": "Control",
+"class": "class_unit_ui",
+"language": "GDScript",
+"path": "res://scripts/unit_ui.gd"
+} ]
 _global_script_class_icons={
-
+"class_unit": "",
+"class_unit_ui": ""
 }
 
 [application]
@@ -18,6 +29,10 @@ _global_script_class_icons={
 config/name="Vegetable Chess"
 run/main_scene="res://scenes/levels/level_test.tscn"
 config/icon="res://icon.png"
+
+[debug]
+
+gdscript/warnings/unused_argument=false
 
 [input]
 
@@ -70,4 +85,4 @@ name_casing=2
 
 [rendering]
 
-environment/default_environment="res://environments/default_env.tres"
+environment/default_environment="res://environments/default_environment.tres"
