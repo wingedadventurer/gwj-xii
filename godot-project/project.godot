@@ -30,6 +30,10 @@ config/name="Vegetable Chess"
 run/main_scene="res://scenes/levels/level_test.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+audio_manager="*res://scenes/autoload/audio_manager.tscn"
+
 [debug]
 
 gdscript/warnings/unused_argument=false

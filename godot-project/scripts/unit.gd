@@ -47,6 +47,7 @@ func set_selected(value : bool) -> void:
 	
 	$select_highlight.set_rotate(value)
 	$select_highlight.visible = value
+	$sfx_select.play()
 
 func set_highlighted(value : bool) -> void:
 	highlighted = value
