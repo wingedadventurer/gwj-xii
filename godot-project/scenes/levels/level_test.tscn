@@ -196,6 +196,10 @@ unit_type = 1
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
 unit_type = 2
 
-[node name="canvas_layer" type="CanvasLayer" parent="." index="2"]
+[node name="directional_light" type="DirectionalLight" parent="lights" index="0"]
+transform = Transform( 0.866025, -0.242405, 0.43731, 0, 0.87462, 0.48481, -0.5, -0.419857, 0.757443, 0, 4, 12 )
+light_energy = 5.0
+
+[node name="canvas_layer" type="CanvasLayer" parent="." index="3"]
 
 [node name="game_ui" parent="canvas_layer" index="0" instance=ExtResource( 5 )]
