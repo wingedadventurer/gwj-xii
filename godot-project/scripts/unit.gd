@@ -15,6 +15,7 @@ func _ready() -> void:
 	else:
 		$select_highlight.material_override = $select_highlight.material_override.duplicate()
 		$select_highlight.visible = false
+		$model_carrot/animation_player.play("Idle")
 
 func _physics_process(delta : float) -> void:
 	if Engine.editor_hint:
@@ -30,12 +31,12 @@ func _physics_process(delta : float) -> void:
 func set_unit_type(value : int) -> void:
 	unit_type = value
 	
-	if $mesh_carrot_temp and $mesh_potato_temp:
-		$mesh_carrot_temp.visible = false
+	if $model_carrot and $mesh_potato_temp:
+		$model_carrot.visible = false
 		$mesh_potato_temp.visible = false
 		match unit_type:
 			1:
-				$mesh_carrot_temp.visible = true
+				$model_carrot.visible = true
 			2:
 				$mesh_potato_temp.visible = true
 
