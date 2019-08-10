@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/grass_tile.dae-486aaf416fcb1b9ab1745af7c6193fa0.scn"
+path="res://.import/grass_tile.dae-58f318655f714050046b3fc132286cb6.scn"
 
 [deps]
 
-source_file="res://models/grass_tile.dae"
-dest_files=[ "res://.import/grass_tile.dae-486aaf416fcb1b9ab1745af7c6193fa0.scn" ]
+source_file="res://models/tiles/grass_tile.dae"
+dest_files=[ "res://.import/grass_tile.dae-58f318655f714050046b3fc132286cb6.scn" ]
 
 [params]
 

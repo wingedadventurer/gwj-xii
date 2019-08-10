@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/dirt_tile.dae-c94e7d87502ed5c70c02d067ad418198.scn"
+path="res://.import/dirt_tile.dae-304f8b518c8d8e538950a52595cbe93d.scn"
 
 [deps]
 
-source_file="res://models/dirt_tile.dae"
-dest_files=[ "res://.import/dirt_tile.dae-c94e7d87502ed5c70c02d067ad418198.scn" ]
+source_file="res://models/tiles/dirt_tile.dae"
+dest_files=[ "res://.import/dirt_tile.dae-304f8b518c8d8e538950a52595cbe93d.scn" ]
 
 [params]
 
