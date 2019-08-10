@@ -8,6 +8,7 @@ var selected := false setget set_selected
 var highlighted := false setget set_highlighted
 
 export (int, "NONE", "CARROT", "POTATO") var unit_type setget set_unit_type
+export var buried := true
 
 func _ready() -> void:
 	if Engine.editor_hint:
@@ -15,7 +16,7 @@ func _ready() -> void:
 	else:
 		$select_highlight.material_override = $select_highlight.material_override.duplicate()
 		$select_highlight.visible = false
-		$model_carrot/animation_player.play("Idle")
+		$model_carrot/animation_player.play("Bury")
 
 func _physics_process(delta : float) -> void:
 	if Engine.editor_hint:
@@ -26,7 +27,7 @@ func _physics_process(delta : float) -> void:
 				if not selected:
 					select()
 					for unit_ui in get_tree().get_nodes_in_group("unit_ui"):
-						unit_ui.display_unit(unit_type)
+						unit_ui.display_unit(self)
 
 func set_unit_type(value : int) -> void:
 	unit_type = value
@@ -74,3 +75,11 @@ func _on_mouse_detect_area_mouse_entered() -> void:
 func _on_mouse_detect_area_mouse_exited() -> void:
 	if not selected:
 		set_highlighted(false)
+
+func bury() -> void:
+	buried = true
+	$model_carrot/animation_player.play("Bury")
+
+func unbury() -> void:
+	buried = false
+	$model_carrot/animation_player.play("Rise")

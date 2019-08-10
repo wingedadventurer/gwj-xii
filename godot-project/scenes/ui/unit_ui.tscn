@@ -100,3 +100,6 @@ margin_top = 72.0
 margin_right = 128.0
 margin_bottom = 92.0
 text = "Fire Signal"
+[connection signal="pressed" from="vb/p_2/vb/vb/button_move" to="." method="_on_button_move_pressed"]
+[connection signal="pressed" from="vb/p_2/vb/vb/button_bury" to="." method="_on_button_bury_pressed"]
+[connection signal="pressed" from="vb/p_2/vb/vb/button_unbury" to="." method="_on_button_unbury_pressed"]
