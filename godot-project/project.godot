@@ -38,6 +38,19 @@ audio_manager="*res://scenes/autoload/audio_manager.tscn"
 
 gdscript/warnings/unused_argument=false
 
+[importer_defaults]
+
+wav={
+"compress/mode": 0,
+"edit/loop": false,
+"edit/normalize": false,
+"edit/trim": true,
+"force/8_bit": false,
+"force/max_rate": false,
+"force/max_rate_hz": 44100,
+"force/mono": false
+}
+
 [input]
 
 camera_move_forward={

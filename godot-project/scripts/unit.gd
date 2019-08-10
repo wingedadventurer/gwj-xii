@@ -79,6 +79,7 @@ func _on_mouse_detect_area_mouse_exited() -> void:
 func bury() -> void:
 	buried = true
 	$model_carrot/animation_player.play("Bury")
+	$sfx_bury.play()
 
 func unbury() -> void:
 	buried = false

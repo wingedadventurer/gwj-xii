@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bama_country.ogg-eddbdfcfb91b9d522813ed4fbf2c70d1.oggstr"
+
+[deps]
+
+source_file="res://audio/music/bama_country.ogg"
+dest_files=[ "res://.import/bama_country.ogg-eddbdfcfb91b9d522813ed4fbf2c70d1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
