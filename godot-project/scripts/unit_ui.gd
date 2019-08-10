@@ -2,7 +2,7 @@ extends Control
 class_name class_unit_ui
 
 onready var unit_name = $vb/p/vb/unit_name
-onready var unit_profile = $vb/p/vb/unit_profile
+onready var unit_profile = $vb/p/vb/unit_background/unit_profile
 onready var button_move = $vb/p_2/vb/vb/button_move
 onready var button_bury = $vb/p_2/vb/vb/button_bury
 onready var button_unbury = $vb/p_2/vb/vb/button_unbury

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/level.gd" type="Script" id=1]
+[ext_resource path="res://scenes/ui/vignette_overlay.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/ui/game_ui.tscn" type="PackedScene" id=3]
 
 [node name="level" type="Spatial"]
 script = ExtResource( 1 )
@@ -21,3 +23,9 @@ __meta__ = {
 [node name="lights" type="Spatial" parent="."]
 
 [node name="props" type="Spatial" parent="."]
+
+[node name="canvas_layer" type="CanvasLayer" parent="."]
+
+[node name="vignette_overlay" parent="canvas_layer" instance=ExtResource( 2 )]
+
+[node name="game_ui" parent="canvas_layer" instance=ExtResource( 3 )]
