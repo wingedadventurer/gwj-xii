@@ -13,16 +13,13 @@
 [ext_resource path="res://models/props/fence_threeway.tscn" type="PackedScene" id=11]
 [ext_resource path="res://models/props/barn.tscn" type="PackedScene" id=12]
 
-[node name="level" instance=ExtResource( 1 )]
+[node name="level" index="0" instance=ExtResource( 1 )]
 
 [node name="playable_area" parent="." index="1"]
 editor/display_folded = true
 
 [node name="collision_polygon" parent="playable_area" index="0"]
 polygon = PoolVector2Array( -3.44898, -1.43682, 0.47197, -1.43682, 0.460656, 3.46573, -3.46037, 3.48093 )
-
-[node name="tiles" parent="." index="2"]
-editor/display_folded = true
 
 [node name="tile_dirt" parent="tiles" index="0" instance=ExtResource( 2 )]
 
@@ -659,9 +656,6 @@ light_energy = 5.0
 shadow_enabled = true
 shadow_bias = 0.0
 directional_shadow_depth_range = 1
-
-[node name="props" parent="." index="5"]
-editor/display_folded = true
 
 [node name="barrel" parent="props" index="0" instance=ExtResource( 7 )]
 transform = Transform( -0.5, -1.35214e-007, 4.33896e-008, -1.35006e-007, 0.499994, 0.00238091, -4.4033e-008, 0.00238091, -0.499994, -4, 0.6, -3 )

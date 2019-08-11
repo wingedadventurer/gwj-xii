@@ -20,7 +20,8 @@ func _ready() -> void:
 		else: unbury()
 		
 		if get_node_or_null("model/animation_player"):
-			$model/animation_player.set_blend_time("Rise", "Idle", 0.2)
+			$model/animation_player.set_blend_time("Rise", "Idle", 0.1)
+			$model/animation_player.set_blend_time("Move", "Idle", 0.1)
 		
 		hide_move_arrows()
 		
@@ -102,4 +103,14 @@ func _on_move_arrow_selected(move_arrow : class_move_arrow) -> void:
 	deselect()
 
 func move(new_global_origin : Vector3) -> void:
-	global_transform.origin = new_global_origin
+#	$model.look_at_from_position(new_global_origin, global_transform.origin, Vector3.UP)
+	var duration := 1.2
+	var trans_type := Tween.TRANS_EXPO
+	var ease_type := Tween.EASE_OUT
+	var delay := 0.3
+	$move_tween.interpolate_property(self, "global_transform:origin", global_transform.origin, new_global_origin, duration, trans_type, ease_type, delay)
+	$move_tween.start()
+	$sfx_move.play()
+	if get_node_or_null("model/animation_player"):
+		$model/animation_player.play("Move")
+		$model/animation_player.queue("Idle")

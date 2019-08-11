@@ -2,61 +2,61 @@
 
 [ext_resource path="res://scenes/unit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/units/unit_carrot.gd" type="Script" id=2]
-[ext_resource path="res://scenes/unit_move_arrow.tscn" type="PackedScene" id=3]
-[ext_resource path="res://models/units/carrot.tscn" type="PackedScene" id=4]
+[ext_resource path="res://models/units/carrot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/unit_move_arrow.tscn" type="PackedScene" id=4]
 
 [node name="unit_carrot" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="move_positions" parent="." index="5"]
+[node name="model" parent="." index="6" instance=ExtResource( 3 )]
+
+[node name="move_positions" parent="." index="7"]
 editor/display_folded = true
 
-[node name="unit_move_arrow" parent="move_positions" index="0" instance=ExtResource( 3 )]
+[node name="unit_move_arrow" parent="move_positions" index="0" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
 visible = false
 
-[node name="unit_move_arrow_5" parent="move_positions" index="1" instance=ExtResource( 3 )]
+[node name="unit_move_arrow_5" parent="move_positions" index="1" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
 visible = false
 
-[node name="unit_move_arrow_6" parent="move_positions" index="2" instance=ExtResource( 3 )]
+[node name="unit_move_arrow_6" parent="move_positions" index="2" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3 )
 visible = false
 
-[node name="unit_move_arrow_2" parent="move_positions" index="3" instance=ExtResource( 3 )]
+[node name="unit_move_arrow_2" parent="move_positions" index="3" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
 visible = false
 
-[node name="unit_move_arrow_9" parent="move_positions" index="4" instance=ExtResource( 3 )]
+[node name="unit_move_arrow_9" parent="move_positions" index="4" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
 visible = false
 
-[node name="unit_move_arrow_10" parent="move_positions" index="5" instance=ExtResource( 3 )]
+[node name="unit_move_arrow_10" parent="move_positions" index="5" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
 visible = false
 
-[node name="unit_move_arrow_3" parent="move_positions" index="6" instance=ExtResource( 3 )]
+[node name="unit_move_arrow_3" parent="move_positions" index="6" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
 visible = false
 
-[node name="unit_move_arrow_7" parent="move_positions" index="7" instance=ExtResource( 3 )]
+[node name="unit_move_arrow_7" parent="move_positions" index="7" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
 visible = false
 
-[node name="unit_move_arrow_8" parent="move_positions" index="8" instance=ExtResource( 3 )]
+[node name="unit_move_arrow_8" parent="move_positions" index="8" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0 )
 visible = false
 
-[node name="unit_move_arrow_4" parent="move_positions" index="9" instance=ExtResource( 3 )]
+[node name="unit_move_arrow_4" parent="move_positions" index="9" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
 visible = false
 
-[node name="unit_move_arrow_11" parent="move_positions" index="10" instance=ExtResource( 3 )]
+[node name="unit_move_arrow_11" parent="move_positions" index="10" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
 visible = false
 
-[node name="unit_move_arrow_12" parent="move_positions" index="11" instance=ExtResource( 3 )]
+[node name="unit_move_arrow_12" parent="move_positions" index="11" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0 )
 visible = false
-
-[node name="model" parent="." index="6" instance=ExtResource( 4 )]
