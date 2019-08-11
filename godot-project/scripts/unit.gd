@@ -77,6 +77,7 @@ func bury() -> void:
 		$model/animation_player.play("Bury")
 	$sfx_bury.play()
 	hide_move_arrows()
+	deselect()
 
 func unbury() -> void:
 	buried = false
@@ -84,6 +85,7 @@ func unbury() -> void:
 		$model/animation_player.play("Rise")
 		$model/animation_player.queue("Idle")
 	$sfx_unbury.play(0.0)
+	deselect()
 
 func show_move_arrows() -> void:
 	for node in $move_positions.get_children():
@@ -96,7 +98,7 @@ func hide_move_arrows() -> void:
 func _on_move_arrow_selected(move_arrow : class_move_arrow) -> void:
 	move(move_arrow.global_transform.origin)
 	for unit_ui in get_tree().get_nodes_in_group("unit_ui"):
-		unit_ui.enable_appropriate_actions()
+		unit_ui.hide()
 	deselect()
 
 func move(new_global_origin : Vector3) -> void:

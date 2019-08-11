@@ -12,17 +12,20 @@ var unit_profiles := {
 	UNIT_NONE: preload("res://textures/unit_profiles/profile_empty.png"),
 	UNIT_CARROT: preload("res://textures/unit_profiles/profile_carrot.png"),
 	UNIT_POTATO: preload("res://textures/unit_profiles/profile_potato.png"),
+	UNIT_ONION: preload("res://textures/unit_profiles/profile_onion.png"),
 }
 
 var unit_names := {
 	UNIT_NONE: "None",
 	UNIT_CARROT: "Carrot",
 	UNIT_POTATO: "Potato",
+	UNIT_ONION: "Onion",
 }
 
 const UNIT_NONE := 0
 const UNIT_CARROT := 1
 const UNIT_POTATO := 2
+const UNIT_ONION := 3
 
 var selected_unit : class_unit = null
 
@@ -61,11 +64,13 @@ func _on_button_bury_pressed() -> void:
 	if selected_unit:
 		selected_unit.bury()
 		enable_appropriate_actions()
+		hide()
 
 func _on_button_unbury_pressed() -> void:
 	if selected_unit:
 		selected_unit.unbury()
 		enable_appropriate_actions()
+		hide()
 
 func _on_button_close_pressed() -> void:
 	if selected_unit:
