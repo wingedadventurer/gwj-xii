@@ -21,6 +21,9 @@ editor/display_folded = true
 [node name="collision_polygon" parent="playable_area" index="0"]
 polygon = PoolVector2Array( -3.44898, -1.43682, 0.47197, -1.43682, 0.460656, 3.46573, -3.46037, 3.48093 )
 
+[node name="tiles" parent="." index="2"]
+editor/display_folded = true
+
 [node name="tile_dirt" parent="tiles" index="0" instance=ExtResource( 2 )]
 
 [node name="tile_dirt_2" parent="tiles" index="1" instance=ExtResource( 2 )]
@@ -635,6 +638,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
 [node name="tile_grass_40" parent="tiles" index="204" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2 )
 
+[node name="units" parent="." index="3"]
+editor/display_folded = true
+
 [node name="unit_carrot" parent="units" index="0" instance=ExtResource( 4 )]
 
 [node name="unit_carrot_2" parent="units" index="1" instance=ExtResource( 4 )]
@@ -656,6 +662,9 @@ light_energy = 5.0
 shadow_enabled = true
 shadow_bias = 0.0
 directional_shadow_depth_range = 1
+
+[node name="props" parent="." index="5"]
+editor/display_folded = true
 
 [node name="barrel" parent="props" index="0" instance=ExtResource( 7 )]
 transform = Transform( -0.5, -1.35214e-007, 4.33896e-008, -1.35006e-007, 0.499994, 0.00238091, -4.4033e-008, 0.00238091, -0.499994, -4, 0.6, -3 )

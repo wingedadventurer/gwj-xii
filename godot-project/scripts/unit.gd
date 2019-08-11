@@ -9,6 +9,7 @@ var highlighted := false setget set_highlighted
 var selected := false setget set_selected
 # warning-ignore:unused_class_variable
 var unit_type := 0
+var action_done := false setget set_action_done
 
 func _ready() -> void:
 	if Engine.editor_hint:
@@ -27,6 +28,8 @@ func _ready() -> void:
 		
 		for move_arrow in $move_positions.get_children():
 			move_arrow.connect("selected", self, "_on_move_arrow_selected")
+		
+		set_action_done(false)
 
 func _unhandled_input(event) -> void:
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed == true and highlighted:
@@ -36,16 +39,25 @@ func _unhandled_input(event) -> void:
 			for unit_ui in get_tree().get_nodes_in_group("unit_ui"):
 				unit_ui.display_unit(self)
 
+func set_action_done(value : bool) -> void:
+	if value:
+		$action_indicator/animation_player.play("hide")
+	else:
+		$action_indicator/animation_player.play("show")
+		$action_indicator/animation_player.queue("idle")
+	
+	action_done = value
+
 func set_selectable(value : bool) -> void:
 	selectable = value
 
 func set_selected(value : bool) -> void:
-	selected = value
-	
 	$select_highlight.set_rotate(value)
 	$select_highlight.visible = value
 	if value == true: $sfx_select.play()
 	hide_move_arrows()
+	
+	selected = value
 
 func set_highlighted(value : bool) -> void:
 	highlighted = value
@@ -65,28 +77,12 @@ func deselect() -> void:
 	set_selected(false)
 
 func _on_mouse_detect_area_mouse_entered() -> void:
-	if not selected:
+	if not selected and not action_done:
 		set_highlighted(true)
 
 func _on_mouse_detect_area_mouse_exited() -> void:
 	if not selected:
 		set_highlighted(false)
-
-func bury() -> void:
-	buried = true
-	if get_node_or_null("model/animation_player"):
-		$model/animation_player.play("Bury")
-	$sfx_bury.play()
-	hide_move_arrows()
-	deselect()
-
-func unbury() -> void:
-	buried = false
-	if get_node_or_null("model/animation_player"):
-		$model/animation_player.play("Rise")
-		$model/animation_player.queue("Idle")
-	$sfx_unbury.play(0.0)
-	deselect()
 
 func show_move_arrows() -> void:
 	for node in $move_positions.get_children():
@@ -114,3 +110,22 @@ func move(new_global_origin : Vector3) -> void:
 	if get_node_or_null("model/animation_player"):
 		$model/animation_player.play("Move")
 		$model/animation_player.queue("Idle")
+	set_action_done(true)
+
+func bury() -> void:
+	buried = true
+	if get_node_or_null("model/animation_player"):
+		$model/animation_player.play("Bury")
+	$sfx_bury.play()
+	hide_move_arrows()
+	deselect()
+	set_action_done(true)
+
+func unbury() -> void:
+	buried = false
+	if get_node_or_null("model/animation_player"):
+		$model/animation_player.play("Rise")
+		$model/animation_player.queue("Idle")
+	$sfx_unbury.play(0.0)
+	deselect()
+	set_action_done(true)

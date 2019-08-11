@@ -3,6 +3,8 @@ class_name class_move_arrow
 
 signal selected(move_arrow)
 
+export (NodePath) var dependent_move_position = null
+
 var highlighted := false setget set_highlighted
 
 func _unhandled_input(event) -> void:
@@ -20,6 +22,11 @@ func _on_unit_move_arrow_mouse_exited() -> void:
 	set_highlighted(false)
 
 func show_if_free() -> void:
+	# don't show if dependent move position is invisible
+	if dependent_move_position:
+		if not get_node(dependent_move_position).visible:
+			return
+	
 	var is_in_playable_area := false
 	
 	for area in $free_check_area.get_overlapping_areas():
