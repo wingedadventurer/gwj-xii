@@ -121,7 +121,6 @@ func _on_move_arrow_selected(move_arrow : class_move_arrow) -> void:
 	deselect()
 
 func move(new_global_origin : Vector3) -> void:
-#	$model.look_at_from_position(new_global_origin, global_transform.origin, Vector3.UP)
 	var duration = move_tween_values[unit_type]["duration"]
 	var trans_type = move_tween_values[unit_type]["trans_type"]
 	var ease_type = move_tween_values[unit_type]["ease_type"]
