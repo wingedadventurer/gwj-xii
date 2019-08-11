@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area",
+"class": "class_move_arrow",
+"language": "GDScript",
+"path": "res://scripts/unit_move_arrow.gd"
+}, {
 "base": "Spatial",
 "class": "class_unit",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://scripts/unit_ui.gd"
 } ]
 _global_script_class_icons={
+"class_move_arrow": "",
 "class_unit": "",
 "class_unit_ui": ""
 }

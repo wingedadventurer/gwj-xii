@@ -24,24 +24,36 @@ custom_constants/separation = 8
 
 [node name="p" type="PanelContainer" parent="vb"]
 margin_right = 142.0
-margin_bottom = 160.0
+margin_bottom = 166.0
 
 [node name="vb" type="VBoxContainer" parent="vb/p"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 135.0
-margin_bottom = 153.0
+margin_bottom = 159.0
 
-[node name="unit_name" type="Label" parent="vb/p/vb"]
+[node name="hb" type="HBoxContainer" parent="vb/p/vb"]
 margin_right = 128.0
-margin_bottom = 14.0
+margin_bottom = 20.0
+
+[node name="button_close" type="Button" parent="vb/p/vb/hb"]
+margin_right = 20.0
+margin_bottom = 20.0
+text = "X"
+
+[node name="unit_name" type="Label" parent="vb/p/vb/hb"]
+margin_left = 24.0
+margin_top = 3.0
+margin_right = 128.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
 text = "Carrot"
 align = 1
 
 [node name="unit_background" type="ColorRect" parent="vb/p/vb"]
-margin_top = 18.0
+margin_top = 24.0
 margin_right = 128.0
-margin_bottom = 146.0
+margin_bottom = 152.0
 rect_min_size = Vector2( 128, 128 )
 color = Color( 0.454902, 0.329412, 0.160784, 1 )
 
@@ -56,9 +68,9 @@ texture = ExtResource( 2 )
 expand = true
 
 [node name="p_2" type="PanelContainer" parent="vb"]
-margin_top = 168.0
+margin_top = 174.0
 margin_right = 142.0
-margin_bottom = 304.0
+margin_bottom = 310.0
 
 [node name="vb" type="VBoxContainer" parent="vb/p_2"]
 margin_left = 7.0
@@ -100,6 +112,7 @@ margin_top = 72.0
 margin_right = 128.0
 margin_bottom = 92.0
 text = "Fire Signal"
+[connection signal="pressed" from="vb/p/vb/hb/button_close" to="." method="_on_button_close_pressed"]
 [connection signal="pressed" from="vb/p_2/vb/vb/button_move" to="." method="_on_button_move_pressed"]
 [connection signal="pressed" from="vb/p_2/vb/vb/button_bury" to="." method="_on_button_bury_pressed"]
 [connection signal="pressed" from="vb/p_2/vb/vb/button_unbury" to="." method="_on_button_unbury_pressed"]

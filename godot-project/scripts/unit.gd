@@ -19,19 +19,21 @@ func _ready() -> void:
 		if buried: bury()
 		else: unbury()
 		
-		if $model/animation_player:
+		if get_node_or_null("model/animation_player"):
 			$model/animation_player.set_blend_time("Rise", "Idle", 0.2)
+		
+		hide_move_arrows()
+		
+		for move_arrow in $move_positions.get_children():
+			move_arrow.connect("selected", self, "_on_move_arrow_selected")
 
-func _physics_process(delta : float) -> void:
-	if Engine.editor_hint:
-		pass
-	else:
-		if Input.is_action_just_pressed("select"):
-			if highlighted:
-				if not selected:
-					select()
-					for unit_ui in get_tree().get_nodes_in_group("unit_ui"):
-						unit_ui.display_unit(self)
+func _unhandled_input(event) -> void:
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed == true and highlighted:
+		get_tree().set_input_as_handled()
+		if not selected:
+			select()
+			for unit_ui in get_tree().get_nodes_in_group("unit_ui"):
+				unit_ui.display_unit(self)
 
 func set_selectable(value : bool) -> void:
 	selectable = value
@@ -41,7 +43,8 @@ func set_selected(value : bool) -> void:
 	
 	$select_highlight.set_rotate(value)
 	$select_highlight.visible = value
-	$sfx_select.play()
+	if value == true: $sfx_select.play()
+	hide_move_arrows()
 
 func set_highlighted(value : bool) -> void:
 	highlighted = value
@@ -70,13 +73,31 @@ func _on_mouse_detect_area_mouse_exited() -> void:
 
 func bury() -> void:
 	buried = true
-	if $model/animation_player:
+	if get_node_or_null("model/animation_player"):
 		$model/animation_player.play("Bury")
 	$sfx_bury.play()
+	hide_move_arrows()
 
 func unbury() -> void:
 	buried = false
-	if $model/animation_player:
+	if get_node_or_null("model/animation_player"):
 		$model/animation_player.play("Rise")
 		$model/animation_player.queue("Idle")
 	$sfx_unbury.play(0.0)
+
+func show_move_arrows() -> void:
+	for node in $move_positions.get_children():
+		node.show_if_free()
+
+func hide_move_arrows() -> void:
+	for node in $move_positions.get_children():
+		node.visible = false
+
+func _on_move_arrow_selected(move_arrow : class_move_arrow) -> void:
+	move(move_arrow.global_transform.origin)
+	for unit_ui in get_tree().get_nodes_in_group("unit_ui"):
+		unit_ui.enable_appropriate_actions()
+	deselect()
+
+func move(new_global_origin : Vector3) -> void:
+	global_transform.origin = new_global_origin

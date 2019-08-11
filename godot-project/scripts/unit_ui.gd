@@ -1,7 +1,7 @@
 extends Control
 class_name class_unit_ui
 
-onready var unit_name = $vb/p/vb/unit_name
+onready var unit_name = $vb/p/vb/hb/unit_name
 onready var unit_profile = $vb/p/vb/unit_background/unit_profile
 onready var button_move = $vb/p_2/vb/vb/button_move
 onready var button_bury = $vb/p_2/vb/vb/button_bury
@@ -46,11 +46,16 @@ func disable_all_actions() -> void:
 func enable_appropriate_actions() -> void:
 	disable_all_actions()
 	if selected_unit:
+		# enable bury/unbury
 		if selected_unit.buried: button_unbury.disabled = false
 		else: button_bury.disabled = false
+		
+		# enable move
+		if not selected_unit.buried:
+			button_move.disabled = false
 
 func _on_button_move_pressed() -> void:
-	pass # Replace with function body.
+	selected_unit.show_move_arrows()
 
 func _on_button_bury_pressed() -> void:
 	if selected_unit:
@@ -61,3 +66,8 @@ func _on_button_unbury_pressed() -> void:
 	if selected_unit:
 		selected_unit.unbury()
 		enable_appropriate_actions()
+
+func _on_button_close_pressed() -> void:
+	if selected_unit:
+		selected_unit.deselect()
+	hide()
