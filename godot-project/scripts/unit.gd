@@ -2,13 +2,13 @@ tool
 extends Spatial
 class_name class_unit
 
-var selectable := true setget set_selectable
-var selected := false setget set_selected
-
-var highlighted := false setget set_highlighted
-
-export (int, "NONE", "CARROT", "POTATO") var unit_type setget set_unit_type
 export var buried := true
+
+var selectable := true setget set_selectable
+var highlighted := false setget set_highlighted
+var selected := false setget set_selected
+# warning-ignore:unused_class_variable
+var unit_type := 0
 
 func _ready() -> void:
 	if Engine.editor_hint:
@@ -16,7 +16,11 @@ func _ready() -> void:
 	else:
 		$select_highlight.material_override = $select_highlight.material_override.duplicate()
 		$select_highlight.visible = false
-		$model_carrot/animation_player.play("Bury")
+		if buried: bury()
+		else: unbury()
+		
+		if $model/animation_player:
+			$model/animation_player.set_blend_time("Rise", "Idle", 0.2)
 
 func _physics_process(delta : float) -> void:
 	if Engine.editor_hint:
@@ -28,18 +32,6 @@ func _physics_process(delta : float) -> void:
 					select()
 					for unit_ui in get_tree().get_nodes_in_group("unit_ui"):
 						unit_ui.display_unit(self)
-
-func set_unit_type(value : int) -> void:
-	unit_type = value
-	
-	if $model_carrot and $mesh_potato_temp:
-		$model_carrot.visible = false
-		$mesh_potato_temp.visible = false
-		match unit_type:
-			1:
-				$model_carrot.visible = true
-			2:
-				$mesh_potato_temp.visible = true
 
 func set_selectable(value : bool) -> void:
 	selectable = value
@@ -78,9 +70,13 @@ func _on_mouse_detect_area_mouse_exited() -> void:
 
 func bury() -> void:
 	buried = true
-	$model_carrot/animation_player.play("Bury")
+	if $model/animation_player:
+		$model/animation_player.play("Bury")
 	$sfx_bury.play()
 
 func unbury() -> void:
 	buried = false
-	$model_carrot/animation_player.play("Rise")
+	if $model/animation_player:
+		$model/animation_player.play("Rise")
+		$model/animation_player.queue("Idle")
+	$sfx_unbury.play(0.0)

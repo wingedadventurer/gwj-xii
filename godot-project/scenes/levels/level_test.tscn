@@ -1,20 +1,18 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/tiles/tile_dirt.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/tiles/tile_grass.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/unit.tscn" type="PackedScene" id=4]
-[ext_resource path="res://models/props/barrel.tscn" type="PackedScene" id=5]
-[ext_resource path="res://models/props/barrel_with_tv.tscn" type="PackedScene" id=6]
-[ext_resource path="res://models/props/fence_straight.tscn" type="PackedScene" id=7]
-[ext_resource path="res://models/props/fence_corner.tscn" type="PackedScene" id=8]
-[ext_resource path="res://models/props/fence_threeway.tscn" type="PackedScene" id=9]
-[ext_resource path="res://models/props/barn.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/units/unit_carrot.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/units/unit_potato.tscn" type="PackedScene" id=5]
+[ext_resource path="res://models/props/barrel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://models/props/barrel_with_tv.tscn" type="PackedScene" id=7]
+[ext_resource path="res://models/props/fence_straight.tscn" type="PackedScene" id=8]
+[ext_resource path="res://models/props/fence_corner.tscn" type="PackedScene" id=9]
+[ext_resource path="res://models/props/fence_threeway.tscn" type="PackedScene" id=10]
+[ext_resource path="res://models/props/barn.tscn" type="PackedScene" id=11]
 
-[node name="level" instance=ExtResource( 1 )]
-
-[node name="tiles" parent="." index="0"]
-editor/display_folded = true
+[node name="level" index="0" instance=ExtResource( 1 )]
 
 [node name="tile_dirt" parent="tiles" index="0" instance=ExtResource( 2 )]
 
@@ -666,20 +664,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
 [node name="tile_grass_40" parent="tiles" index="216" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2 )
 
-[node name="unit" parent="units" index="0" instance=ExtResource( 4 )]
-unit_type = 1
+[node name="unit_carrot" parent="units" index="0" instance=ExtResource( 4 )]
 
-[node name="unit_2" parent="units" index="1" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
-unit_type = 1
-
-[node name="unit_3" parent="units" index="2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1 )
-unit_type = 1
-
-[node name="unit_4" parent="units" index="3" instance=ExtResource( 4 )]
+[node name="unit_carrot_2" parent="units" index="1" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
-unit_type = 2
+buried = false
+
+[node name="unit_potato" parent="units" index="2" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1 )
 
 [node name="lights" parent="." index="2"]
 editor/display_folded = true
@@ -694,50 +686,50 @@ directional_shadow_depth_range = 1
 [node name="props" parent="." index="3"]
 editor/display_folded = true
 
-[node name="barrel" parent="props" index="0" instance=ExtResource( 5 )]
+[node name="barrel" parent="props" index="0" instance=ExtResource( 6 )]
 transform = Transform( -0.5, -1.35214e-007, 4.33896e-008, -1.35006e-007, 0.499994, 0.00238091, -4.4033e-008, 0.00238091, -0.499994, -4, 0.6, -3 )
 
-[node name="barrel_2" parent="props" index="1" instance=ExtResource( 5 )]
+[node name="barrel_2" parent="props" index="1" instance=ExtResource( 6 )]
 transform = Transform( -0.5, -1.35214e-007, 4.33896e-008, -1.35006e-007, 0.499994, 0.00238091, -4.4033e-008, 0.00238091, -0.499994, 0, 0.6, -7 )
 
-[node name="barrel_4" parent="props" index="2" instance=ExtResource( 5 )]
+[node name="barrel_4" parent="props" index="2" instance=ExtResource( 6 )]
 transform = Transform( -0.5, -1.35214e-007, 4.33896e-008, -1.35006e-007, 0.499994, 0.00238091, -4.4033e-008, 0.00238091, -0.499994, 0, 0.6, -8 )
 
-[node name="barrel_5" parent="props" index="3" instance=ExtResource( 5 )]
+[node name="barrel_5" parent="props" index="3" instance=ExtResource( 6 )]
 transform = Transform( -0.45676, -0.203394, -0.000968507, 4.4033e-008, -0.00238094, 0.499994, -0.203396, 0.456755, 0.00217505, -1, 0.393041, -7.19646 )
 
-[node name="barrel_3" parent="props" index="4" instance=ExtResource( 5 )]
+[node name="barrel_3" parent="props" index="4" instance=ExtResource( 6 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2, 0.6, -1 )
 
-[node name="barrel_with_tv" parent="props" index="5" instance=ExtResource( 6 )]
+[node name="barrel_with_tv" parent="props" index="5" instance=ExtResource( 7 )]
 transform = Transform( 0.5, -1.35214e-007, 3.21808e-010, 1.35214e-007, 0.499994, -0.00238091, 3.22061e-010, 0.00238091, 0.499994, -3, 0.6, -3 )
 
-[node name="fence_straight" parent="props" index="6" instance=ExtResource( 7 )]
+[node name="fence_straight" parent="props" index="6" instance=ExtResource( 8 )]
 transform = Transform( -2.18557e-008, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-008, 1, 0.4, 0 )
 
-[node name="fence_straight_6" parent="props" index="7" instance=ExtResource( 7 )]
+[node name="fence_straight_6" parent="props" index="7" instance=ExtResource( 8 )]
 transform = Transform( -0.5, 0, 4.37114e-008, 0, 0.5, 0, -4.37114e-008, 0, -0.5, -1, 0.4, 2 )
 
-[node name="fence_straight_7" parent="props" index="8" instance=ExtResource( 7 )]
+[node name="fence_straight_7" parent="props" index="8" instance=ExtResource( 8 )]
 transform = Transform( -0.5, 0, 4.37114e-008, 0, 0.5, 0, -4.37114e-008, 0, -0.5, -2, 0.4, 2 )
 
-[node name="fence_straight_3" parent="props" index="9" instance=ExtResource( 7 )]
+[node name="fence_straight_3" parent="props" index="9" instance=ExtResource( 8 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.96046e-008, 0.4, -2 )
 
-[node name="fence_straight_4" parent="props" index="10" instance=ExtResource( 7 )]
+[node name="fence_straight_4" parent="props" index="10" instance=ExtResource( 8 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2, 0.4, -2 )
 
-[node name="fence_straight_5" parent="props" index="11" instance=ExtResource( 7 )]
+[node name="fence_straight_5" parent="props" index="11" instance=ExtResource( 8 )]
 transform = Transform( -2.18557e-008, 3.7749e-008, -0.5, -3.7749e-008, 0.5, 3.7749e-008, 0.5, 3.7749e-008, -2.18557e-008, -1, 0.4, -3 )
 
-[node name="fence_straight_2" parent="props" index="12" instance=ExtResource( 7 )]
+[node name="fence_straight_2" parent="props" index="12" instance=ExtResource( 8 )]
 transform = Transform( -2.18557e-008, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-008, 1, 0.4, -1 )
 
-[node name="fence_corner" parent="props" index="13" instance=ExtResource( 8 )]
+[node name="fence_corner" parent="props" index="13" instance=ExtResource( 9 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1, 0.4, -2 )
 
-[node name="fence_threeway" parent="props" index="14" instance=ExtResource( 9 )]
+[node name="fence_threeway" parent="props" index="14" instance=ExtResource( 10 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0.4, -2 )
 
-[node name="barn" parent="props" index="15" instance=ExtResource( 10 )]
+[node name="barn" parent="props" index="15" instance=ExtResource( 11 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3, 0, -9 )

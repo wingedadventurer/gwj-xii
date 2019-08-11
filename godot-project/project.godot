@@ -44,7 +44,7 @@ wav={
 "compress/mode": 0,
 "edit/loop": false,
 "edit/normalize": false,
-"edit/trim": true,
+"edit/trim": false,
 "force/8_bit": false,
 "force/max_rate": false,
 "force/max_rate_hz": 44100,

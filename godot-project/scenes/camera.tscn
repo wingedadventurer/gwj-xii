@@ -5,7 +5,7 @@
 [node name="camera" type="Spatial"]
 script = ExtResource( 1 )
 
-[node name="pivot" type="Spatial" parent="."]
+[node name="pivot" type="Position3D" parent="."]
 transform = Transform( 0.999391, 0.0267346, -0.022433, 0, 0.642788, 0.766044, 0.0348995, -0.765578, 0.642396, 0, 0, 0 )
 
 [node name="cam" type="Camera" parent="pivot"]
