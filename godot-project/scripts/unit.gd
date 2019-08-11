@@ -11,6 +11,28 @@ var selected := false setget set_selected
 var unit_type := 0
 var action_done := false setget set_action_done
 
+var move_tween_values := {
+	0: {},
+	1: {
+		"duration": 1.2,
+		"delay": 0.3,
+		"trans_type": Tween.TRANS_EXPO,
+		"ease_type": Tween.EASE_OUT,
+	},
+	2: {
+		"duration": 1.3,
+		"delay": 0.5,
+		"trans_type": Tween.TRANS_SINE,
+		"ease_type": Tween.EASE_OUT_IN,
+	},
+	3: {
+		"duration": 1.2,
+		"delay": 0.3,
+		"trans_type": Tween.TRANS_EXPO,
+		"ease_type": Tween.EASE_OUT,
+	},
+}
+
 func _ready() -> void:
 	if Engine.editor_hint:
 		pass
@@ -100,10 +122,10 @@ func _on_move_arrow_selected(move_arrow : class_move_arrow) -> void:
 
 func move(new_global_origin : Vector3) -> void:
 #	$model.look_at_from_position(new_global_origin, global_transform.origin, Vector3.UP)
-	var duration := 1.2
-	var trans_type := Tween.TRANS_EXPO
-	var ease_type := Tween.EASE_OUT
-	var delay := 0.3
+	var duration = move_tween_values[unit_type]["duration"]
+	var trans_type = move_tween_values[unit_type]["trans_type"]
+	var ease_type = move_tween_values[unit_type]["ease_type"]
+	var delay = move_tween_values[unit_type]["delay"]
 	$move_tween.interpolate_property(self, "global_transform:origin", global_transform.origin, new_global_origin, duration, trans_type, ease_type, delay)
 	$move_tween.start()
 	$sfx_move.play()
