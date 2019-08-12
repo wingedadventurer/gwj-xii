@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/potato_move.wav-632a47c297f83e10c04a21e6c3538091.sample"
+
+[deps]
+
+source_file="res://audio/sfx/unit/potato/potato_move.wav"
+dest_files=[ "res://.import/potato_move.wav-632a47c297f83e10c04a21e6c3538091.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

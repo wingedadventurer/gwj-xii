@@ -23,8 +23,6 @@ func update_icon() -> void:
 		self_modulate.a = 0.2
 	else:
 		self_modulate.a = 1.0
-	
-	print("updated!")
 
 func _on_unit_icon_pressed() -> void:
 	if not unit: return

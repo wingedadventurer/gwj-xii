@@ -159,6 +159,7 @@ func unbury() -> void:
 func launch_signals() -> void:
 	for signal_launcher in $signal_launchers.get_children():
 		signal_launcher.launch_signal()
+	$sfx_signal_bounce.play()
 
 func _on_signal_receive_area_body_entered(body):
 	if not signals_launched:
