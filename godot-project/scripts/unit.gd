@@ -2,14 +2,16 @@ tool
 extends Spatial
 class_name class_unit
 
+var scene_signal = preload("res://scenes/signal.tscn")
+
 export var buried := true
 
 var selectable := true setget set_selectable
 var highlighted := false setget set_highlighted
 var selected := false setget set_selected
-# warning-ignore:unused_class_variable
 var unit_type := 0
 var action_done := false setget set_action_done
+var signals_launched := false
 
 var move_tween_values := {
 	0: {},
@@ -150,3 +152,14 @@ func unbury() -> void:
 	$sfx_unbury.play(0.0)
 	deselect()
 	set_action_done(true)
+
+func launch_signals() -> void:
+	for signal_launcher in $signal_launchers.get_children():
+		signal_launcher.launch_signal()
+
+func _on_signal_receive_area_body_entered(body):
+	if not signals_launched:
+		signals_launched = true
+		launch_signals()
+		if body is class_signal:
+			body.queue_free()

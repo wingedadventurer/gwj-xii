@@ -11,15 +11,28 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="button_next_turn" type="Button" parent="."]
+[node name="hb" type="HBoxContainer" parent="."]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -108.0
+margin_left = -216.0
 margin_top = -58.0
 margin_right = -8.0
 margin_bottom = -8.0
+custom_constants/separation = 8
+
+[node name="button_fire_signal" type="Button" parent="hb"]
+margin_right = 100.0
+margin_bottom = 50.0
 rect_min_size = Vector2( 100, 50 )
-text = "Next Turn!"
-[connection signal="pressed" from="button_next_turn" to="." method="_on_button_next_turn_pressed"]
+text = "Fire Signal"
+
+[node name="button_next_turn" type="Button" parent="hb"]
+margin_left = 108.0
+margin_right = 208.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 50 )
+text = "Next Turn"
+[connection signal="pressed" from="hb/button_fire_signal" to="." method="_on_button_fire_signal_pressed"]
+[connection signal="pressed" from="hb/button_next_turn" to="." method="_on_button_next_turn_pressed"]

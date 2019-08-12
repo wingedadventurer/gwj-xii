@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/signal_launcher.gd" type="Script" id=1]
+
+[sub_resource type="CylinderMesh" id=1]
+top_radius = 0.001
+bottom_radius = 0.02
+height = 0.1
+
+[node name="signal_launcher" type="Position3D"]
+script = ExtResource( 1 )
+velocity = 5.5
+
+[node name="temp_arrow" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 0, -0.0510738 )
+mesh = SubResource( 1 )
+material/0 = null

@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/signal_start.gd" type="Script" id=1]
+[ext_resource path="res://scenes/signal_launcher.tscn" type="PackedScene" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.121569, 0.827451, 0.976471, 1 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0.488955 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.00697935 ), -0.755677, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 0.2, 0.01, 0.2 )
+gravity = Vector3( 0, 0.1, 0 )
+scale_curve = SubResource( 3 )
+
+[sub_resource type="CubeMesh" id=5]
+size = Vector3( 0.1, 0.1, 0.1 )
+
+[node name="signal_start" type="Spatial" groups=[
+"signal_start",
+]]
+script = ExtResource( 1 )
+
+[node name="particles" type="Particles" parent="."]
+material_override = SubResource( 1 )
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )
+
+[node name="signal_launcher" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 15, 0 )
+visible = false
+velocity = 10.0
