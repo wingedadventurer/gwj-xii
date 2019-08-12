@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://materials/thunder.tres" type="Material" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 0.1, 4, 0.1 )
+
+[node name="model_thunder" type="Spatial"]
+
+[node name="thunder_pivot" type="Spatial" parent="."]
+transform = Transform( 0.998347, 0.0574769, 0, -0.0574726, 0.998272, 0.0122345, 0.000703198, -0.0122142, 0.999925, 0, 0, 0 )
+
+[node name="mesh_instance" type="MeshInstance" parent="thunder_pivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0502, 0 )
+material_override = ExtResource( 1 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="mesh_instance_2" type="MeshInstance" parent="thunder_pivot"]
+transform = Transform( -0.703351, -0.189669, -0.685071, -0.178679, 0.979976, -0.0878701, 0.688019, 0.0606041, -0.723157, -0.377029, 5.95679, 0.126756 )
+material_override = ExtResource( 1 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="mesh_instance_3" type="MeshInstance" parent="thunder_pivot"]
+transform = Transform( 0.200044, -0.0580486, 0.978067, -0.0340572, 0.997228, 0.0661517, -0.979194, -0.0465433, 0.197513, -0.879279, 9.87649, 0.138317 )
+material_override = ExtResource( 1 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="mesh_instance_4" type="MeshInstance" parent="thunder_pivot"]
+transform = Transform( -0.903537, -0.103775, -0.415751, -0.178251, 0.973326, 0.144438, 0.389673, 0.204613, -0.897937, -1.19208, 13.6751, 0.437631 )
+material_override = ExtResource( 1 )
+mesh = SubResource( 1 )
+material/0 = null
