@@ -19,10 +19,13 @@ func update_icon() -> void:
 	
 	texture_normal = unit_icons[unit.unit_type]
 	$selected.visible = unit.selected
+	$buried.visible = unit.buried
 	if unit.action_done:
-		self_modulate.a = 0.2
+		self_modulate.a = 0.3
+		$buried.modulate.a = 0.3
 	else:
 		self_modulate.a = 1.0
+		$buried.modulate.a = 1.0
 
 func _on_unit_icon_pressed() -> void:
 	if not unit: return

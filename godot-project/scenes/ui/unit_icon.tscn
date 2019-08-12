@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://textures/unit_icons/icon_carrot.png" type="Texture" id=1]
 [ext_resource path="res://scripts/ui/unit_icon.gd" type="Script" id=2]
-[ext_resource path="res://textures/icon_selected.png" type="Texture" id=3]
+[ext_resource path="res://textures/icon_buried.png" type="Texture" id=3]
+[ext_resource path="res://textures/icon_selected.png" type="Texture" id=4]
 
 [node name="unit_icon" type="TextureButton"]
 margin_right = 32.0
@@ -11,7 +12,7 @@ rect_min_size = Vector2( 32, 32 )
 texture_normal = ExtResource( 1 )
 script = ExtResource( 2 )
 
-[node name="selected" type="TextureRect" parent="."]
+[node name="buried" type="TextureRect" parent="."]
 visible = false
 margin_right = 32.0
 margin_bottom = 32.0
@@ -19,4 +20,13 @@ rect_min_size = Vector2( 32, 32 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 3 )
+
+[node name="selected" type="TextureRect" parent="."]
+visible = false
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 4 )
 [connection signal="pressed" from="." to="." method="_on_unit_icon_pressed"]

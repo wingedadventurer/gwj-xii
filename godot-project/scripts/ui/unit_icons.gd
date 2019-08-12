@@ -1,10 +1,10 @@
-extends VBoxContainer
+extends PanelContainer
 
 onready var scene_unit_icon = preload("res://scenes/ui/unit_icon.tscn")
 
-onready var list_carrots = get_node("carrots")
-onready var list_potatoes = get_node("potatoes")
-onready var list_onions = get_node("onions")
+onready var list_carrots = get_node("vb/carrots")
+onready var list_potatoes = get_node("vb/potatoes")
+onready var list_onions = get_node("vb/onions")
 
 func _ready() -> void:
 	fill_lists()

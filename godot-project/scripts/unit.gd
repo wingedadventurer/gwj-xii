@@ -146,6 +146,7 @@ func bury() -> void:
 	hide_move_arrows()
 	deselect()
 	set_action_done(true)
+	if icon: icon.update_icon()
 
 func unbury() -> void:
 	buried = false
@@ -155,6 +156,7 @@ func unbury() -> void:
 	$sfx_unbury.play(0.0)
 	deselect()
 	set_action_done(true)
+	if icon: icon.update_icon()
 
 func launch_signals() -> void:
 	for signal_launcher in $signal_launchers.get_children():
