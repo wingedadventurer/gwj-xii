@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/static_ui.gd" type="Script" id=1]
+[ext_resource path="res://scenes/ui/unit_icons.tscn" type="PackedScene" id=2]
 
 [node name="static_ui" type="Control"]
 anchor_right = 1.0
@@ -12,6 +13,7 @@ __meta__ = {
 }
 
 [node name="hb" type="HBoxContainer" parent="."]
+editor/display_folded = true
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -34,5 +36,7 @@ margin_right = 208.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 100, 50 )
 text = "Next Turn"
+
+[node name="unit_icons" parent="." instance=ExtResource( 2 )]
 [connection signal="pressed" from="hb/button_fire_signal" to="." method="_on_button_fire_signal_pressed"]
 [connection signal="pressed" from="hb/button_next_turn" to="." method="_on_button_next_turn_pressed"]

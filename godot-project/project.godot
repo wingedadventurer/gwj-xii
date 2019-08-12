@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/unit.gd"
 }, {
+"base": "TextureButton",
+"class": "class_unit_icon",
+"language": "GDScript",
+"path": "res://scripts/ui/unit_icon.gd"
+}, {
 "base": "Control",
 "class": "class_unit_ui",
 "language": "GDScript",
@@ -33,6 +38,7 @@ _global_script_class_icons={
 "class_move_arrow": "",
 "class_signal": "",
 "class_unit": "",
+"class_unit_icon": "",
 "class_unit_ui": ""
 }
 

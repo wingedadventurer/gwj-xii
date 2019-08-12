@@ -19,6 +19,7 @@ editor/display_folded = true
 [node name="game_ui" parent="canvas_layer" instance=ExtResource( 3 )]
 
 [node name="playable_area" parent="." instance=ExtResource( 4 )]
+editor/display_folded = true
 
 [node name="tiles" type="Spatial" parent="."]
 __meta__ = {

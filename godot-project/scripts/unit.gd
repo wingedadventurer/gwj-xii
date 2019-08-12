@@ -11,6 +11,8 @@ var unit_type := 0
 var action_done := false setget set_action_done
 var signals_launched := false
 
+var icon : class_unit_icon = null
+
 var move_tween_values := {
 	0: {},
 	1: {
@@ -52,14 +54,14 @@ func _ready() -> void:
 			move_arrow.connect("selected", self, "_on_move_arrow_selected")
 		
 		set_action_done(false)
+		
+		icon.call_deferred("update_icon")
 
 func _unhandled_input(event) -> void:
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed == true and highlighted:
 		get_tree().set_input_as_handled()
 		if not selected:
 			select()
-			for unit_ui in get_tree().get_nodes_in_group("unit_ui"):
-				unit_ui.display_unit(self)
 
 func set_action_done(value : bool) -> void:
 	if value:
@@ -69,6 +71,7 @@ func set_action_done(value : bool) -> void:
 		$action_indicator/animation_player.queue("idle")
 	
 	action_done = value
+	if icon: icon.update_icon()
 
 func set_selectable(value : bool) -> void:
 	selectable = value
@@ -80,6 +83,7 @@ func set_selected(value : bool) -> void:
 	hide_move_arrows()
 	
 	selected = value
+	if icon: icon.update_icon()
 
 func set_highlighted(value : bool) -> void:
 	highlighted = value
@@ -87,10 +91,11 @@ func set_highlighted(value : bool) -> void:
 
 func select() -> void:
 	for unit in get_tree().get_nodes_in_group("unit"):
-		unit.set_selected(false)
+		unit.deselect()
 		unit.set_highlighted(false)
 	for unit_ui in get_tree().get_nodes_in_group("unit_ui"):
 		unit_ui.show()
+		unit_ui.display_unit(self)
 	
 	set_highlighted(false)
 	set_selected(true)

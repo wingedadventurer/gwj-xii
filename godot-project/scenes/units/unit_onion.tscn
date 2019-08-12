@@ -6,7 +6,9 @@
 [ext_resource path="res://scenes/unit_move_arrow.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/signal_launcher.tscn" type="PackedScene" id=5]
 
-[node name="unit_onion" instance=ExtResource( 1 )]
+[node name="unit_onion" groups=[
+"onion",
+] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="model" parent="." index="6" instance=ExtResource( 3 )]

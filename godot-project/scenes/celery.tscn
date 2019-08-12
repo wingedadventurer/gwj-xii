@@ -6,7 +6,9 @@
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.3, 0.3, 0.3 )
 
-[node name="celery" type="Spatial"]
+[node name="celery" type="Spatial" groups=[
+"celery",
+]]
 script = ExtResource( 1 )
 
 [node name="model_celery_temp" parent="." instance=ExtResource( 2 )]
