@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon_potato.png-9cbb3b95c7aeea08d50c1380edf64708.stex"
+path="res://.import/icon_potato.png-2ab45a750361b45e1ad6ff2c5ab35330.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/unit_icons/icon_potato.png"
-dest_files=[ "res://.import/icon_potato.png-9cbb3b95c7aeea08d50c1380edf64708.stex" ]
+source_file="res://textures/icons/icon_potato.png"
+dest_files=[ "res://.import/icon_potato.png-2ab45a750361b45e1ad6ff2c5ab35330.stex" ]
 
 [params]
 

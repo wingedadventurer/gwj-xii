@@ -3,9 +3,9 @@ class_name class_unit_icon
 
 var unit_icons := {
 	0: null,
-	1: preload("res://textures/unit_icons/icon_carrot.png"),
-	2: preload("res://textures/unit_icons/icon_potato.png"),
-	3: preload("res://textures/unit_icons/icon_onion.png"),
+	1: preload("res://textures/icons/icon_carrot.png"),
+	2: preload("res://textures/icons/icon_potato.png"),
+	3: preload("res://textures/icons/icon_onion.png"),
 }
 
 var unit = null

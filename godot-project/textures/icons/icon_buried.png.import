@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon_buried.png-cad9d491a5f8152bc8aee82e00214ad0.stex"
+path="res://.import/icon_buried.png-aedcbaee5ad9737ac504f426f095c029.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/icon_buried.png"
-dest_files=[ "res://.import/icon_buried.png-cad9d491a5f8152bc8aee82e00214ad0.stex" ]
+source_file="res://textures/icons/icon_buried.png"
+dest_files=[ "res://.import/icon_buried.png-aedcbaee5ad9737ac504f426f095c029.stex" ]
 
 [params]
 

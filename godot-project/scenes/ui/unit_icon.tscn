@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://textures/unit_icons/icon_carrot.png" type="Texture" id=1]
+[ext_resource path="res://textures/icons/icon_carrot.png" type="Texture" id=1]
 [ext_resource path="res://scripts/ui/unit_icon.gd" type="Script" id=2]
-[ext_resource path="res://textures/icon_buried.png" type="Texture" id=3]
-[ext_resource path="res://textures/icon_selected.png" type="Texture" id=4]
+[ext_resource path="res://textures/icons/icon_buried.png" type="Texture" id=3]
+[ext_resource path="res://textures/icons/icon_selected.png" type="Texture" id=4]
 
 [node name="unit_icon" type="TextureButton"]
 margin_right = 32.0
