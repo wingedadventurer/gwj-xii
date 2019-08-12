@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/celery.gd" type="Script" id=1]
-[ext_resource path="res://models/celery_temp.tscn" type="PackedScene" id=2]
+[ext_resource path="res://models/celery.tscn" type="PackedScene" id=2]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.3, 0.3, 0.3 )
@@ -11,12 +11,14 @@ extents = Vector3( 0.3, 0.3, 0.3 )
 ]]
 script = ExtResource( 1 )
 
-[node name="model_celery_temp" parent="." instance=ExtResource( 2 )]
-
 [node name="signal_receive_area" type="Area" parent="."]
+editor/display_folded = true
 collision_layer = 0
 collision_mask = 4
 
 [node name="collision_shape" type="CollisionShape" parent="signal_receive_area"]
+visible = false
 shape = SubResource( 1 )
+
+[node name="model" parent="." instance=ExtResource( 2 )]
 [connection signal="body_entered" from="signal_receive_area" to="." method="_on_signal_receive_area_body_entered"]
