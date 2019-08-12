@@ -4,8 +4,8 @@
 [ext_resource path="res://textures/unit_profiles/profile_carrot.png" type="Texture" id=2]
 
 [node name="unit_ui" type="Control" groups=[
-"unit_ui",
 "unit_controls",
+"unit_ui",
 ]]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -70,13 +70,13 @@ expand = true
 [node name="p_2" type="PanelContainer" parent="vb"]
 margin_top = 174.0
 margin_right = 142.0
-margin_bottom = 310.0
+margin_bottom = 286.0
 
 [node name="vb" type="VBoxContainer" parent="vb/p_2"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 135.0
-margin_bottom = 129.0
+margin_bottom = 105.0
 custom_constants/separation = 16
 
 [node name="label" type="Label" parent="vb/p_2/vb"]
@@ -88,7 +88,7 @@ align = 1
 [node name="vb" type="VBoxContainer" parent="vb/p_2/vb"]
 margin_top = 30.0
 margin_right = 128.0
-margin_bottom = 122.0
+margin_bottom = 98.0
 
 [node name="button_move" type="Button" parent="vb/p_2/vb/vb"]
 margin_right = 128.0
@@ -106,12 +106,6 @@ margin_top = 48.0
 margin_right = 128.0
 margin_bottom = 68.0
 text = "Unbury"
-
-[node name="button_fire_signal" type="Button" parent="vb/p_2/vb/vb"]
-margin_top = 72.0
-margin_right = 128.0
-margin_bottom = 92.0
-text = "Fire Signal"
 [connection signal="pressed" from="vb/p/vb/hb/button_close" to="." method="_on_button_close_pressed"]
 [connection signal="pressed" from="vb/p_2/vb/vb/button_move" to="." method="_on_button_move_pressed"]
 [connection signal="pressed" from="vb/p_2/vb/vb/button_bury" to="." method="_on_button_bury_pressed"]

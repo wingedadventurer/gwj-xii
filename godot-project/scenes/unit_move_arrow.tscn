@@ -34,5 +34,7 @@ monitorable = false
 [node name="collision_shape" type="CollisionShape" parent="free_check_area"]
 visible = false
 shape = SubResource( 4 )
+
+[node name="show_tween" type="Tween" parent="."]
 [connection signal="mouse_entered" from="." to="." method="_on_unit_move_arrow_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_unit_move_arrow_mouse_exited"]

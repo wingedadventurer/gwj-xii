@@ -48,8 +48,6 @@ func _ready() -> void:
 			$model/animation_player.set_blend_time("Rise", "Idle", 0.1)
 			$model/animation_player.set_blend_time("Move", "Idle", 0.1)
 		
-		hide_move_arrows()
-		
 		for move_arrow in $move_positions.get_children():
 			move_arrow.connect("selected", self, "_on_move_arrow_selected")
 		
@@ -117,7 +115,7 @@ func show_move_arrows() -> void:
 
 func hide_move_arrows() -> void:
 	for node in $move_positions.get_children():
-		node.visible = false
+		node.hide2()
 
 func _on_move_arrow_selected(move_arrow : class_move_arrow) -> void:
 	move(move_arrow.global_transform.origin)

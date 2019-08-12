@@ -6,7 +6,6 @@ onready var unit_profile = $vb/p/vb/unit_background/unit_profile
 onready var button_move = $vb/p_2/vb/vb/button_move
 onready var button_bury = $vb/p_2/vb/vb/button_bury
 onready var button_unbury = $vb/p_2/vb/vb/button_unbury
-onready var button_fire_signal = $vb/p_2/vb/vb/button_fire_signal
 
 var unit_profiles := {
 	UNIT_NONE: preload("res://textures/unit_profiles/profile_empty.png"),
@@ -44,7 +43,6 @@ func disable_all_actions() -> void:
 	button_move.disabled = true
 	button_bury.disabled = true
 	button_unbury.disabled = true
-	button_fire_signal.disabled = true
 
 func enable_appropriate_actions() -> void:
 	disable_all_actions()
