@@ -34,7 +34,6 @@ visible = false
 shape = SubResource( 1 )
 
 [node name="signal_receive_area" type="Area" parent="."]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
 collision_layer = 0
 collision_mask = 4

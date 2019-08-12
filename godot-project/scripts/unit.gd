@@ -2,8 +2,6 @@ tool
 extends Spatial
 class_name class_unit
 
-var scene_signal = preload("res://scenes/signal.tscn")
-
 export var buried := true
 
 var selectable := true setget set_selectable
