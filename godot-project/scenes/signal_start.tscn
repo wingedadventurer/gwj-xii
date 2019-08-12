@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/signal_start.gd" type="Script" id=1]
 [ext_resource path="res://scenes/signal_launcher.tscn" type="PackedScene" id=2]
 [ext_resource path="res://models/model_thunder.tscn" type="PackedScene" id=3]
-[ext_resource path="res://audio/sfx/signal/start_signal.wav" type="AudioStream" id=4]
+[ext_resource path="res://audio/sfx/signal/laser.wav" type="AudioStream" id=4]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.121569, 0.827451, 0.976471, 1 )
@@ -18,6 +18,7 @@ curve = SubResource( 2 )
 emission_shape = 2
 emission_box_extents = Vector3( 0.2, 0.01, 0.2 )
 gravity = Vector3( 0, 0.1, 0 )
+angular_velocity = 0.0
 scale_curve = SubResource( 3 )
 
 [sub_resource type="CubeMesh" id=5]
@@ -44,4 +45,5 @@ velocity = 0.0
 
 [node name="sfx_start_signal" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 4 )
-unit_size = 5.0
+unit_size = 10.0
+bus = "SFX"
