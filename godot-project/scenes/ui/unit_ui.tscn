@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/unit_ui.gd" type="Script" id=1]
-[ext_resource path="res://textures/unit_profiles/profile_carrot.png" type="Texture" id=2]
+[ext_resource path="res://scenes/ui/button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://textures/unit_profiles/profile_carrot.png" type="Texture" id=3]
 
 [node name="unit_ui" type="Control" groups=[
 "unit_controls",
@@ -36,9 +37,8 @@ margin_bottom = 159.0
 margin_right = 128.0
 margin_bottom = 20.0
 
-[node name="button_close" type="Button" parent="vb/p/vb/hb"]
+[node name="button_close" parent="vb/p/vb/hb" instance=ExtResource( 2 )]
 margin_right = 20.0
-margin_bottom = 20.0
 text = "X"
 
 [node name="unit_name" type="Label" parent="vb/p/vb/hb"]
@@ -64,7 +64,7 @@ rect_min_size = Vector2( 128, 128 )
 rect_clip_content = true
 size_flags_horizontal = 5
 size_flags_vertical = 5
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 expand = true
 
 [node name="p_2" type="PanelContainer" parent="vb"]
@@ -90,18 +90,17 @@ margin_top = 30.0
 margin_right = 128.0
 margin_bottom = 98.0
 
-[node name="button_move" type="Button" parent="vb/p_2/vb/vb"]
+[node name="button_move" parent="vb/p_2/vb/vb" instance=ExtResource( 2 )]
 margin_right = 128.0
-margin_bottom = 20.0
 text = "Move"
 
-[node name="button_bury" type="Button" parent="vb/p_2/vb/vb"]
+[node name="button_bury" parent="vb/p_2/vb/vb" instance=ExtResource( 2 )]
 margin_top = 24.0
 margin_right = 128.0
 margin_bottom = 44.0
 text = "Bury"
 
-[node name="button_unbury" type="Button" parent="vb/p_2/vb/vb"]
+[node name="button_unbury" parent="vb/p_2/vb/vb" instance=ExtResource( 2 )]
 margin_top = 48.0
 margin_right = 128.0
 margin_bottom = 68.0
