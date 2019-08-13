@@ -5,8 +5,8 @@
 [ext_resource path="res://textures/unit_profiles/profile_carrot.png" type="Texture" id=3]
 
 [node name="unit_ui" type="Control" groups=[
-"unit_controls",
 "unit_ui",
+"unit_controls",
 ]]
 anchor_right = 1.0
 anchor_bottom = 1.0

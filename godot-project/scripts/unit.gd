@@ -16,6 +16,7 @@ var signals_launched := false
 
 var icon : class_unit_icon = null
 var rot := 0.0 setget set_rot
+var mouse_over := false
 
 var move_tween_values := {
 	0: {},
@@ -62,10 +63,18 @@ func _ready() -> void:
 		set_rot(rot)
 
 func _unhandled_input(event) -> void:
-	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed == true and highlighted:
+	if event is InputEventMouseButton \
+	and event.button_index == BUTTON_LEFT \
+	and event.pressed == true \
+	and mouse_over \
+	and not action_done:
 		get_tree().set_input_as_handled()
 		if not selected:
 			select()
+		else:
+			deselect()
+			for unit_ui in get_tree().get_nodes_in_group("unit_ui"):
+				unit_ui.hide()
 
 func set_rot(value : float) -> void:
 	rot = value
@@ -91,7 +100,7 @@ func set_selectable(value : bool) -> void:
 
 func set_selected(value : bool) -> void:
 	$select_highlight.set_rotate(value)
-	$select_highlight.visible = value
+	$select_highlight.visible = mouse_over
 	if value == true: $sfx_select.play()
 	if value == false:
 		hide_move_arrows()
@@ -101,7 +110,8 @@ func set_selected(value : bool) -> void:
 
 func set_highlighted(value : bool) -> void:
 	highlighted = value
-	$select_highlight.visible = value
+	if not selected:
+		$select_highlight.visible = value
 
 func select() -> void:
 	for unit in get_tree().get_nodes_in_group("unit"):
@@ -125,12 +135,14 @@ func deselect() -> void:
 	hide_signal_positions()
 
 func _on_mouse_detect_area_mouse_entered() -> void:
-	if not selected and not action_done:
+#	if not selected and not action_done:
+	mouse_over = true
+	if not action_done:
 		set_highlighted(true)
 
 func _on_mouse_detect_area_mouse_exited() -> void:
-	if not selected:
-		set_highlighted(false)
+	mouse_over = false
+	set_highlighted(false)
 
 func show_move_arrows() -> void:
 	for node in $move_positions.get_children():
