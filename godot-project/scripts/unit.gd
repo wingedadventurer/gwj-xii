@@ -176,11 +176,16 @@ func launch_signals() -> void:
 	$sfx_signal_bounce.play()
 
 func _on_signal_receive_area_body_entered(body):
-	if not signals_launched:
-		signals_launched = true
-		launch_signals()
-		if body is class_signal:
-			body.queue_free()
+	if signals_launched: return
+	
+	# consume signal
+	if body is class_signal:
+		body.queue_free()
+	
+	# propagate signal if buried
+	if not buried: return
+	signals_launched = true
+	launch_signals()
 
 func turn(cw := true) -> void:
 	if cw: set_rot(rot - 90.0)
