@@ -92,7 +92,8 @@ func set_selected(value : bool) -> void:
 	$select_highlight.set_rotate(value)
 	$select_highlight.visible = value
 	if value == true: $sfx_select.play()
-	hide_move_arrows()
+	if value == false:
+		hide_move_arrows()
 	
 	selected = value
 	if icon: icon.update_icon()
@@ -103,14 +104,19 @@ func set_highlighted(value : bool) -> void:
 
 func select() -> void:
 	for unit in get_tree().get_nodes_in_group("unit"):
-		unit.deselect()
-		unit.set_highlighted(false)
+		if unit != self:
+			unit.deselect()
+			unit.set_highlighted(false)
 	for unit_ui in get_tree().get_nodes_in_group("unit_ui"):
 		unit_ui.show()
 		unit_ui.display_unit(self)
 	
 	set_highlighted(false)
 	set_selected(true)
+	
+	# show move arrows
+	if not action_done and not buried:
+		show_move_arrows()
 
 func deselect() -> void:
 	set_selected(false)
@@ -126,10 +132,12 @@ func _on_mouse_detect_area_mouse_exited() -> void:
 func show_move_arrows() -> void:
 	for node in $move_positions.get_children():
 		node.show_if_free()
+	print("Shown move arrows!")
 
 func hide_move_arrows() -> void:
 	for node in $move_positions.get_children():
 		node.hide2()
+	print("Hidden move arrows!")
 
 func _on_move_arrow_selected(move_arrow : class_move_arrow) -> void:
 	move(move_arrow.global_transform.origin)
