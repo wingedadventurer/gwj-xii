@@ -56,6 +56,13 @@ audio_manager="*res://scenes/autoload/audio_manager.tscn"
 
 gdscript/warnings/unused_argument=false
 
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
 [importer_defaults]
 
 wav={
