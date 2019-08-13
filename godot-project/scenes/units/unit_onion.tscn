@@ -6,9 +6,10 @@
 [ext_resource path="res://scenes/signal_launcher.tscn" type="PackedScene" id=4]
 [ext_resource path="res://models/units/onion.tscn" type="PackedScene" id=5]
 
-[node name="unit_onion" index="0" groups=[
+[node name="unit_onion" groups=[
 "onion",
 ] instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0441547, 0 )
 script = ExtResource( 2 )
 
 [node name="sfx_move" parent="." index="5"]

@@ -36,7 +36,7 @@ surfaces/0 = {
 }
 
 [node name="model_celery" type="Spatial"]
-transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0 )
 
 [node name="Leaf000" type="MeshInstance" parent="."]
 transform = Transform( -0.141539, 0.288901, 0.0340259, -0.0228713, 0.0266709, -0.32159, -0.289997, -0.143107, 0.00875591, 0.164886, 0.659903, -0.0351053 )

@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.80.75 commit date:2019-07-29, commit time:14:47, hash:f6cb5f54494e</authoring_tool>
     </contributor>
-    <created>2019-08-10T14:54:10</created>
-    <modified>2019-08-10T14:54:10</modified>
+    <created>2019-08-13T15:25:49</created>
+    <modified>2019-08-13T15:25:49</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -19,7 +19,41 @@
               <color sid="emission">0 0 0 1</color>
             </emission>
             <diffuse>
-              <color sid="diffuse">0.2882965 0.1298036 0.03178518 1</color>
+              <color sid="diffuse">0.2330156 0.07636175 0.01775568 1</color>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="dirt_light-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <color sid="diffuse">0.3108125 0.09927294 0.02212229 1</color>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="dirt_dark-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <color sid="diffuse">0.1844688 0.06087613 0.01459427 1</color>
             </diffuse>
             <index_of_refraction>
               <float sid="ior">1.45</float>
@@ -34,14 +68,20 @@
     <material id="dirt-material" name="dirt">
       <instance_effect url="#dirt-effect"/>
     </material>
+    <material id="dirt_light-material" name="dirt_light">
+      <instance_effect url="#dirt_light-effect"/>
+    </material>
+    <material id="dirt_dark-material" name="dirt_dark">
+      <instance_effect url="#dirt_dark-effect"/>
+    </material>
   </library_materials>
   <library_geometries>
     <geometry id="Plane-mesh" name="Plane">
       <mesh>
         <source id="Plane-mesh-positions">
-          <float_array id="Plane-mesh-positions-array" count="48">-1 -1 0 1 -1 0 -1 1 0 1 1 0 -1 0.3333333 0 -1 -0.3333333 0 -0.3333333 -1 0 0.3333333 -1 0 1 -0.3333333 0 1 0.3333333 0 0.3333333 1 0 -0.3333333 1 0 -0.3333333 -0.3333333 -0.1 -0.3333333 0.3333333 -0.1 0.3333333 -0.3333333 -0.1 0.3333333 0.3333333 -0.1</float_array>
+          <float_array id="Plane-mesh-positions-array" count="96">-1 -1 -0.1 1 -1 -0.1 -1 1 -0.1 1 1 -0.1 -1 0.6 -0.04999995 -1 0.2 -0.04999995 -1 -0.2 -0.04999995 -1 -0.6 -0.04999995 -0.6 -1 -0.04999995 -0.2 -1 -0.04999995 0.2 -1 -0.04999995 0.6 -1 -0.04999995 1 -0.6 -0.04999995 1 -0.2 -0.04999995 1 0.2 -0.04999995 1 0.6 -0.04999995 0.6 1 -0.04999995 0.2 1 -0.04999995 -0.2 1 -0.04999995 -0.6 1 -0.04999995 -0.6 -0.6 -0.04999995 -0.6 -0.2 0 -0.6 0.2 0 -0.6 0.6 -0.04999995 -0.2 -0.6 0 -0.2 0.6 0 0.2 -0.6 0 0.2 0.6 0 0.6 -0.6 -0.04999995 0.6 -0.2 0 0.6 0.2 0 0.6 0.6 -0.04999995</float_array>
           <technique_common>
-            <accessor source="#Plane-mesh-positions-array" count="16" stride="3">
+            <accessor source="#Plane-mesh-positions-array" count="32" stride="3">
               <param name="X" type="float"/>
               <param name="Y" type="float"/>
               <param name="Z" type="float"/>
@@ -49,9 +89,9 @@
           </technique_common>
         </source>
         <source id="Plane-mesh-normals">
-          <float_array id="Plane-mesh-normals-array" count="33">-0.1467348 -0.1467348 0.978232 0 0 1 0 -0.1483405 0.9889364 0.1483405 0 0.9889364 0 0.1483404 0.9889364 -0.1467348 0.1467348 0.978232 -0.1483405 0 0.9889364 0.1467348 -0.1467348 0.978232 0 -0.1483404 0.9889364 0.1467348 0.1467348 0.978232 0 0.1483405 0.9889364</float_array>
+          <float_array id="Plane-mesh-normals-array" count="69">0 0 1 0 0.1240348 0.992278 0.1230915 0.1230915 0.984732 -0.1240347 0 0.9922779 0 -0.1240347 0.992278 0.1230915 -0.1230915 0.984732 0.1230915 -0.1230915 0.984732 0.1240347 0 0.9922779 0.1230915 0.1230915 0.984732 -0.1230915 0.1230915 0.984732 -0.1230915 -0.1230915 0.984732 0.1230915 -0.1230915 0.984732 0.1230915 0.1230915 0.984732 0.1230915 0.1230915 0.984732 -0.1230915 0.1230915 0.984732 -0.1230915 -0.1230915 0.984732 0.1230915 -0.1230915 0.984732 -0.1230915 0.1230915 0.984732 0 0.1240347 0.992278 -0.1230915 -0.1230915 0.984732 -0.1230915 0.1230915 0.984732 -0.1230915 -0.1230915 0.984732 0 -0.1240348 0.992278</float_array>
           <technique_common>
-            <accessor source="#Plane-mesh-normals-array" count="11" stride="3">
+            <accessor source="#Plane-mesh-normals-array" count="23" stride="3">
               <param name="X" type="float"/>
               <param name="Y" type="float"/>
               <param name="Z" type="float"/>
@@ -59,9 +99,9 @@
           </technique_common>
         </source>
         <source id="Plane-mesh-map-0">
-          <float_array id="Plane-mesh-map-0-array" count="108">1 0.6666667 0.6666666 1 0.6666666 0.6666667 0 0.6666666 0.3333333 1 0 1 0.6666666 0.6666667 0.3333333 1 0.3333333 0.6666667 0.3333333 0 0 0.3333333 0 0 0.3333333 0.3333333 0 0.6666666 0 0.3333333 0.6666667 0 0.3333333 0.3333333 0.3333333 0 0.6666666 0.3333333 0.3333333 0.6666667 0.3333333 0.3333333 0.6666667 0 1 0.3333333 0.6666666 0.3333333 1 0.3333333 0.6666666 0.6666667 0.6666666 0.3333333 1 0.6666667 1 1 0.6666666 1 0 0.6666666 0.3333333 0.6666667 0.3333333 1 0.6666666 0.6666667 0.6666666 1 0.3333333 1 0.3333333 0 0.3333333 0.3333333 0 0.3333333 0.3333333 0.3333333 0.3333333 0.6666667 0 0.6666666 0.6666667 0 0.6666666 0.3333333 0.3333333 0.3333333 0.6666666 0.3333333 0.6666666 0.6666667 0.3333333 0.6666667 0.6666667 0 1 0 1 0.3333333 1 0.3333333 1 0.6666667 0.6666666 0.6666667</float_array>
+          <float_array id="Plane-mesh-map-0-array" count="252">0.1999999 0.8 0.4 1 0.2 1 0.6 0.8 0.4 1 0.4 0.8 0.8 0.8 0.6 1 0.6 0.8 0.2 0.2 0 0.4 0 0.2 0.2 0.4 0 0.6 0 0.4 0 0.6 0.1999999 0.8 0 0.8 0.4 0 0.2 0.2 0.2 0 0.6 0 0.4 0.2 0.4 0 0.6 0 0.8000001 0.2 0.6 0.2 0.4 0.2 0.8 0.4 0.6 0.8 0.8000001 0.2 1 0.4 0.8 0.4 1 0.4 0.8 0.6 0.8 0.4 1 0.6 0.8 0.8 0.8 0.6 0.1999999 0.8 0.1999999 0.6 0.4 0.8 0.2 0.2 0.4 0.2 0.2 0.4 0.8 0.4 0.6 0.2 0.8000001 0.2 0.8 0.6 0.8 0.8 0.6 0.8 0.2 1 0 0.8 0.1999999 0.8 0.2 0 0.2 0.2 0 0.2 0.8000001 0.2 0.8 0 1 0.2 0.8 0.8 1 0.8 0.8 1 0 0 0.8 1 1 0.8 0.2 1 0 0 0 0.8 0 0 0.2 0 0 0.2 0 0 1 0.2 0.8 0 0.1999999 0.8 0.4 0.8 0.4 1 0.6 0.8 0.6 1 0.4 1 0.8 0.8 0.8 1 0.6 1 0.2 0.2 0.2 0.4 0 0.4 0.2 0.4 0.1999999 0.6 0 0.6 0 0.6 0.1999999 0.6 0.1999999 0.8 0.4 0 0.4 0.2 0.2 0.2 0.6 0 0.6 0.2 0.4 0.2 0.6 0 0.8 0 0.8000001 0.2 0.6 0.8 0.4 0.8 0.1999999 0.6 0.1999999 0.6 0.2 0.4 0.4 0.2 0.4 0.2 0.6 0.2 0.8 0.4 0.8 0.4 0.8 0.6 0.6 0.8 0.6 0.8 0.1999999 0.6 0.4 0.2 0.8000001 0.2 1 0.2 1 0.4 1 0.4 1 0.6 0.8 0.6 1 0.6 1 0.8 0.8 0.8</float_array>
           <technique_common>
-            <accessor source="#Plane-mesh-map-0-array" count="54" stride="2">
+            <accessor source="#Plane-mesh-map-0-array" count="126" stride="2">
               <param name="S" type="float"/>
               <param name="T" type="float"/>
             </accessor>
@@ -70,11 +110,23 @@
         <vertices id="Plane-mesh-vertices">
           <input semantic="POSITION" source="#Plane-mesh-positions"/>
         </vertices>
-        <triangles material="dirt-material" count="18">
+        <triangles material="dirt-material" count="32">
           <input semantic="VERTEX" source="#Plane-mesh-vertices" offset="0"/>
           <input semantic="NORMAL" source="#Plane-mesh-normals" offset="1"/>
           <input semantic="TEXCOORD" source="#Plane-mesh-map-0" offset="2" set="0"/>
-          <p>9 0 0 10 0 1 15 0 2 4 1 3 11 1 4 2 1 5 15 2 6 11 2 7 13 2 8 6 1 9 5 1 10 0 1 11 12 3 12 4 3 13 5 3 14 7 4 15 12 4 16 6 4 17 14 1 18 13 1 19 12 1 20 7 5 21 8 5 22 14 5 23 8 6 24 15 6 25 14 6 26 9 1 27 3 1 28 10 1 29 4 7 30 13 7 31 11 7 32 15 8 33 10 8 34 11 8 35 6 9 36 12 9 37 5 9 38 12 3 39 13 3 40 4 3 41 7 10 42 14 10 43 12 10 44 14 1 45 15 1 46 13 1 47 7 1 48 1 1 49 8 1 50 8 6 51 9 6 52 15 6 53</p>
+          <p>23 0 0 18 0 1 19 0 2 27 1 3 18 1 4 25 1 5 31 2 6 17 2 7 27 2 8 20 0 9 6 0 10 7 0 11 21 3 12 5 3 13 6 3 14 5 0 15 23 0 16 4 0 17 9 0 18 20 0 19 8 0 20 10 4 21 24 4 22 9 4 23 10 5 24 28 5 25 26 5 26 28 6 30 13 6 31 29 6 32 13 7 33 30 7 34 29 7 35 14 8 36 31 8 37 30 8 38 23 9 39 22 9 40 25 9 41 20 10 42 24 10 43 21 10 44 29 11 45 26 11 46 28 11 47 30 12 48 31 12 49 27 12 50 19 0 51 4 0 52 23 0 53 8 0 54 20 0 55 7 0 56 28 0 57 11 0 58 12 0 59 31 0 60 15 0 61 16 0 62 23 17 75 25 17 76 18 17 77 27 18 78 17 18 79 18 18 80 31 0 81 16 0 82 17 0 83 20 19 84 21 19 85 6 19 86 21 3 87 22 3 88 5 3 89 5 20 90 22 20 91 23 20 92 9 21 93 24 21 94 20 21 95 10 22 96 26 22 97 24 22 98 10 0 99 11 0 100 28 0 101 28 0 117 12 0 118 13 0 119 13 7 120 14 7 121 30 7 122 14 0 123 15 0 124 31 0 125</p>
+        </triangles>
+        <triangles material="dirt_light-material" count="6">
+          <input semantic="VERTEX" source="#Plane-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Plane-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Plane-mesh-map-0" offset="2" set="0"/>
+          <p>24 0 27 29 0 28 27 0 29 27 0 102 25 0 103 22 0 104 22 0 105 21 0 106 24 0 107 24 0 108 26 0 109 29 0 110 29 0 111 30 0 112 27 0 113 27 0 114 22 0 115 24 0 116</p>
+        </triangles>
+        <triangles material="dirt_dark-material" count="4">
+          <input semantic="VERTEX" source="#Plane-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Plane-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Plane-mesh-map-0" offset="2" set="0"/>
+          <p>3 13 63 16 13 64 15 13 65 19 14 66 2 14 67 4 14 68 0 15 69 8 15 70 7 15 71 1 16 72 12 16 73 11 16 74</p>
         </triangles>
       </mesh>
     </geometry>
@@ -87,6 +139,12 @@
           <bind_material>
             <technique_common>
               <instance_material symbol="dirt-material" target="#dirt-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+              <instance_material symbol="dirt_light-material" target="#dirt_light-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+              <instance_material symbol="dirt_dark-material" target="#dirt_dark-material">
                 <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
               </instance_material>
             </technique_common>
