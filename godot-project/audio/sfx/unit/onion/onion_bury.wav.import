@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/onion_bury.wav-6b271c353df232a88e42b26a165bd45b.sample"
+
+[deps]
+
+source_file="res://audio/sfx/unit/onion/onion_bury.wav"
+dest_files=[ "res://.import/onion_bury.wav-6b271c353df232a88e42b26a165bd45b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
