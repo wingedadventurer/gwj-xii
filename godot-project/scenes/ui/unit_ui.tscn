@@ -70,13 +70,13 @@ expand = true
 [node name="p_2" type="PanelContainer" parent="vb"]
 margin_top = 174.0
 margin_right = 142.0
-margin_bottom = 310.0
+margin_bottom = 286.0
 
 [node name="vb" type="VBoxContainer" parent="vb/p_2"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 135.0
-margin_bottom = 129.0
+margin_bottom = 105.0
 custom_constants/separation = 16
 
 [node name="label" type="Label" parent="vb/p_2/vb"]
@@ -88,31 +88,24 @@ align = 1
 [node name="vb" type="VBoxContainer" parent="vb/p_2/vb"]
 margin_top = 30.0
 margin_right = 128.0
-margin_bottom = 122.0
+margin_bottom = 98.0
 
-[node name="button_bury" parent="vb/p_2/vb/vb" instance=ExtResource( 2 )]
+[node name="button_bury_unbury" parent="vb/p_2/vb/vb" instance=ExtResource( 2 )]
 margin_right = 128.0
-text = "Bury"
+text = "Bury / Unbury"
 
-[node name="button_unbury" parent="vb/p_2/vb/vb" instance=ExtResource( 2 )]
+[node name="button_turn_left" parent="vb/p_2/vb/vb" instance=ExtResource( 2 )]
 margin_top = 24.0
 margin_right = 128.0
 margin_bottom = 44.0
-text = "Unbury"
-
-[node name="button_turn_left" parent="vb/p_2/vb/vb" instance=ExtResource( 2 )]
-margin_top = 48.0
-margin_right = 128.0
-margin_bottom = 68.0
 text = "Turn Left"
 
 [node name="button_turn_right" parent="vb/p_2/vb/vb" instance=ExtResource( 2 )]
-margin_top = 72.0
+margin_top = 48.0
 margin_right = 128.0
-margin_bottom = 92.0
+margin_bottom = 68.0
 text = "Turn Right"
 [connection signal="pressed" from="vb/p/vb/hb/button_close" to="." method="_on_button_close_pressed"]
-[connection signal="pressed" from="vb/p_2/vb/vb/button_bury" to="." method="_on_button_bury_pressed"]
-[connection signal="pressed" from="vb/p_2/vb/vb/button_unbury" to="." method="_on_button_unbury_pressed"]
+[connection signal="pressed" from="vb/p_2/vb/vb/button_bury_unbury" to="." method="_on_button_bury_unbury_pressed"]
 [connection signal="pressed" from="vb/p_2/vb/vb/button_turn_left" to="." method="_on_button_turn_left_pressed"]
 [connection signal="pressed" from="vb/p_2/vb/vb/button_turn_right" to="." method="_on_button_turn_right_pressed"]

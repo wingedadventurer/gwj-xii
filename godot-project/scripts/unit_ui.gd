@@ -3,8 +3,7 @@ class_name class_unit_ui
 
 onready var unit_name = $vb/p/vb/hb/unit_name
 onready var unit_profile = $vb/p/vb/unit_background/unit_profile
-onready var button_bury = $vb/p_2/vb/vb/button_bury
-onready var button_unbury = $vb/p_2/vb/vb/button_unbury
+onready var button_bury_unbury = $vb/p_2/vb/vb/button_bury_unbury
 onready var button_turn_left = $vb/p_2/vb/vb/button_turn_left
 onready var button_turn_right = $vb/p_2/vb/vb/button_turn_right
 
@@ -41,34 +40,23 @@ func _ready() -> void:
 	hide()
 
 func disable_all_actions() -> void:
-	button_bury.disabled = true
-	button_unbury.disabled = true
+	button_bury_unbury.disabled = true
 	button_turn_left.disabled = true
 	button_turn_right.disabled = true
 
 func enable_appropriate_actions() -> void:
 	disable_all_actions()
 	if selected_unit:
-		# enable bury/unbury
-		if selected_unit.buried: button_unbury.disabled = false
-		else: button_bury.disabled = false
+		button_bury_unbury.disabled = false
+		if selected_unit.buried:
+			button_bury_unbury.text = "Unbury"
+		else:
+			button_bury_unbury.text = "Bury"
 		
 		# enable rotation if not buried
 		if not selected_unit.buried:
 			button_turn_left.disabled = false
 			button_turn_right.disabled = false
-
-func _on_button_bury_pressed() -> void:
-	if selected_unit:
-		selected_unit.bury()
-		enable_appropriate_actions()
-		hide()
-
-func _on_button_unbury_pressed() -> void:
-	if selected_unit:
-		selected_unit.unbury()
-		enable_appropriate_actions()
-		hide()
 
 func _on_button_close_pressed() -> void:
 	if selected_unit:
@@ -81,3 +69,10 @@ func _on_button_turn_left_pressed() -> void:
 
 func _on_button_turn_right_pressed() -> void:
 	selected_unit.turn()
+
+func _on_button_bury_unbury_pressed():
+	if selected_unit:
+		if selected_unit.buried: selected_unit.unbury()
+		else: selected_unit.bury()
+		enable_appropriate_actions()
+		hide()
