@@ -74,6 +74,7 @@ func set_rot(value : float) -> void:
 	turn_tween.start()
 	
 	$signal_launchers.rotation_degrees.y = rot + 180.0
+	$signal_positions.rotation_degrees.y = rot
 
 func set_action_done(value : bool) -> void:
 	if value:
@@ -114,12 +115,14 @@ func select() -> void:
 	set_highlighted(false)
 	set_selected(true)
 	
-	# show move arrows
 	if not action_done and not buried:
 		show_move_arrows()
+	
+	show_signal_positions()
 
 func deselect() -> void:
 	set_selected(false)
+	hide_signal_positions()
 
 func _on_mouse_detect_area_mouse_entered() -> void:
 	if not selected and not action_done:
@@ -198,3 +201,11 @@ func _on_signal_receive_area_body_entered(body):
 func turn(cw := true) -> void:
 	if cw: set_rot(rot - 90.0)
 	else: set_rot(rot + 90.0)
+
+func show_signal_positions() -> void:
+	for signal_position in $signal_positions.get_children():
+		signal_position.show()
+
+func hide_signal_positions() -> void:
+	for signal_position in $signal_positions.get_children():
+		signal_position.hide()

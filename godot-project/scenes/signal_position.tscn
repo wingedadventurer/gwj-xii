@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://textures/signal_position.png" type="Texture" id=1]
+
+[node name="signal_position" type="Spatial"]
+
+[node name="sprite" type="Sprite3D" parent="."]
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-008, 1, 0, -0.5, -4.37114e-008, 0, 0.02, 0 )
+texture = ExtResource( 1 )

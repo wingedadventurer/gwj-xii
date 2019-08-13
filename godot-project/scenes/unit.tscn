@@ -86,13 +86,21 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="signal_positions" type="Spatial" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="signal_launchers" type="Spatial" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="move_tween" type="Tween" parent="."]
 
 [node name="turn_tween" type="Tween" parent="."]
 
 [node name="action_indicator" parent="." instance=ExtResource( 9 )]
-
-[node name="signal_launchers" type="Spatial" parent="."]
 [connection signal="mouse_entered" from="mouse_detect_area" to="." method="_on_mouse_detect_area_mouse_entered"]
 [connection signal="mouse_exited" from="mouse_detect_area" to="." method="_on_mouse_detect_area_mouse_exited"]
 [connection signal="body_entered" from="signal_receive_area" to="." method="_on_signal_receive_area_body_entered"]

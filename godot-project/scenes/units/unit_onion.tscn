@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/unit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/units/unit_onion.gd" type="Script" id=2]
@@ -6,13 +6,13 @@
 [ext_resource path="res://audio/sfx/unit/onion/onion_move.wav" type="AudioStream" id=4]
 [ext_resource path="res://audio/sfx/unit/onion/union_unbury.wav" type="AudioStream" id=5]
 [ext_resource path="res://scenes/unit_move_arrow.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/signal_launcher.tscn" type="PackedScene" id=7]
-[ext_resource path="res://models/units/onion.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/signal_position.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/signal_launcher.tscn" type="PackedScene" id=8]
+[ext_resource path="res://models/units/onion.tscn" type="PackedScene" id=9]
 
 [node name="unit_onion" index="0" groups=[
 "onion",
 ] instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0441547, 0 )
 script = ExtResource( 2 )
 
 [node name="sfx_bury" parent="." index="4"]
@@ -79,15 +79,24 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
 visible = false
 dependent_move_position = NodePath("../r1")
 
-[node name="signal_launchers" parent="." index="11"]
+[node name="signal_position" parent="signal_positions" index="0" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2 )
+visible = false
+
+[node name="signal_position_2" parent="signal_positions" index="1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2 )
+visible = false
+
+[node name="signal_launchers" parent="." index="10"]
 editor/display_folded = true
 
-[node name="signal_launcher" parent="signal_launchers" index="0" instance=ExtResource( 7 )]
+[node name="signal_launcher" parent="signal_launchers" index="0" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0.696364, 0.122788, 0, 0.173648, -0.984808, -0.707107, 0.696364, 0.122788, 0, 0, 0 )
 visible = false
 
-[node name="signal_launcher_2" parent="signal_launchers" index="1" instance=ExtResource( 7 )]
+[node name="signal_launcher_2" parent="signal_launchers" index="1" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, -0.696364, -0.122788, 0, 0.173648, -0.984808, 0.707107, 0.696364, 0.122788, 0, 0, 0 )
 visible = false
 
-[node name="model" parent="." index="12" instance=ExtResource( 8 )]
+[node name="model" parent="." index="12" instance=ExtResource( 9 )]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.0434867, 0 )
