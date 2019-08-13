@@ -6,6 +6,8 @@ onready var unit_profile = $vb/p/vb/unit_background/unit_profile
 onready var button_move = $vb/p_2/vb/vb/button_move
 onready var button_bury = $vb/p_2/vb/vb/button_bury
 onready var button_unbury = $vb/p_2/vb/vb/button_unbury
+onready var button_turn_left = $vb/p_2/vb/vb/button_turn_left
+onready var button_turn_right = $vb/p_2/vb/vb/button_turn_right
 
 var unit_profiles := {
 	UNIT_NONE: preload("res://textures/unit_profiles/profile_empty.png"),
@@ -43,6 +45,8 @@ func disable_all_actions() -> void:
 	button_move.disabled = true
 	button_bury.disabled = true
 	button_unbury.disabled = true
+	button_turn_left.disabled = true
+	button_turn_right.disabled = true
 
 func enable_appropriate_actions() -> void:
 	disable_all_actions()
@@ -54,6 +58,8 @@ func enable_appropriate_actions() -> void:
 		# enable move
 		if not selected_unit.buried:
 			button_move.disabled = false
+			button_turn_left.disabled = false
+			button_turn_right.disabled = false
 
 func _on_button_move_pressed() -> void:
 	selected_unit.show_move_arrows()
@@ -74,3 +80,10 @@ func _on_button_close_pressed() -> void:
 	if selected_unit:
 		selected_unit.deselect()
 	hide()
+
+func _on_button_turn_left_pressed() -> void:
+	if selected_unit:
+		selected_unit.turn(false)
+
+func _on_button_turn_right_pressed() -> void:
+	selected_unit.turn()

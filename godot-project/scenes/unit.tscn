@@ -88,6 +88,8 @@ __meta__ = {
 
 [node name="move_tween" type="Tween" parent="."]
 
+[node name="turn_tween" type="Tween" parent="."]
+
 [node name="action_indicator" parent="." instance=ExtResource( 9 )]
 
 [node name="signal_launchers" type="Spatial" parent="."]
