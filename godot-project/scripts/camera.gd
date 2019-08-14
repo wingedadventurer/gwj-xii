@@ -11,8 +11,13 @@ var min_zoom := 2.0
 var max_zoom := 14.0
 var zoom_step := 2.0
 var zoom_time := 0.6
+var camera_drag_movement_factor := 0.01
+var camera_drag_rotation_factor := 0.01
 
 var move_velocity : Vector2
+
+var rmb_dragging := false
+var mmb_dragging := false
 
 func _ready() -> void:
 	set_zoom(zoom)
@@ -21,6 +26,23 @@ func _process(delta : float) -> void:
 	update_velocity(delta)
 	move(move_velocity, delta)
 	update_zoom()
+
+func _unhandled_input(event) -> void:
+	if event is InputEventMouseButton \
+	and event.button_index == BUTTON_RIGHT:
+		rmb_dragging = event.pressed
+		get_tree().set_input_as_handled()
+	if event is InputEventMouseButton \
+	and event.button_index == BUTTON_MIDDLE:
+		mmb_dragging = event.pressed
+		get_tree().set_input_as_handled()
+	
+	if event is InputEventMouseMotion:
+		if rmb_dragging:
+			translate(Vector3.LEFT * event.relative.x * camera_drag_movement_factor)
+			translate(Vector3.FORWARD * event.relative.y * camera_drag_movement_factor)
+		if mmb_dragging:
+			rotate_y(-event.relative.x * camera_drag_rotation_factor)
 
 func set_zoom(value : float) -> void:
 	zoom = clamp(value, min_zoom, max_zoom)
@@ -61,5 +83,5 @@ func update_velocity(delta : float) -> void:
 	move_velocity += new_move_velocity
 
 func move(velocity : Vector2, delta : float) -> void:
-	transform.origin.x += velocity.x * delta
-	transform.origin.z -= velocity.y * delta
+	translate(Vector3.RIGHT * velocity.x * delta)
+	translate(Vector3.FORWARD * velocity.y * delta)
