@@ -46,6 +46,7 @@ icon = ExtResource( 4 )
 
 [node name="win_popup" type="Control" parent="."]
 editor/display_folded = true
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -145,5 +146,15 @@ margin_right = 308.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 150, 50 )
 text = "Retry Level"
+
+[node name="harvest_days_label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -51.5
+margin_top = 8.0
+margin_right = 51.5
+margin_bottom = 22.0
+text = "Days to harvest"
+align = 1
 [connection signal="pressed" from="hb/button_fire_signal" to="." method="_on_button_fire_signal_pressed"]
 [connection signal="pressed" from="hb/button_next_turn" to="." method="_on_button_next_turn_pressed"]
