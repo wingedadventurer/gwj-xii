@@ -22,7 +22,7 @@ func initialize() -> void:
 	for celery in celeries:
 		celery.connect("caught_signal", self, "_on_celery_caught_signal")
 	
-	var number_of_celeries = celeries.size()
+	number_of_celeries = celeries.size()
 	reset_remaining_celery_count()
 
 func reset_remaining_celery_count() -> void:
@@ -31,4 +31,8 @@ func reset_remaining_celery_count() -> void:
 func _on_celery_caught_signal(celery : class_celery) -> void:
 	remaining_celeries -= 1
 	if remaining_celeries == 0:
-		print("You won!")
+		win()
+
+func win() -> void:
+	for static_ui in get_tree().get_nodes_in_group("static_ui"):
+		static_ui.show_win_screen()
