@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Spatial",
+"class": "class_celery",
+"language": "GDScript",
+"path": "res://scripts/celery.gd"
+}, {
+"base": "Spatial",
+"class": "class_level",
+"language": "GDScript",
+"path": "res://scripts/level.gd"
+}, {
 "base": "Area",
 "class": "class_move_arrow",
 "language": "GDScript",
@@ -35,6 +45,8 @@ _global_script_classes=[ {
 "path": "res://scripts/unit_ui.gd"
 } ]
 _global_script_class_icons={
+"class_celery": "",
+"class_level": "",
 "class_move_arrow": "",
 "class_signal": "",
 "class_unit": "",
@@ -60,7 +72,7 @@ gdscript/warnings/unused_argument=false
 
 window/size/width=1280
 window/size/height=720
-window/stretch/mode="viewport"
+window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
 [importer_defaults]

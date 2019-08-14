@@ -6,7 +6,9 @@
 [ext_resource path="res://scenes/ui/game_ui.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/playable_area.tscn" type="PackedScene" id=5]
 
-[node name="level" type="Spatial"]
+[node name="level" type="Spatial" groups=[
+"level",
+]]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true

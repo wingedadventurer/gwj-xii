@@ -147,12 +147,10 @@ func _on_mouse_detect_area_mouse_exited() -> void:
 func show_move_arrows() -> void:
 	for node in $move_positions.get_children():
 		node.show_if_free()
-	print("Shown move arrows!")
 
 func hide_move_arrows() -> void:
 	for node in $move_positions.get_children():
 		node.hide2()
-	print("Hidden move arrows!")
 
 func _on_move_arrow_selected(move_arrow : class_move_arrow) -> void:
 	move(move_arrow.global_transform.origin)
