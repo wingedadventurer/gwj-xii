@@ -18,6 +18,9 @@ var move_velocity : Vector2
 var rmb_dragging := false
 var mmb_dragging := false
 
+var tilted := false
+var new_tilted := false
+
 func _ready() -> void:
 	set_zoom(zoom)
 	$pivot.set_as_toplevel(true)
@@ -29,6 +32,11 @@ func _process(delta : float) -> void:
 	
 	$pivot.transform.origin = $pivot.transform.origin.linear_interpolate(transform.origin, 0.2)
 	$pivot.rotation.y = rotation.y
+	
+	if tilted != new_tilted:
+		tilted = new_tilted
+		if tilted: $animation_player.play("tilt_up")
+		else: $animation_player.play("tilt_down")
 
 func _unhandled_input(event) -> void:
 	if event is InputEventMouseButton \
@@ -76,3 +84,9 @@ func update_velocity(delta : float) -> void:
 func move(velocity : Vector2, delta : float) -> void:
 	translate(Vector3.RIGHT * velocity.x * delta)
 	translate(Vector3.FORWARD * velocity.y * delta)
+
+func tilt_up() -> void:
+	new_tilted = true
+
+func tilt_down() -> void:
+	new_tilted = false

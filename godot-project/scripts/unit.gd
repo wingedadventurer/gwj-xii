@@ -129,10 +129,16 @@ func select() -> void:
 		show_move_arrows()
 	
 	show_signal_positions()
+	
+	for camera in get_tree().get_nodes_in_group("camera"):
+		camera.tilt_up()
 
 func deselect() -> void:
 	set_selected(false)
 	hide_signal_positions()
+	
+	for camera in get_tree().get_nodes_in_group("camera"):
+		camera.tilt_down()
 
 func _on_mouse_detect_area_mouse_entered() -> void:
 #	if not selected and not action_done:
