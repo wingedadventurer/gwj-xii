@@ -21,11 +21,15 @@ var mmb_dragging := false
 
 func _ready() -> void:
 	set_zoom(zoom)
+	$pivot.set_as_toplevel(true)
 
 func _process(delta : float) -> void:
 	update_velocity(delta)
 	move(move_velocity, delta)
 	update_zoom()
+	
+	$pivot.transform.origin = $pivot.transform.origin.linear_interpolate(transform.origin, 0.2)
+	$pivot.rotation.y = lerp($pivot.rotation.y, rotation.y, 0.2)
 
 func _unhandled_input(event) -> void:
 	if event is InputEventMouseButton \

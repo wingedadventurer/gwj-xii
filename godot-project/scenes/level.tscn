@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/level.gd" type="Script" id=1]
-[ext_resource path="res://scenes/ui/vignette_overlay.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/ui/camera_ui.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/ui/game_ui.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/playable_area.tscn" type="PackedScene" id=5]
+[ext_resource path="res://environments/default_environment.tres" type="Environment" id=2]
+[ext_resource path="res://scenes/ui/vignette_overlay.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/ui/camera_ui.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/ui/game_ui.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/playable_area.tscn" type="PackedScene" id=6]
 
 [node name="level" type="Spatial" groups=[
 "level",
@@ -14,15 +15,18 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="environment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 2 )
+
 [node name="canvas_layer" type="CanvasLayer" parent="."]
 
-[node name="vignette_overlay" parent="canvas_layer" instance=ExtResource( 2 )]
+[node name="vignette_overlay" parent="canvas_layer" instance=ExtResource( 3 )]
 
-[node name="camera_ui" parent="canvas_layer" instance=ExtResource( 3 )]
+[node name="camera_ui" parent="canvas_layer" instance=ExtResource( 4 )]
 
-[node name="game_ui" parent="canvas_layer" instance=ExtResource( 4 )]
+[node name="game_ui" parent="canvas_layer" instance=ExtResource( 5 )]
 
-[node name="playable_area" parent="." instance=ExtResource( 5 )]
+[node name="playable_area" parent="." instance=ExtResource( 6 )]
 editor/display_folded = true
 
 [node name="tiles" type="Spatial" parent="."]
