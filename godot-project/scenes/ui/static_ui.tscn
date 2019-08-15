@@ -47,6 +47,7 @@ rect_min_size = Vector2( 0, 40 )
 shortcut = SubResource( 2 )
 text = "Fire Signal [F]"
 icon = ExtResource( 3 )
+silent = true
 
 [node name="button_next_turn" parent="hb" instance=ExtResource( 2 )]
 margin_left = 138.0
