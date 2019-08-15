@@ -90,3 +90,7 @@ func tilt_up() -> void:
 
 func tilt_down() -> void:
 	new_tilted = false
+
+func move_to_transform(t : Transform) -> void:
+	transform.origin.x = t.origin.x
+	transform.origin.z = t.origin.z

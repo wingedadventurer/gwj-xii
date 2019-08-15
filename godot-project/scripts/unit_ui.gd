@@ -1,11 +1,11 @@
 extends Control
 class_name class_unit_ui
 
-onready var unit_name = $vb/p/vb/hb/unit_name
-onready var unit_profile = $vb/p/vb/unit_background/unit_profile
-onready var button_bury_unbury = $vb/p_2/vb/vb/button_bury_unbury
-onready var button_turn_left = $vb/p_2/vb/vb/button_turn_left
-onready var button_turn_right = $vb/p_2/vb/vb/button_turn_right
+onready var unit_name = $p/vb/hb/unit_name
+onready var unit_profile = $p/vb/unit_background/unit_profile
+onready var button_bury_unbury = $p_2/vb/vb/button_bury_unbury
+onready var button_turn_left = $p_2/vb/vb/hb/button_turn_left
+onready var button_turn_right = $p_2/vb/vb/hb/button_turn_right
 
 var unit_profiles := {
 	UNIT_NONE: preload("res://textures/unit_profiles/profile_empty.png"),
@@ -70,9 +70,14 @@ func _on_button_turn_left_pressed() -> void:
 func _on_button_turn_right_pressed() -> void:
 	selected_unit.turn()
 
-func _on_button_bury_unbury_pressed():
+func _on_button_bury_unbury_pressed() -> void:
 	if selected_unit:
 		if selected_unit.buried: selected_unit.unbury()
 		else: selected_unit.bury()
 		enable_appropriate_actions()
 		hide()
+
+func _on_button_center_pressed() -> void:
+	if selected_unit:
+		for camera in get_tree().get_nodes_in_group("camera"):
+			camera.move_to_transform(selected_unit.transform)

@@ -5,8 +5,8 @@
 [ext_resource path="res://textures/unit_profiles/profile_carrot.png" type="Texture" id=3]
 
 [node name="unit_ui" type="Control" groups=[
-"unit_ui",
 "unit_controls",
+"unit_ui",
 ]]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,32 +16,28 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="vb" type="VBoxContainer" parent="."]
-anchor_bottom = 1.0
+[node name="p" type="PanelContainer" parent="."]
+editor/display_folded = true
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 150.0
-custom_constants/separation = 8
+margin_bottom = 174.0
 
-[node name="p" type="PanelContainer" parent="vb"]
-margin_right = 142.0
-margin_bottom = 166.0
-
-[node name="vb" type="VBoxContainer" parent="vb/p"]
+[node name="vb" type="VBoxContainer" parent="p"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 135.0
 margin_bottom = 159.0
 
-[node name="hb" type="HBoxContainer" parent="vb/p/vb"]
+[node name="hb" type="HBoxContainer" parent="p/vb"]
 margin_right = 128.0
 margin_bottom = 20.0
 
-[node name="button_close" parent="vb/p/vb/hb" instance=ExtResource( 2 )]
+[node name="button_close" parent="p/vb/hb" instance=ExtResource( 2 )]
 margin_right = 20.0
 text = "X"
 
-[node name="unit_name" type="Label" parent="vb/p/vb/hb"]
+[node name="unit_name" type="Label" parent="p/vb/hb"]
 margin_left = 24.0
 margin_top = 3.0
 margin_right = 128.0
@@ -50,14 +46,14 @@ size_flags_horizontal = 3
 text = "Carrot"
 align = 1
 
-[node name="unit_background" type="ColorRect" parent="vb/p/vb"]
+[node name="unit_background" type="ColorRect" parent="p/vb"]
 margin_top = 24.0
 margin_right = 128.0
 margin_bottom = 152.0
 rect_min_size = Vector2( 128, 128 )
 color = Color( 0.454902, 0.329412, 0.160784, 1 )
 
-[node name="unit_profile" type="TextureRect" parent="vb/p/vb/unit_background"]
+[node name="unit_profile" type="TextureRect" parent="p/vb/unit_background"]
 margin_right = 128.0
 margin_bottom = 128.0
 rect_min_size = Vector2( 128, 128 )
@@ -67,45 +63,62 @@ size_flags_vertical = 5
 texture = ExtResource( 3 )
 expand = true
 
-[node name="p_2" type="PanelContainer" parent="vb"]
-margin_top = 174.0
-margin_right = 142.0
-margin_bottom = 286.0
+[node name="p_2" type="PanelContainer" parent="."]
+margin_left = 8.0
+margin_top = 182.0
+margin_right = 150.0
+margin_bottom = 318.0
 
-[node name="vb" type="VBoxContainer" parent="vb/p_2"]
+[node name="vb" type="VBoxContainer" parent="p_2"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 135.0
-margin_bottom = 105.0
+margin_right = 155.0
+margin_bottom = 165.0
 custom_constants/separation = 16
 
-[node name="label" type="Label" parent="vb/p_2/vb"]
-margin_right = 128.0
+[node name="label" type="Label" parent="p_2/vb"]
+margin_right = 148.0
 margin_bottom = 14.0
 text = "Unit controls"
 align = 1
 
-[node name="vb" type="VBoxContainer" parent="vb/p_2/vb"]
+[node name="vb" type="VBoxContainer" parent="p_2/vb"]
 margin_top = 30.0
-margin_right = 128.0
-margin_bottom = 98.0
+margin_right = 148.0
+margin_bottom = 158.0
 
-[node name="button_bury_unbury" parent="vb/p_2/vb/vb" instance=ExtResource( 2 )]
-margin_right = 128.0
+[node name="button_bury_unbury" parent="p_2/vb/vb" instance=ExtResource( 2 )]
+margin_right = 148.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
 text = "Bury / Unbury"
 
-[node name="button_turn_left" parent="vb/p_2/vb/vb" instance=ExtResource( 2 )]
-margin_top = 24.0
-margin_right = 128.0
-margin_bottom = 44.0
+[node name="hb" type="HBoxContainer" parent="p_2/vb/vb"]
+margin_top = 44.0
+margin_right = 148.0
+margin_bottom = 84.0
+
+[node name="button_turn_left" parent="p_2/vb/vb/hb" instance=ExtResource( 2 )]
+margin_right = 68.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
 text = "Turn Left"
 
-[node name="button_turn_right" parent="vb/p_2/vb/vb" instance=ExtResource( 2 )]
-margin_top = 48.0
-margin_right = 128.0
-margin_bottom = 68.0
+[node name="button_turn_right" parent="p_2/vb/vb/hb" instance=ExtResource( 2 )]
+margin_left = 72.0
+margin_right = 148.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
 text = "Turn Right"
-[connection signal="pressed" from="vb/p/vb/hb/button_close" to="." method="_on_button_close_pressed"]
-[connection signal="pressed" from="vb/p_2/vb/vb/button_bury_unbury" to="." method="_on_button_bury_unbury_pressed"]
-[connection signal="pressed" from="vb/p_2/vb/vb/button_turn_left" to="." method="_on_button_turn_left_pressed"]
-[connection signal="pressed" from="vb/p_2/vb/vb/button_turn_right" to="." method="_on_button_turn_right_pressed"]
+
+[node name="button_center" parent="p_2/vb/vb" instance=ExtResource( 2 )]
+margin_top = 88.0
+margin_right = 148.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 0, 40 )
+text = "Center"
+[connection signal="pressed" from="p/vb/hb/button_close" to="." method="_on_button_close_pressed"]
+[connection signal="pressed" from="p_2/vb/vb/button_bury_unbury" to="." method="_on_button_bury_unbury_pressed"]
+[connection signal="pressed" from="p_2/vb/vb/hb/button_turn_left" to="." method="_on_button_turn_left_pressed"]
+[connection signal="pressed" from="p_2/vb/vb/hb/button_turn_right" to="." method="_on_button_turn_right_pressed"]
+[connection signal="pressed" from="p_2/vb/vb/button_center" to="." method="_on_button_center_pressed"]
