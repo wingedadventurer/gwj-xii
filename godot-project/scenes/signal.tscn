@@ -31,7 +31,9 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -3.43739, 0.0, 0, 0 
 curve = SubResource( 7 )
 
 [sub_resource type="ParticlesMaterial" id=9]
+spread = 180.0
 gravity = Vector3( 0, -2, 0 )
+initial_velocity = 0.2
 angular_velocity = 0.0
 scale_curve = SubResource( 8 )
 
@@ -64,4 +66,7 @@ shape = SubResource( 10 )
 [node name="omni_light" type="OmniLight" parent="."]
 light_color = Color( 0.0196078, 0.92549, 0.898039, 1 )
 light_energy = 2.0
-omni_range = 3.0
+omni_range = 2.0
+
+[node name="death_timer" type="Timer" parent="."]
+[connection signal="timeout" from="death_timer" to="." method="_on_death_timer_timeout"]

@@ -11,7 +11,7 @@ var unit_type := 4
 func _on_signal_receive_area_body_entered(body) -> void:
 	if not caught:
 		if body is class_signal:
-			body.queue_free()
+			body.die()
 			caught = true
 			$animation_player.play("unbury")
 			$animation_player.queue("spin")

@@ -207,7 +207,7 @@ func _on_signal_receive_area_body_entered(body):
 	
 	# consume signal
 	if body is class_signal:
-		body.queue_free()
+		body.die()
 	
 	# propagate signal if buried
 	if not buried: return

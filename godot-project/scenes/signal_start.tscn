@@ -59,7 +59,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0 )
 light_color = Color( 0.0823529, 0.945098, 0.937255, 1 )
 light_energy = 12.0
 omni_range = 1.0
-omni_attenuation = 0.870551
+omni_attenuation = 1.93188
 
 [node name="model_thunder" parent="." instance=ExtResource( 3 )]
 visible = false
