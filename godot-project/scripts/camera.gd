@@ -3,14 +3,13 @@ extends Spatial
 onready var cam = get_node("pivot/cam")
 onready var zoom_tween = get_node("zoom_tween")
 
+var move_speed := 10.0
 var max_move_speed := 8.0
-var acceleration_strength := 20.0
-var deceleration_factor := 0.2
 var zoom := 8.0 setget set_zoom
 var min_zoom := 2.0
 var max_zoom := 14.0
 var zoom_step := 2.0
-var zoom_time := 0.6
+var zoom_time := 0.4
 var camera_drag_movement_factor := 0.01
 var camera_drag_rotation_factor := 0.01
 
@@ -29,7 +28,7 @@ func _process(delta : float) -> void:
 	update_zoom()
 	
 	$pivot.transform.origin = $pivot.transform.origin.linear_interpolate(transform.origin, 0.2)
-	$pivot.rotation.y = lerp($pivot.rotation.y, rotation.y, 0.2)
+	$pivot.rotation.y = rotation.y
 
 func _unhandled_input(event) -> void:
 	if event is InputEventMouseButton \
@@ -62,29 +61,17 @@ func update_zoom() -> void:
 		set_zoom(zoom + zoom_step)
 
 func update_velocity(delta : float) -> void:
-	var new_move_velocity := Vector2()
-	# forward-back movement
+	move_velocity = Vector2()
 	if Input.is_action_pressed("camera_move_forward"):
-		new_move_velocity.y += acceleration_strength * delta
+		move_velocity.y += move_speed
 	if Input.is_action_pressed("camera_move_back"):
-		new_move_velocity.y -= acceleration_strength * delta
-	# decelerate if no input
-	if new_move_velocity.y == 0.0:
-		new_move_velocity.y = -move_velocity.y * deceleration_factor
-	
-	# left-right movement
+		move_velocity.y -= move_speed
 	if Input.is_action_pressed("camera_move_left"):
-		new_move_velocity.x -= acceleration_strength * delta
+		move_velocity.x -= move_speed
 	if Input.is_action_pressed("camera_move_right"):
-		new_move_velocity.x += acceleration_strength * delta
-	# decelerate if no input
-	if new_move_velocity.x == 0.0:
-		new_move_velocity.x = -move_velocity.x * deceleration_factor
-	# limit velocity
-	move_velocity = move_velocity.clamped(max_move_speed)
+		move_velocity.x += move_speed
 	
-	# update velocity
-	move_velocity += new_move_velocity
+	move_velocity = move_velocity.clamped(max_move_speed)
 
 func move(velocity : Vector2, delta : float) -> void:
 	translate(Vector3.RIGHT * velocity.x * delta)
