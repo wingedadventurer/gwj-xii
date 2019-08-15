@@ -1,7 +1,7 @@
 [gd_resource type="DynamicFont" load_steps=2 format=2]
 
-[ext_resource path="res://fonts/OldSansBlack.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/old_sans_black.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 18
+size = 64
 font_data = ExtResource( 1 )

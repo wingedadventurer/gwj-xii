@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/ui/level_intro.gd" type="Script" id=1]
-[ext_resource path="res://fonts/header.tres" type="DynamicFont" id=2]
-[ext_resource path="res://fonts/paragraph.tres" type="DynamicFont" id=3]
+[ext_resource path="res://fonts/intro_header.tres" type="DynamicFont" id=2]
+[ext_resource path="res://fonts/intro_paragraph.tres" type="DynamicFont" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "intro"
@@ -64,7 +64,7 @@ custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 6
 custom_constants/shadow_offset_y = 6
-text = "The Good, the Bad and the Veggie"
+text = "Title!"
 valign = 1
 
 [node name="label_subtitle" type="Label" parent="."]
@@ -82,7 +82,7 @@ custom_colors/font_color = Color( 0.752941, 0.752941, 0.752941, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 3
 custom_constants/shadow_offset_y = 3
-text = "Here's a funny subtitle, please laugh, k thx"
+text = "Subtitle!"
 align = 2
 valign = 1
 
