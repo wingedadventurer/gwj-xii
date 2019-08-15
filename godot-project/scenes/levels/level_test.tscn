@@ -170,13 +170,13 @@ shadow_enabled = true
 shadow_bias = 0.0
 directional_shadow_depth_range = 1
 
-[node name="signal_start" parent="." index="6" instance=ExtResource( 6 )]
+[node name="signal_start" parent="." index="7" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4 )
 
-[node name="celery" parent="." index="7" instance=ExtResource( 7 )]
+[node name="celery" parent="." index="8" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2 )
 
-[node name="celery_2" parent="." index="8" instance=ExtResource( 7 )]
+[node name="celery_2" parent="." index="9" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4 )
 
 [editable path="playable_area"]

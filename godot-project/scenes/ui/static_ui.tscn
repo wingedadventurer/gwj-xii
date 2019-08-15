@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://scripts/static_ui.gd" type="Script" id=1]
-[ext_resource path="res://scenes/ui/button.tscn" type="PackedScene" id=2]
-[ext_resource path="res://textures/icons/icon_fire_signal.png" type="Texture" id=3]
-[ext_resource path="res://textures/icons/icon_next_turn.png" type="Texture" id=4]
-[ext_resource path="res://scenes/ui/unit_icons.tscn" type="PackedScene" id=5]
+[ext_resource path="res://themes/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scripts/static_ui.gd" type="Script" id=2]
+[ext_resource path="res://scenes/ui/button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://textures/icons/icon_fire_signal.png" type="Texture" id=4]
+[ext_resource path="res://textures/icons/icon_next_turn.png" type="Texture" id=5]
+[ext_resource path="res://audio/sfx/ui/next_turn.wav" type="AudioStream" id=6]
+[ext_resource path="res://scenes/ui/unit_icons.tscn" type="PackedScene" id=7]
+[ext_resource path="res://fonts/harvest_days.tres" type="DynamicFont" id=8]
+[ext_resource path="res://audio/sfx/ui/next_turn_ding.wav" type="AudioStream" id=9]
 
 [sub_resource type="InputEventAction" id=1]
 action = "shortcut_fire_signal"
@@ -24,7 +28,8 @@ shortcut = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-script = ExtResource( 1 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -34,31 +39,36 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -276.0
+margin_left = -298.0
 margin_top = -58.0
 margin_right = -8.0
 margin_bottom = -8.0
 custom_constants/separation = 8
 
-[node name="button_fire_signal" parent="hb" instance=ExtResource( 2 )]
-margin_right = 130.0
+[node name="button_fire_signal" parent="hb" instance=ExtResource( 3 )]
+margin_right = 143.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 40 )
 shortcut = SubResource( 2 )
 text = "Fire Signal [F]"
-icon = ExtResource( 3 )
+icon = ExtResource( 4 )
 silent = true
 
-[node name="button_next_turn" parent="hb" instance=ExtResource( 2 )]
-margin_left = 138.0
-margin_right = 268.0
+[node name="button_next_turn" parent="hb" instance=ExtResource( 3 )]
+editor/display_folded = true
+margin_left = 151.0
+margin_right = 290.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 40 )
 shortcut = SubResource( 4 )
 text = "Next Turn [N]"
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 
-[node name="unit_icons" parent="." instance=ExtResource( 5 )]
+[node name="sfx_click" parent="hb/button_next_turn" index="0"]
+stream = ExtResource( 6 )
+
+[node name="unit_icons" parent="." instance=ExtResource( 7 )]
+margin_right = 57.0
 
 [node name="win_popup" type="Control" parent="."]
 editor/display_folded = true
@@ -76,7 +86,6 @@ anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.501961 )
 
 [node name="vb" type="VBoxContainer" parent="win_popup"]
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -99,13 +108,13 @@ margin_right = 308.0
 margin_bottom = 84.0
 custom_constants/separation = 8
 
-[node name="button_menu" parent="win_popup/vb/hb" instance=ExtResource( 2 )]
+[node name="button_menu" parent="win_popup/vb/hb" instance=ExtResource( 3 )]
 margin_right = 150.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 150, 50 )
 text = "Go to menu"
 
-[node name="button_next" parent="win_popup/vb/hb" instance=ExtResource( 2 )]
+[node name="button_next" parent="win_popup/vb/hb" instance=ExtResource( 3 )]
 margin_left = 158.0
 margin_right = 308.0
 margin_bottom = 50.0
@@ -150,28 +159,63 @@ margin_right = 308.0
 margin_bottom = 84.0
 custom_constants/separation = 8
 
-[node name="button_menu" parent="lose_popup/vb_2/hb" instance=ExtResource( 2 )]
+[node name="button_menu" parent="lose_popup/vb_2/hb" instance=ExtResource( 3 )]
 margin_right = 150.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 150, 50 )
 text = "Go to menu"
 
-[node name="button_retry" parent="lose_popup/vb_2/hb" instance=ExtResource( 2 )]
+[node name="button_retry" parent="lose_popup/vb_2/hb" instance=ExtResource( 3 )]
 margin_left = 158.0
 margin_right = 308.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 150, 50 )
 text = "Retry Level"
 
-[node name="harvest_days_label" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -51.5
+[node name="harvest_day" type="PanelContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -184.0
 margin_top = 8.0
-margin_right = 51.5
-margin_bottom = 22.0
-text = "Days to harvest
-X"
+margin_right = -8.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 170, 110 )
+
+[node name="vb" type="VBoxContainer" parent="harvest_day"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 168.0
+margin_bottom = 109.0
+
+[node name="title" type="Label" parent="harvest_day/vb"]
+modulate = Color( 0.376471, 0.376471, 0.376471, 1 )
+margin_right = 160.0
+margin_bottom = 17.0
+text = "DAYS UNTIL HARVEST"
 align = 1
+
+[node name="days" type="Label" parent="harvest_day/vb"]
+margin_top = 21.0
+margin_right = 160.0
+margin_bottom = 101.0
+rect_min_size = Vector2( 160, 80 )
+rect_pivot_offset = Vector2( 80, 40 )
+custom_fonts/font = ExtResource( 8 )
+text = "5"
+align = 1
+
+[node name="harvest_days_tween" type="Tween" parent="."]
+
+[node name="harvest_days_scale_tween" type="Tween" parent="."]
+
+[node name="sfx_ding" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
 [connection signal="pressed" from="hb/button_fire_signal" to="." method="_on_button_fire_signal_pressed"]
 [connection signal="pressed" from="hb/button_next_turn" to="." method="_on_button_next_turn_pressed"]
+[connection signal="pressed" from="win_popup/vb/hb/button_menu" to="." method="_on_button_menu_pressed"]
+[connection signal="pressed" from="win_popup/vb/hb/button_next" to="." method="_on_button_next_pressed"]
+[connection signal="pressed" from="lose_popup/vb_2/hb/button_menu" to="." method="_on_button_menu_pressed"]
+[connection signal="pressed" from="lose_popup/vb_2/hb/button_retry" to="." method="_on_button_retry_pressed"]
+[connection signal="tween_completed" from="harvest_days_tween" to="." method="_on_harvest_days_tween_tween_completed"]
+
+[editable path="hb/button_next_turn"]

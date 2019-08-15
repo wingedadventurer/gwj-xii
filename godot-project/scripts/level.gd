@@ -80,6 +80,3 @@ func _on_next_turn(static_ui) -> void:
 		return
 	
 	set_days_to_harvest(days_to_harvest - 1)
-	
-	if days_to_harvest == 0:
-		static_ui.set_last_day()
