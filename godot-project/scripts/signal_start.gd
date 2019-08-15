@@ -3,8 +3,15 @@ extends Spatial
 onready var signal_launcher = $signal_launcher
 onready var model = $model_thunder
 
+var particles_rotate_speed := 120.0
+
 func _ready() -> void:
+	$particles_pivot.visible = true
+	$model_thunder.visible = true
 	model.visible = false
+
+func _process(delta) -> void:
+	$particles_pivot.rotation_degrees.y += particles_rotate_speed * delta
 
 func spawn_signal() -> void:
 	model.visible = true

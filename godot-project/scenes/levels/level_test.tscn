@@ -8,7 +8,7 @@
 [ext_resource path="res://scenes/signal_start.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/celery.tscn" type="PackedScene" id=7]
 
-[node name="level" index="0" instance=ExtResource( 1 )]
+[node name="level" instance=ExtResource( 1 )]
 title = "Test level"
 subtitle = "We have no idea what we're doing..."
 
