@@ -1,6 +1,14 @@
 extends Spatial
 class_name class_level
 
+const OBJ_TRANSITION_IN = preload("res://scenes/ui/transition_in.tscn")
+const OBJ_LEVEL_INTRO = preload("res://scenes/ui/level_intro.tscn")
+
+onready var canvas = $canvas_layer
+
+export var title := "<level title>"
+export var subtitle := "<level subtitle>"
+
 var scene_camera = preload("res://scenes/camera.tscn")
 var cursor_image = preload("res://textures/cursor_carrot.png")
 
@@ -17,11 +25,25 @@ func _ready() -> void:
 		static_ui.connect("next_turn", self, "_on_next_turn")
 	
 	set_days_to_harvest(days_to_harvest)
+	do_transition_in()
 
 func set_days_to_harvest(value : int) -> void:
 	days_to_harvest = value
 	for static_ui in get_tree().get_nodes_in_group("static_ui"):
 		static_ui.set_days_to_harvest(days_to_harvest)
+	
+func do_transition_in() -> void:
+	var transition = OBJ_TRANSITION_IN.instance()
+	canvas.add_child(transition)
+	transition.free_when_done = true
+	transition.do_transition()
+	do_level_intro()
+
+func do_level_intro() -> void:
+	var level_intro = OBJ_LEVEL_INTRO.instance()
+	canvas.add_child(level_intro)
+	level_intro.set_intro_text(title, subtitle)
+	level_intro.do_intro()
 
 func instance_camera() -> void:
 	var camera = scene_camera.instance()
