@@ -10,4 +10,6 @@ func set_intro_text(title : String, subtitle : String) -> void:
 
 func do_intro() -> void:
 	anim_player.play("intro")
-	anim_player.connect("animation_finished", self, "queue_free")
+
+func _on_animation_player_animation_finished(anim_name) -> void:
+	queue_free()

@@ -20,6 +20,7 @@ func _ready() -> void:
 func do_transition_in() -> void:
 	var transition = OBJ_TRANSITION_IN.instance()
 	canvas.add_child(transition)
+	transition.free_when_done = true
 	transition.do_transition()
 	do_level_intro()
 
