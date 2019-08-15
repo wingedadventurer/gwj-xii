@@ -15,6 +15,7 @@ func _on_signal_receive_area_body_entered(body) -> void:
 			caught = true
 			$animation_player.play("unbury")
 			$animation_player.queue("spin")
+			$sfx_ding.play()
 			emit_signal("caught_signal", self)
 
 func reset() -> void:
