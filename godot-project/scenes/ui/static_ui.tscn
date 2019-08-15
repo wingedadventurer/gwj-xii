@@ -1,10 +1,22 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/static_ui.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ui/button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://textures/icons/icon_fire_signal.png" type="Texture" id=3]
 [ext_resource path="res://textures/icons/icon_next_turn.png" type="Texture" id=4]
 [ext_resource path="res://scenes/ui/unit_icons.tscn" type="PackedScene" id=5]
+
+[sub_resource type="InputEventAction" id=1]
+action = "shortcut_fire_signal"
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
+
+[sub_resource type="InputEventAction" id=3]
+action = "shortcut_next_turn"
+
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 3 )
 
 [node name="static_ui" type="Control" groups=[
 "static_ui",
@@ -22,23 +34,27 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -235.0
+margin_left = -276.0
 margin_top = -58.0
 margin_right = -8.0
 margin_bottom = -8.0
 custom_constants/separation = 8
 
 [node name="button_fire_signal" parent="hb" instance=ExtResource( 2 )]
-margin_right = 111.0
+margin_right = 130.0
 margin_bottom = 50.0
-text = "Fire Signal"
+rect_min_size = Vector2( 0, 40 )
+shortcut = SubResource( 2 )
+text = "Fire Signal [F]"
 icon = ExtResource( 3 )
 
 [node name="button_next_turn" parent="hb" instance=ExtResource( 2 )]
-margin_left = 119.0
-margin_right = 227.0
+margin_left = 138.0
+margin_right = 268.0
 margin_bottom = 50.0
-text = "Next Turn"
+rect_min_size = Vector2( 0, 40 )
+shortcut = SubResource( 4 )
+text = "Next Turn [N]"
 icon = ExtResource( 4 )
 
 [node name="unit_icons" parent="." instance=ExtResource( 5 )]
@@ -153,7 +169,8 @@ margin_left = -51.5
 margin_top = 8.0
 margin_right = 51.5
 margin_bottom = 22.0
-text = "Days to harvest"
+text = "Days to harvest
+X"
 align = 1
 [connection signal="pressed" from="hb/button_fire_signal" to="." method="_on_button_fire_signal_pressed"]
 [connection signal="pressed" from="hb/button_next_turn" to="." method="_on_button_next_turn_pressed"]

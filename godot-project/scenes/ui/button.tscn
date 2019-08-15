@@ -6,6 +6,9 @@
 [node name="button" type="Button"]
 margin_right = 12.0
 margin_bottom = 20.0
+focus_mode = 0
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
 text = "<...>"
 script = ExtResource( 1 )
 

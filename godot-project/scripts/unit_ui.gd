@@ -49,9 +49,9 @@ func enable_appropriate_actions() -> void:
 	if selected_unit:
 		button_bury_unbury.disabled = false
 		if selected_unit.buried:
-			button_bury_unbury.text = "Unbury"
+			button_bury_unbury.text = "Unbury [X]"
 		else:
-			button_bury_unbury.text = "Bury"
+			button_bury_unbury.text = "Bury [X]"
 		
 		# enable rotation if not buried
 		if not selected_unit.buried:
