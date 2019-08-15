@@ -1,0 +1,183 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://themes/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scripts/ui/menus/title_menu.gd" type="Script" id=2]
+[ext_resource path="res://fonts/title_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://scenes/ui/button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://fonts/attribution_font.tres" type="DynamicFont" id=5]
+
+
+[sub_resource type="Animation" id=1]
+resource_name = "appear"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("title:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.287175, 1 ),
+"update": 0,
+"values": [ Vector2( 285.5, -161.792 ), Vector2( 285.5, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("buttons/button_quit:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.9 ),
+"transitions": PoolRealArray( 1, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( -266.892, 152.953 ), Vector2( -266.892, 152.953 ), Vector2( 10.3014, 152.953 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("buttons/button_settings:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.7 ),
+"transitions": PoolRealArray( 1, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( -266.892, 56.9534 ), Vector2( -266.892, 56.9534 ), Vector2( 10.3014, 56.9534 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("buttons/button_credits:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8 ),
+"transitions": PoolRealArray( 1, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( -266.892, 104.953 ), Vector2( -266.892, 104.953 ), Vector2( 10.3014, 104.953 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("buttons/button_play:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6 ),
+"transitions": PoolRealArray( 1, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( -266.892, 8.9534 ), Vector2( -266.892, 8.9534 ), Vector2( 10.3014, 8.9534 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("attribution:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3, 1.2 ),
+"transitions": PoolRealArray( 1, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( -582.958, 646 ), Vector2( -582.958, 646 ), Vector2( 8, 646 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("version:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8 ),
+"transitions": PoolRealArray( 1, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1348.18, 693 ), Vector2( 1348.18, 693 ), Vector2( 1240, 693 ) ]
+}
+
+[node name="title_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -354.5
+margin_right = 354.5
+margin_bottom = 118.0
+custom_fonts/font = ExtResource( 3 )
+text = "Vegetable Chess"
+align = 1
+
+[node name="buttons" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 72.5273, 259.425 )
+
+[node name="button_play" parent="buttons" instance=ExtResource( 4 )]
+margin_left = 10.3014
+margin_top = 8.9534
+margin_right = 160.301
+margin_bottom = 48.9534
+rect_min_size = Vector2( 150, 40 )
+text = "Play"
+
+[node name="button_settings" parent="buttons" instance=ExtResource( 4 )]
+margin_left = 10.3014
+margin_top = 56.9534
+margin_right = 160.301
+margin_bottom = 96.9534
+rect_min_size = Vector2( 150, 40 )
+text = "Settings"
+
+[node name="button_credits" parent="buttons" instance=ExtResource( 4 )]
+margin_left = 10.3014
+margin_top = 104.953
+margin_right = 160.301
+margin_bottom = 144.953
+rect_min_size = Vector2( 150, 40 )
+text = "Credits"
+
+[node name="button_quit" parent="buttons" instance=ExtResource( 4 )]
+margin_left = 10.3014
+margin_top = 152.953
+margin_right = 160.301
+margin_bottom = 192.953
+rect_min_size = Vector2( 150, 40 )
+text = "Quit"
+
+[node name="attribution" type="Label" parent="."]
+modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = -74.0
+margin_right = 585.0
+margin_bottom = -8.0
+custom_fonts/font = ExtResource( 5 )
+text = "Programming and level design by Karlo Koscal (WingedAdventurer)
+Audio design by Vidar Leimar (Mudufus)
+Visual design by John Gabriel (JohnGabrielUK)"
+valign = 2
+
+[node name="version" type="Label" parent="."]
+modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -27.0
+margin_right = -8.0
+margin_bottom = -7.0
+custom_fonts/font = ExtResource( 5 )
+text = "v1.0"
+align = 2
+valign = 2
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+anims/appear = SubResource( 1 )

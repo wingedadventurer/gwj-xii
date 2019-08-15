@@ -11,6 +11,7 @@ func _ready() -> void:
 	$lose_popup.hide()
 
 func set_remaining_days(value) -> void:
+	# warning-ignore:narrowing_conversion
 	remaining_days = ceil(value)
 	
 	if remaining_days == 0:
