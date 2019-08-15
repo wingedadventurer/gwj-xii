@@ -41,7 +41,7 @@ func show_lose_screen() -> void:
 
 func set_days_to_harvest(value : int) -> void:
 	var time := 1.0
-	$harvest_days_tween.interpolate_method(self, "set_remaining_days", 30.0, float(value), time, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+	$harvest_days_tween.interpolate_method(self, "set_remaining_days", 100.0, float(value), time, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 	$harvest_days_tween.start()
 
 func _on_harvest_days_tween_tween_completed(object, key):

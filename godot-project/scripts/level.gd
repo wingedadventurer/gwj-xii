@@ -21,10 +21,6 @@ func _ready() -> void:
 	Input.set_custom_mouse_cursor(cursor_image)
 	initialize()
 	
-	for static_ui in get_tree().get_nodes_in_group("static_ui"):
-		static_ui.connect("next_turn", self, "_on_next_turn")
-	
-	set_days_to_harvest(days_to_harvest)
 	do_transition_in()
 
 func set_days_to_harvest(value : int) -> void:
@@ -36,6 +32,8 @@ func do_transition_in() -> void:
 	var transition = OBJ_TRANSITION_IN.instance()
 	canvas.add_child(transition)
 	transition.free_when_done = true
+	transition.connect("transition_done", self, "_on_transition_in_done")
+	yield(get_tree().create_timer(1.0), "timeout")
 	transition.do_transition()
 	do_level_intro()
 
@@ -57,6 +55,9 @@ func initialize() -> void:
 	
 	number_of_celeries = celeries.size()
 	reset_remaining_celery_count()
+	
+	for static_ui in get_tree().get_nodes_in_group("static_ui"):
+		static_ui.connect("next_turn", self, "_on_next_turn")
 
 func reset_remaining_celery_count() -> void:
 	remaining_celeries = number_of_celeries
@@ -80,3 +81,7 @@ func _on_next_turn(static_ui) -> void:
 		return
 	
 	set_days_to_harvest(days_to_harvest - 1)
+
+func _on_transition_in_done() -> void:
+	yield(get_tree().create_timer(1.5), "timeout")
+	set_days_to_harvest(days_to_harvest)

@@ -35,6 +35,7 @@ __meta__ = {
 }
 
 [node name="hb" type="HBoxContainer" parent="."]
+editor/display_folded = true
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -69,6 +70,38 @@ stream = ExtResource( 6 )
 
 [node name="unit_icons" parent="." instance=ExtResource( 7 )]
 margin_right = 57.0
+
+[node name="harvest_day" type="PanelContainer" parent="."]
+editor/display_folded = true
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -184.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 170, 110 )
+
+[node name="vb" type="VBoxContainer" parent="harvest_day"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 168.0
+margin_bottom = 109.0
+
+[node name="title" type="Label" parent="harvest_day/vb"]
+modulate = Color( 0.376471, 0.376471, 0.376471, 1 )
+margin_right = 160.0
+margin_bottom = 17.0
+text = "DAYS UNTIL HARVEST"
+align = 1
+
+[node name="days" type="Label" parent="harvest_day/vb"]
+margin_top = 21.0
+margin_right = 160.0
+margin_bottom = 101.0
+rect_min_size = Vector2( 160, 80 )
+rect_pivot_offset = Vector2( 80, 40 )
+custom_fonts/font = ExtResource( 8 )
+align = 1
 
 [node name="win_popup" type="Control" parent="."]
 editor/display_folded = true
@@ -171,38 +204,6 @@ margin_right = 308.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 150, 50 )
 text = "Retry Level"
-
-[node name="harvest_day" type="PanelContainer" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -184.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = 125.0
-rect_min_size = Vector2( 170, 110 )
-
-[node name="vb" type="VBoxContainer" parent="harvest_day"]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 168.0
-margin_bottom = 109.0
-
-[node name="title" type="Label" parent="harvest_day/vb"]
-modulate = Color( 0.376471, 0.376471, 0.376471, 1 )
-margin_right = 160.0
-margin_bottom = 17.0
-text = "DAYS UNTIL HARVEST"
-align = 1
-
-[node name="days" type="Label" parent="harvest_day/vb"]
-margin_top = 21.0
-margin_right = 160.0
-margin_bottom = 101.0
-rect_min_size = Vector2( 160, 80 )
-rect_pivot_offset = Vector2( 80, 40 )
-custom_fonts/font = ExtResource( 8 )
-text = "5"
-align = 1
 
 [node name="harvest_days_tween" type="Tween" parent="."]
 

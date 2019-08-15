@@ -46,8 +46,8 @@ func _ready() -> void:
 	else:
 		$select_highlight.material_override = $select_highlight.material_override.duplicate()
 		$select_highlight.visible = false
-		if buried: bury()
-		else: unbury()
+		if buried: bury(true)
+		else: unbury(true)
 		
 		if get_node_or_null("model/animation_player"):
 			$model/animation_player.set_blend_time("Rise", "Idle", 0.1)
@@ -61,6 +61,7 @@ func _ready() -> void:
 		icon.call_deferred("update_icon")
 	
 		set_rot(rot)
+		$action_indicator.visible = true
 
 func _unhandled_input(event) -> void:
 	if event is InputEventMouseButton \
@@ -177,22 +178,28 @@ func move(new_global_origin : Vector3) -> void:
 		$model/animation_player.queue("Idle")
 	set_action_done(true)
 
-func bury() -> void:
+func bury(quiet := false) -> void:
+	var anim = $model/animation_player
 	buried = true
 	if get_node_or_null("model/animation_player"):
-		$model/animation_player.play("Bury")
-	$sfx_bury.play()
+		anim.play("Bury")
+		if quiet:
+			anim.seek(anim.get_animation(anim.current_animation).length, true)
+	if not quiet: $sfx_bury.play()
 	hide_move_arrows()
 	deselect()
 	set_action_done(true)
 	if icon: icon.update_icon()
 
-func unbury() -> void:
+func unbury(quiet := false) -> void:
 	buried = false
 	if get_node_or_null("model/animation_player"):
-		$model/animation_player.play("Rise")
-		$model/animation_player.queue("Idle")
-	$sfx_unbury.play(0.0)
+		if quiet:
+			$model/animation_player.play("Idle")
+		else:
+			$model/animation_player.play("Rise")
+			$model/animation_player.queue("Idle")
+			$sfx_unbury.play()
 	deselect()
 	set_action_done(true)
 	if icon: icon.update_icon()
