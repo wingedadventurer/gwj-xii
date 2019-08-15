@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://scripts/unit_ui.gd" type="Script" id=1]
-[ext_resource path="res://scenes/ui/button.tscn" type="PackedScene" id=2]
-[ext_resource path="res://textures/unit_profiles/profile_carrot.png" type="Texture" id=3]
+[ext_resource path="res://themes/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scripts/unit_ui.gd" type="Script" id=2]
+[ext_resource path="res://scenes/ui/button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://textures/unit_profiles/profile_carrot.png" type="Texture" id=4]
 
 [sub_resource type="InputEventAction" id=1]
 action = "shortcut_bury_unbury"
@@ -35,45 +36,47 @@ shortcut = SubResource( 7 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-script = ExtResource( 1 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="p" type="PanelContainer" parent="."]
-editor/display_folded = true
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 150.0
 margin_bottom = 174.0
 
 [node name="vb" type="VBoxContainer" parent="p"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 135.0
-margin_bottom = 159.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 136.0
+margin_bottom = 170.0
 
 [node name="hb" type="HBoxContainer" parent="p/vb"]
 margin_right = 128.0
-margin_bottom = 20.0
+margin_bottom = 28.0
 
-[node name="button_close" parent="p/vb/hb" instance=ExtResource( 2 )]
-margin_right = 20.0
+[node name="button_close" parent="p/vb/hb" instance=ExtResource( 3 )]
+margin_right = 28.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 28, 28 )
 text = "X"
 
 [node name="unit_name" type="Label" parent="p/vb/hb"]
-margin_left = 24.0
-margin_top = 3.0
+margin_left = 32.0
+margin_top = 7.0
 margin_right = 128.0
-margin_bottom = 17.0
+margin_bottom = 21.0
 size_flags_horizontal = 3
 text = "Carrot"
 align = 1
 
 [node name="unit_background" type="ColorRect" parent="p/vb"]
-margin_top = 24.0
+margin_top = 32.0
 margin_right = 128.0
-margin_bottom = 152.0
+margin_bottom = 160.0
 rect_min_size = Vector2( 128, 128 )
 color = Color( 0.454902, 0.329412, 0.160784, 1 )
 
@@ -84,36 +87,36 @@ rect_min_size = Vector2( 128, 128 )
 rect_clip_content = true
 size_flags_horizontal = 5
 size_flags_vertical = 5
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 expand = true
 
 [node name="p_2" type="PanelContainer" parent="."]
 margin_left = 8.0
-margin_top = 182.0
-margin_right = 150.0
-margin_bottom = 318.0
+margin_top = 195.505
+margin_right = 234.0
+margin_bottom = 385.505
 
 [node name="vb" type="VBoxContainer" parent="p_2"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 201.0
-margin_bottom = 181.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 218.0
+margin_bottom = 182.0
 custom_constants/separation = 12
 
 [node name="label" type="Label" parent="p_2/vb"]
-margin_right = 194.0
+margin_right = 210.0
 margin_bottom = 14.0
 text = "Unit controls"
 align = 1
 
 [node name="vb" type="VBoxContainer" parent="p_2/vb"]
 margin_top = 26.0
-margin_right = 194.0
+margin_right = 210.0
 margin_bottom = 174.0
 custom_constants/separation = 8
 
-[node name="button_bury_unbury" parent="p_2/vb/vb" instance=ExtResource( 2 )]
-margin_right = 194.0
+[node name="button_bury_unbury" parent="p_2/vb/vb" instance=ExtResource( 3 )]
+margin_right = 210.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 shortcut = SubResource( 2 )
@@ -121,20 +124,20 @@ text = "Bury / Unbury [X]"
 
 [node name="hb" type="HBoxContainer" parent="p_2/vb/vb"]
 margin_top = 48.0
-margin_right = 194.0
+margin_right = 210.0
 margin_bottom = 88.0
 custom_constants/separation = 8
 
-[node name="button_turn_left" parent="p_2/vb/vb/hb" instance=ExtResource( 2 )]
-margin_right = 91.0
+[node name="button_turn_left" parent="p_2/vb/vb/hb" instance=ExtResource( 3 )]
+margin_right = 99.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 shortcut = SubResource( 4 )
 text = "Turn Left [Q]"
 
-[node name="button_turn_right" parent="p_2/vb/vb/hb" instance=ExtResource( 2 )]
-margin_left = 99.0
-margin_right = 194.0
+[node name="button_turn_right" parent="p_2/vb/vb/hb" instance=ExtResource( 3 )]
+margin_left = 107.0
+margin_right = 210.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 shortcut = SubResource( 6 )
@@ -142,12 +145,12 @@ text = "Turn Right [E]"
 
 [node name="h_separator" type="HSeparator" parent="p_2/vb/vb"]
 margin_top = 96.0
-margin_right = 194.0
+margin_right = 210.0
 margin_bottom = 100.0
 
-[node name="button_center" parent="p_2/vb/vb" instance=ExtResource( 2 )]
+[node name="button_center" parent="p_2/vb/vb" instance=ExtResource( 3 )]
 margin_top = 108.0
-margin_right = 194.0
+margin_right = 210.0
 margin_bottom = 148.0
 rect_min_size = Vector2( 0, 40 )
 shortcut = SubResource( 8 )

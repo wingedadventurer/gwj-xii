@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://scripts/static_ui.gd" type="Script" id=1]
-[ext_resource path="res://scenes/ui/button.tscn" type="PackedScene" id=2]
-[ext_resource path="res://textures/icons/icon_fire_signal.png" type="Texture" id=3]
-[ext_resource path="res://textures/icons/icon_next_turn.png" type="Texture" id=4]
-[ext_resource path="res://scenes/ui/unit_icons.tscn" type="PackedScene" id=5]
+[ext_resource path="res://themes/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scripts/static_ui.gd" type="Script" id=2]
+[ext_resource path="res://scenes/ui/button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://textures/icons/icon_fire_signal.png" type="Texture" id=4]
+[ext_resource path="res://textures/icons/icon_next_turn.png" type="Texture" id=5]
+[ext_resource path="res://scenes/ui/unit_icons.tscn" type="PackedScene" id=6]
 
 [sub_resource type="InputEventAction" id=1]
 action = "shortcut_fire_signal"
@@ -24,7 +25,8 @@ shortcut = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-script = ExtResource( 1 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -34,30 +36,30 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -276.0
+margin_left = -292.0
 margin_top = -58.0
 margin_right = -8.0
 margin_bottom = -8.0
 custom_constants/separation = 8
 
-[node name="button_fire_signal" parent="hb" instance=ExtResource( 2 )]
-margin_right = 130.0
+[node name="button_fire_signal" parent="hb" instance=ExtResource( 3 )]
+margin_right = 138.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 40 )
 shortcut = SubResource( 2 )
 text = "Fire Signal [F]"
-icon = ExtResource( 3 )
+icon = ExtResource( 4 )
 
-[node name="button_next_turn" parent="hb" instance=ExtResource( 2 )]
-margin_left = 138.0
-margin_right = 268.0
+[node name="button_next_turn" parent="hb" instance=ExtResource( 3 )]
+margin_left = 146.0
+margin_right = 284.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 40 )
 shortcut = SubResource( 4 )
 text = "Next Turn [N]"
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 
-[node name="unit_icons" parent="." instance=ExtResource( 5 )]
+[node name="unit_icons" parent="." instance=ExtResource( 6 )]
 
 [node name="win_popup" type="Control" parent="."]
 editor/display_folded = true
@@ -98,13 +100,13 @@ margin_right = 308.0
 margin_bottom = 84.0
 custom_constants/separation = 8
 
-[node name="button_menu" parent="win_popup/vb/hb" instance=ExtResource( 2 )]
+[node name="button_menu" parent="win_popup/vb/hb" instance=ExtResource( 3 )]
 margin_right = 150.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 150, 50 )
 text = "Go to menu"
 
-[node name="button_next" parent="win_popup/vb/hb" instance=ExtResource( 2 )]
+[node name="button_next" parent="win_popup/vb/hb" instance=ExtResource( 3 )]
 margin_left = 158.0
 margin_right = 308.0
 margin_bottom = 50.0
@@ -149,13 +151,13 @@ margin_right = 308.0
 margin_bottom = 84.0
 custom_constants/separation = 8
 
-[node name="button_menu" parent="lose_popup/vb_2/hb" instance=ExtResource( 2 )]
+[node name="button_menu" parent="lose_popup/vb_2/hb" instance=ExtResource( 3 )]
 margin_right = 150.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 150, 50 )
 text = "Go to menu"
 
-[node name="button_retry" parent="lose_popup/vb_2/hb" instance=ExtResource( 2 )]
+[node name="button_retry" parent="lose_popup/vb_2/hb" instance=ExtResource( 3 )]
 margin_left = 158.0
 margin_right = 308.0
 margin_bottom = 50.0
