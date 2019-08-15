@@ -67,6 +67,7 @@ audio_manager="*res://scenes/autoload/audio_manager.tscn"
 [debug]
 
 gdscript/warnings/unused_argument=false
+gdscript/warnings/return_value_discarded=false
 
 [display]
 
