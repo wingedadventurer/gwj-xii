@@ -31,3 +31,12 @@ func set_last_day() -> void:
 
 func set_days_to_harvest(value : int) -> void:
 	$harvest_days_label.text = "Days to harvest\n" + str(value)
+
+func _on_button_menu_pressed() -> void:
+	pass
+
+func _on_button_next_pressed() -> void:
+	pass
+
+func _on_button_retry_pressed() -> void:
+	pass

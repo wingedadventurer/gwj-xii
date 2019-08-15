@@ -62,7 +62,6 @@ icon = ExtResource( 5 )
 [node name="unit_icons" parent="." instance=ExtResource( 6 )]
 
 [node name="win_popup" type="Control" parent="."]
-editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -77,7 +76,6 @@ anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.501961 )
 
 [node name="vb" type="VBoxContainer" parent="win_popup"]
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -114,7 +112,6 @@ rect_min_size = Vector2( 150, 50 )
 text = "Play Next Level"
 
 [node name="lose_popup" type="Control" parent="."]
-editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -176,3 +173,7 @@ X"
 align = 1
 [connection signal="pressed" from="hb/button_fire_signal" to="." method="_on_button_fire_signal_pressed"]
 [connection signal="pressed" from="hb/button_next_turn" to="." method="_on_button_next_turn_pressed"]
+[connection signal="pressed" from="win_popup/vb/hb/button_menu" to="." method="_on_button_menu_pressed"]
+[connection signal="pressed" from="win_popup/vb/hb/button_next" to="." method="_on_button_next_pressed"]
+[connection signal="pressed" from="lose_popup/vb_2/hb/button_menu" to="." method="_on_button_menu_pressed"]
+[connection signal="pressed" from="lose_popup/vb_2/hb/button_retry" to="." method="_on_button_retry_pressed"]
