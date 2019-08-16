@@ -34,11 +34,17 @@ func _on_button_fire_signal_pressed() -> void:
 
 func show_win_screen() -> void:
 	$win_popup.show()
+	$sfx_win.play()
+	audio_manager.stop_ambience()
+	audio_manager.stop_music()
 
 func show_lose_screen(reason := -1) -> void:
 	$lose_popup.show()
 	if reason > -1:
 		$lose_popup/vb_2/reason.text = lose_reasons[reason]
+	$sfx_lose.play()
+	audio_manager.stop_ambience()
+	audio_manager.stop_music()
 
 func disable_buttons() -> void:
 	$game_controls/vb/hb/button_next_turn.disabled = true
@@ -71,4 +77,4 @@ func _on_button_next_pressed() -> void:
 	pass
 
 func _on_button_retry_pressed() -> void:
-	pass
+	get_tree().reload_current_scene()

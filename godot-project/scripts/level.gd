@@ -24,6 +24,8 @@ func _ready() -> void:
 	do_transition_in()
 	$camera_limit_top_left.visible = false
 	$camera_limit_bottom_right.visible = false
+	audio_manager.play_music()
+	audio_manager.play_ambience()
 
 func set_days_to_harvest(value : int) -> void:
 	days_to_harvest = value

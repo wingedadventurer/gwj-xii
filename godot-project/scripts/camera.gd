@@ -11,7 +11,7 @@ var max_zoom := 14.0
 var zoom_step := 2.0
 var zoom_time := 0.4
 var camera_drag_movement_factor := 0.01
-var camera_drag_rotation_factor := 0.01
+var camera_drag_rotation_factor := 0.005
 
 var move_velocity : Vector2
 var rmb_dragging := false

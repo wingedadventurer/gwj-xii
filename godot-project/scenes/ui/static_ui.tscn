@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://themes/main_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/static_ui.gd" type="Script" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://scenes/ui/unit_icons.tscn" type="PackedScene" id=6]
 [ext_resource path="res://fonts/harvest_days.tres" type="DynamicFont" id=7]
 [ext_resource path="res://audio/sfx/ui/next_turn_ding.wav" type="AudioStream" id=8]
+[ext_resource path="res://audio/sfx/ui/win.wav" type="AudioStream" id=9]
+[ext_resource path="res://audio/sfx/ui/lose.wav" type="AudioStream" id=10]
 
 [sub_resource type="InputEventAction" id=1]
 action = "shortcut_fire_signal"
@@ -34,6 +36,7 @@ __meta__ = {
 }
 
 [node name="game_controls" type="PanelContainer" parent="."]
+editor/display_folded = true
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -170,6 +173,7 @@ rect_min_size = Vector2( 150, 50 )
 text = "Play Next Level"
 
 [node name="lose_popup" type="Control" parent="."]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -224,6 +228,12 @@ text = "Retry Level"
 
 [node name="sfx_ding" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+
+[node name="sfx_win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="sfx_lose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
 [connection signal="pressed" from="game_controls/vb/hb/button_fire_signal" to="." method="_on_button_fire_signal_pressed"]
 [connection signal="pressed" from="game_controls/vb/hb/button_next_turn" to="." method="_on_button_next_turn_pressed"]
 [connection signal="pressed" from="win_popup/vb/hb/button_menu" to="." method="_on_button_menu_pressed"]
