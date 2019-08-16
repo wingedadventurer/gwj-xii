@@ -1,14 +1,13 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://themes/main_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/static_ui.gd" type="Script" id=2]
 [ext_resource path="res://scenes/ui/button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://textures/icons/icon_fire_signal.png" type="Texture" id=4]
 [ext_resource path="res://textures/icons/icon_next_turn.png" type="Texture" id=5]
-[ext_resource path="res://audio/sfx/ui/next_turn.wav" type="AudioStream" id=6]
-[ext_resource path="res://scenes/ui/unit_icons.tscn" type="PackedScene" id=7]
-[ext_resource path="res://fonts/harvest_days.tres" type="DynamicFont" id=8]
-[ext_resource path="res://audio/sfx/ui/next_turn_ding.wav" type="AudioStream" id=9]
+[ext_resource path="res://scenes/ui/unit_icons.tscn" type="PackedScene" id=6]
+[ext_resource path="res://fonts/harvest_days.tres" type="DynamicFont" id=7]
+[ext_resource path="res://audio/sfx/ui/next_turn_ding.wav" type="AudioStream" id=8]
 
 [sub_resource type="InputEventAction" id=1]
 action = "shortcut_fire_signal"
@@ -34,41 +33,56 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="hb" type="HBoxContainer" parent="."]
-editor/display_folded = true
+[node name="game_controls" type="PanelContainer" parent="."]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -298.0
-margin_top = -58.0
+margin_left = -314.0
+margin_top = -85.0
 margin_right = -8.0
 margin_bottom = -8.0
+
+[node name="vb" type="VBoxContainer" parent="game_controls"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 298.0
+margin_bottom = 69.0
+
+[node name="label" type="Label" parent="game_controls/vb"]
+modulate = Color( 0.376471, 0.376471, 0.376471, 1 )
+margin_right = 290.0
+margin_bottom = 17.0
+text = "GAME CONTROLS"
+align = 1
+
+[node name="hb" type="HBoxContainer" parent="game_controls/vb"]
+editor/display_folded = true
+margin_top = 21.0
+margin_right = 290.0
+margin_bottom = 61.0
 custom_constants/separation = 8
 
-[node name="button_fire_signal" parent="hb" instance=ExtResource( 3 )]
+[node name="button_fire_signal" parent="game_controls/vb/hb" instance=ExtResource( 3 )]
 margin_right = 143.0
-margin_bottom = 50.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 shortcut = SubResource( 2 )
 text = "Fire Signal [F]"
 icon = ExtResource( 4 )
 silent = true
 
-[node name="button_next_turn" parent="hb" instance=ExtResource( 3 )]
+[node name="button_next_turn" parent="game_controls/vb/hb" instance=ExtResource( 3 )]
 editor/display_folded = true
 margin_left = 151.0
 margin_right = 290.0
-margin_bottom = 50.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 shortcut = SubResource( 4 )
 text = "Next Turn [N]"
 icon = ExtResource( 5 )
 
-[node name="sfx_click" parent="hb/button_next_turn" index="0"]
-stream = ExtResource( 6 )
-
-[node name="unit_icons" parent="." instance=ExtResource( 7 )]
+[node name="unit_icons" parent="." instance=ExtResource( 6 )]
 margin_top = -81.0
 margin_bottom = -8.0
 
@@ -101,7 +115,7 @@ margin_right = 160.0
 margin_bottom = 101.0
 rect_min_size = Vector2( 160, 80 )
 rect_pivot_offset = Vector2( 80, 40 )
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 7 )
 align = 1
 
 [node name="win_popup" type="Control" parent="."]
@@ -211,13 +225,11 @@ text = "Retry Level"
 [node name="harvest_days_scale_tween" type="Tween" parent="."]
 
 [node name="sfx_ding" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
-[connection signal="pressed" from="hb/button_fire_signal" to="." method="_on_button_fire_signal_pressed"]
-[connection signal="pressed" from="hb/button_next_turn" to="." method="_on_button_next_turn_pressed"]
+stream = ExtResource( 8 )
+[connection signal="pressed" from="game_controls/vb/hb/button_fire_signal" to="." method="_on_button_fire_signal_pressed"]
+[connection signal="pressed" from="game_controls/vb/hb/button_next_turn" to="." method="_on_button_next_turn_pressed"]
 [connection signal="pressed" from="win_popup/vb/hb/button_menu" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="win_popup/vb/hb/button_next" to="." method="_on_button_next_pressed"]
 [connection signal="pressed" from="lose_popup/vb_2/hb/button_menu" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="lose_popup/vb_2/hb/button_retry" to="." method="_on_button_retry_pressed"]
 [connection signal="tween_completed" from="harvest_days_tween" to="." method="_on_harvest_days_tween_tween_completed"]
-
-[editable path="hb/button_next_turn"]

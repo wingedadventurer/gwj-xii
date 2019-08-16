@@ -4,9 +4,9 @@
 [ext_resource path="res://scripts/unit_ui.gd" type="Script" id=2]
 [ext_resource path="res://scenes/ui/button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://textures/unit_profiles/profile_carrot.png" type="Texture" id=4]
-[ext_resource path="res://textures/icons/icon_bury_unbury.png" type="Texture" id=5]
-[ext_resource path="res://textures/icons/icon_turn_left.png" type="Texture" id=6]
-[ext_resource path="res://textures/icons/icon_turn_right.png" type="Texture" id=7]
+[ext_resource path="res://textures/icons/icon_turn_left.png" type="Texture" id=5]
+[ext_resource path="res://textures/icons/icon_turn_right.png" type="Texture" id=6]
+[ext_resource path="res://textures/icons/icon_bury_unbury.png" type="Texture" id=7]
 [ext_resource path="res://textures/icons/icon_center.png" type="Texture" id=8]
 
 [sub_resource type="InputEventAction" id=1]
@@ -15,6 +15,18 @@ action = "shortcut_back"
 [sub_resource type="ShortCut" id=2]
 shortcut = SubResource( 1 )
 
+[sub_resource type="InputEventAction" id=7]
+action = "shortcut_turn_left"
+
+[sub_resource type="ShortCut" id=8]
+shortcut = SubResource( 7 )
+
+[sub_resource type="InputEventAction" id=9]
+action = "shortcut_turn_right"
+
+[sub_resource type="ShortCut" id=10]
+shortcut = SubResource( 9 )
+
 [sub_resource type="InputEventAction" id=3]
 action = "shortcut_bury_unbury"
 
@@ -22,26 +34,14 @@ action = "shortcut_bury_unbury"
 shortcut = SubResource( 3 )
 
 [sub_resource type="InputEventAction" id=5]
-action = "shortcut_turn_left"
+action = "shortcut_center"
 
 [sub_resource type="ShortCut" id=6]
 shortcut = SubResource( 5 )
 
-[sub_resource type="InputEventAction" id=7]
-action = "shortcut_turn_right"
-
-[sub_resource type="ShortCut" id=8]
-shortcut = SubResource( 7 )
-
-[sub_resource type="InputEventAction" id=9]
-action = "shortcut_center"
-
-[sub_resource type="ShortCut" id=10]
-shortcut = SubResource( 9 )
-
 [node name="unit_ui" type="Control" groups=[
-"unit_controls",
 "unit_ui",
+"unit_controls",
 ]]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -53,6 +53,7 @@ __meta__ = {
 }
 
 [node name="p" type="PanelContainer" parent="."]
+editor/display_folded = true
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 150.0
@@ -107,20 +108,21 @@ expand = true
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
-margin_top = -201.0
-margin_right = 310.0
+margin_top = -141.0
+margin_right = 322.0
 margin_bottom = -8.0
+grow_vertical = 0
 
 [node name="vb" type="VBoxContainer" parent="p_2"]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 294.0
-margin_bottom = 185.0
+margin_right = 306.0
+margin_bottom = 125.0
 custom_constants/separation = 12
 
 [node name="label" type="Label" parent="p_2/vb"]
 modulate = Color( 0.376471, 0.376471, 0.376471, 1 )
-margin_right = 286.0
+margin_right = 298.0
 margin_bottom = 17.0
 text = "Unit controls"
 align = 1
@@ -128,57 +130,56 @@ uppercase = true
 
 [node name="vb" type="VBoxContainer" parent="p_2/vb"]
 margin_top = 29.0
-margin_right = 286.0
-margin_bottom = 177.0
+margin_right = 298.0
+margin_bottom = 117.0
 custom_constants/separation = 8
 
-[node name="button_bury_unbury" parent="p_2/vb/vb" instance=ExtResource( 3 )]
-margin_right = 286.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-shortcut = SubResource( 4 )
-text = "Bury / Unbury [X]"
-icon = ExtResource( 5 )
-
 [node name="hb" type="HBoxContainer" parent="p_2/vb/vb"]
-margin_top = 48.0
-margin_right = 286.0
-margin_bottom = 88.0
+margin_right = 298.0
+margin_bottom = 40.0
 custom_constants/separation = 8
 
 [node name="button_turn_left" parent="p_2/vb/vb/hb" instance=ExtResource( 3 )]
-margin_right = 135.0
+margin_right = 145.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-shortcut = SubResource( 6 )
+rect_min_size = Vector2( 145, 40 )
+shortcut = SubResource( 8 )
 text = "Turn Left [Q]"
-icon = ExtResource( 6 )
+icon = ExtResource( 5 )
 
 [node name="button_turn_right" parent="p_2/vb/vb/hb" instance=ExtResource( 3 )]
-margin_left = 143.0
-margin_right = 286.0
+margin_left = 153.0
+margin_right = 298.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-shortcut = SubResource( 8 )
+rect_min_size = Vector2( 145, 40 )
+shortcut = SubResource( 10 )
 text = "Turn Right [E]"
+icon = ExtResource( 6 )
+
+[node name="hb_2" type="HBoxContainer" parent="p_2/vb/vb"]
+margin_top = 48.0
+margin_right = 298.0
+margin_bottom = 88.0
+custom_constants/separation = 8
+
+[node name="button_bury_unbury" parent="p_2/vb/vb/hb_2" instance=ExtResource( 3 )]
+margin_right = 145.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 145, 40 )
+shortcut = SubResource( 4 )
+text = "Unbury [X]"
 icon = ExtResource( 7 )
 
-[node name="h_separator" type="HSeparator" parent="p_2/vb/vb"]
-modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
-margin_top = 96.0
-margin_right = 286.0
-margin_bottom = 100.0
-
-[node name="button_center" parent="p_2/vb/vb" instance=ExtResource( 3 )]
-margin_top = 108.0
-margin_right = 286.0
-margin_bottom = 148.0
-rect_min_size = Vector2( 0, 40 )
-shortcut = SubResource( 10 )
+[node name="button_center" parent="p_2/vb/vb/hb_2" instance=ExtResource( 3 )]
+margin_left = 153.0
+margin_right = 298.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 145, 40 )
+shortcut = SubResource( 6 )
 text = "Center [C]"
 icon = ExtResource( 8 )
 [connection signal="pressed" from="p/vb/hb/button_close" to="." method="_on_button_close_pressed"]
-[connection signal="pressed" from="p_2/vb/vb/button_bury_unbury" to="." method="_on_button_bury_unbury_pressed"]
 [connection signal="pressed" from="p_2/vb/vb/hb/button_turn_left" to="." method="_on_button_turn_left_pressed"]
 [connection signal="pressed" from="p_2/vb/vb/hb/button_turn_right" to="." method="_on_button_turn_right_pressed"]
-[connection signal="pressed" from="p_2/vb/vb/button_center" to="." method="_on_button_center_pressed"]
+[connection signal="pressed" from="p_2/vb/vb/hb_2/button_bury_unbury" to="." method="_on_button_bury_unbury_pressed"]
+[connection signal="pressed" from="p_2/vb/vb/hb_2/button_center" to="." method="_on_button_center_pressed"]

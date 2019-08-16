@@ -3,7 +3,7 @@ class_name class_unit_ui
 
 onready var unit_name = $p/vb/hb/unit_name
 onready var unit_profile = $p/vb/unit_background/unit_profile
-onready var button_bury_unbury = $p_2/vb/vb/button_bury_unbury
+onready var button_bury_unbury = $p_2/vb/vb/hb_2/button_bury_unbury
 onready var button_turn_left = $p_2/vb/vb/hb/button_turn_left
 onready var button_turn_right = $p_2/vb/vb/hb/button_turn_right
 
