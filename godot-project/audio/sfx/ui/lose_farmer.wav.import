@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/lose.wav-a0a1442f750ba110c1a2ac20773f4992.sample"
+path="res://.import/lose_farmer.wav-e036bdc381ed1ce0eb5244c23ad6c538.sample"
 
 [deps]
 
-source_file="res://audio/sfx/ui/lose.wav"
-dest_files=[ "res://.import/lose.wav-a0a1442f750ba110c1a2ac20773f4992.sample" ]
+source_file="res://audio/sfx/ui/lose_farmer.wav"
+dest_files=[ "res://.import/lose_farmer.wav-e036bdc381ed1ce0eb5244c23ad6c538.sample" ]
 
 [params]
 

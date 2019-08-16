@@ -2,6 +2,7 @@ extends Control
 
 signal next_turn(me)
 
+var scene_menu_path = "res://scenes/ui/menus/main_menu.tscn"
 onready var harvest_days = $harvest_day/vb/days
 
 var remaining_days := 5 setget set_remaining_days
@@ -42,7 +43,11 @@ func show_lose_screen(reason := -1) -> void:
 	$lose_popup.show()
 	if reason > -1:
 		$lose_popup/vb_2/reason.text = lose_reasons[reason]
-	$sfx_lose.play()
+		match reason:
+			0:
+				$sfx_lose_harvest.play()
+			1:
+				$sfx_lose_farmer.play()
 	audio_manager.stop_ambience()
 	audio_manager.stop_music()
 
@@ -71,7 +76,7 @@ func _on_harvest_days_tween_tween_completed(object, key):
 	$sfx_ding.play()
 
 func _on_button_menu_pressed() -> void:
-	pass
+	get_tree().change_scene(scene_menu_path)
 
 func _on_button_next_pressed() -> void:
 	pass

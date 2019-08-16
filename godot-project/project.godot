@@ -64,6 +64,7 @@ _global_script_class_icons={
 
 config/name="Vegetable Chess"
 run/main_scene="res://scenes/ui/menus/main_menu.tscn"
+boot_splash/image="res://textures/splash.png"
 config/icon="res://icon.png"
 
 [autoload]
