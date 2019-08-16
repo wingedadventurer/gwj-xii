@@ -35,13 +35,22 @@ visible = false
 shape = SubResource( 1 )
 
 [node name="signal_receive_area" type="Area" parent="."]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
+input_ray_pickable = false
 collision_layer = 0
 collision_mask = 4
 
 [node name="collision_shape" type="CollisionShape" parent="signal_receive_area"]
 visible = false
+shape = SubResource( 2 )
+
+[node name="farmer_detect_area" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
+input_ray_pickable = false
+collision_layer = 8
+collision_mask = 0
+
+[node name="collision_shape" type="CollisionShape" parent="farmer_detect_area"]
 shape = SubResource( 2 )
 
 [node name="select_highlight" type="MeshInstance" parent="."]

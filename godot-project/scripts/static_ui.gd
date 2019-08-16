@@ -6,6 +6,11 @@ onready var harvest_days = $harvest_day/vb/days
 
 var remaining_days := 5 setget set_remaining_days
 
+var lose_reasons := {
+	0: "Dread it. Run from it. Harvest day arrives all the same...\n\nAnd now it's here.",
+	1: "I spy with my little eye something beginning with V!",
+}
+
 func _ready() -> void:
 	$win_popup.hide()
 	$lose_popup.hide()
@@ -20,13 +25,6 @@ func set_remaining_days(value) -> void:
 		harvest_days.text = str(remaining_days)
 
 func _on_button_next_turn_pressed() -> void:
-	for unit in get_tree().get_nodes_in_group("unit"):
-		unit.action_done = false
-		unit.signals_launched = false
-	for celery in get_tree().get_nodes_in_group("celery"):
-		(celery as class_celery).reset()
-	for level in get_tree().get_nodes_in_group("level"):
-		(level as class_level).reset_remaining_celery_count()
 	emit_signal("next_turn", self)
 
 func _on_button_fire_signal_pressed() -> void:
@@ -36,8 +34,14 @@ func _on_button_fire_signal_pressed() -> void:
 func show_win_screen() -> void:
 	$win_popup.show()
 
-func show_lose_screen() -> void:
+func show_lose_screen(reason := -1) -> void:
 	$lose_popup.show()
+	if reason > -1:
+		$lose_popup/vb_2/reason.text = lose_reasons[reason]
+
+func disable_buttons() -> void:
+	$game_controls/vb/hb/button_next_turn.disabled = true
+	$game_controls/vb/hb/button_fire_signal.disabled = true
 
 func set_days_to_harvest(value : int) -> void:
 	var time := 1.0

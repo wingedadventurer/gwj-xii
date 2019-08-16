@@ -183,6 +183,10 @@ func move(new_global_origin : Vector3) -> void:
 	$move_positions.global_transform.origin = new_global_origin
 	$signal_positions.global_transform.origin = new_global_origin
 
+func reset() -> void:
+	action_done = false
+	signals_launched = false
+
 func bury(quiet := false) -> void:
 	var anim = $model/animation_player
 	buried = true

@@ -10,9 +10,10 @@ onready var canvas = $canvas_layer
 
 export var title := "<level title>"
 export var subtitle := "<level subtitle>"
-export var days_to_harvest := 3 setget set_days_to_harvest
+export var days_to_harvest := 3
 var number_of_celeries := 0
 var remaining_celeries := 0
+var farmers := []
 
 func _ready() -> void:
 	instance_camera()
@@ -24,6 +25,7 @@ func _ready() -> void:
 
 func set_days_to_harvest(value : int) -> void:
 	days_to_harvest = value
+	
 	for static_ui in get_tree().get_nodes_in_group("static_ui"):
 		static_ui.set_days_to_harvest(days_to_harvest)
 	
@@ -59,6 +61,8 @@ func initialize() -> void:
 	
 	for static_ui in get_tree().get_nodes_in_group("static_ui"):
 		static_ui.connect("next_turn", self, "_on_next_turn")
+	
+	farmers = get_tree().get_nodes_in_group("farmer")
 
 func reset_remaining_celery_count() -> void:
 	remaining_celeries = number_of_celeries
@@ -67,9 +71,24 @@ func win() -> void:
 	for static_ui in get_tree().get_nodes_in_group("static_ui"):
 		static_ui.show_win_screen()
 
-func lose() -> void:
+func lose(reason := -1) -> void:
+	deselect_all_units()
 	for static_ui in get_tree().get_nodes_in_group("static_ui"):
-		static_ui.show_lose_screen()
+		static_ui.disable_buttons()
+		static_ui.show_lose_screen(reason)
+	for unit_ui in get_tree().get_nodes_in_group("unit_ui"):
+		(unit_ui as class_unit_ui).hide()
+
+func deselect_all_units() -> void:
+	for unit in get_tree().get_nodes_in_group("unit"):
+		(unit as class_unit).deselect()
+		(unit as class_unit).set_highlighted(false)
+
+func are_farmers_seeing_unit() -> bool:
+	for farmer in farmers:
+		if (farmer as class_farmer).has_spotted_unit():
+			return true
+	return false
 
 func _on_celery_caught_signal(celery : class_celery) -> void:
 	remaining_celeries -= 1
@@ -77,10 +96,22 @@ func _on_celery_caught_signal(celery : class_celery) -> void:
 		win()
 
 func _on_next_turn(static_ui) -> void:
-	if days_to_harvest == 0:
-		lose()
+	# reset objects
+	for unit in get_tree().get_nodes_in_group("unit"):
+		unit.reset()
+	for celery in get_tree().get_nodes_in_group("celery"):
+		celery.reset()
+	
+	reset_remaining_celery_count()
+	
+	if are_farmers_seeing_unit():
+		lose(1)
 		return
 	
+	# update days to harvest
+	if days_to_harvest == 0:
+		lose(0)
+		return
 	set_days_to_harvest(days_to_harvest - 1)
 
 func _on_transition_in_done() -> void:

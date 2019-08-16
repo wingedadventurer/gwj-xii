@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=2]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.301961, 0.0823529, 0.0823529, 1 )
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 0.1, 0.5, 0.1 )
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 0.4, 0.6, 0.2 )
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 0.3, 0.3, 0.3 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.890196, 0.176471, 0.176471, 1 )
+
+[sub_resource type="CubeMesh" id=6]
+size = Vector3( 0.05, 0.05, 0.05 )
+
+[node name="farmer_model" type="Spatial"]
+
+[node name="leg_1" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.25, 0 )
+material_override = SubResource( 2 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="leg_2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.25, 0 )
+material_override = SubResource( 2 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="body" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0 )
+material_override = SubResource( 2 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="body_2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0 )
+material_override = SubResource( 2 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="arm_1" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.85, 0 )
+material_override = SubResource( 2 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="arm_2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.85, 0 )
+material_override = SubResource( 2 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="eye_1" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, 1.3, -0.15 )
+material_override = SubResource( 5 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="eye_2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, 1.3, -0.15 )
+material_override = SubResource( 5 )
+mesh = SubResource( 6 )
+material/0 = null

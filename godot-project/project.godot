@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://scripts/celery.gd"
 }, {
 "base": "Spatial",
+"class": "class_farmer",
+"language": "GDScript",
+"path": "res://scripts/farmer.gd"
+}, {
+"base": "Spatial",
 "class": "class_level",
 "language": "GDScript",
 "path": "res://scripts/level.gd"
@@ -46,6 +51,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "class_celery": "",
+"class_farmer": "",
 "class_level": "",
 "class_move_arrow": "",
 "class_signal": "",
@@ -57,7 +63,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Vegetable Chess"
-run/main_scene="res://scenes/ui/menus/main_menu.tscn"
+run/main_scene="res://scenes/levels/level_test.tscn"
 config/icon="res://icon.png"
 
 [autoload]

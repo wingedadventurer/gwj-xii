@@ -170,8 +170,6 @@ rect_min_size = Vector2( 150, 50 )
 text = "Play Next Level"
 
 [node name="lose_popup" type="Control" parent="."]
-editor/display_folded = true
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -195,16 +193,16 @@ margin_right = 154.0
 margin_bottom = 42.0
 custom_constants/separation = 20
 
-[node name="label" type="Label" parent="lose_popup/vb_2"]
+[node name="reason" type="Label" parent="lose_popup/vb_2"]
 margin_right = 308.0
-margin_bottom = 14.0
+margin_bottom = 17.0
 text = "You lose..."
 align = 1
 
 [node name="hb" type="HBoxContainer" parent="lose_popup/vb_2"]
-margin_top = 34.0
+margin_top = 37.0
 margin_right = 308.0
-margin_bottom = 84.0
+margin_bottom = 87.0
 custom_constants/separation = 8
 
 [node name="button_menu" parent="lose_popup/vb_2/hb" instance=ExtResource( 3 )]
