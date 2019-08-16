@@ -30,6 +30,7 @@ func _on_button_next_turn_pressed() -> void:
 func _on_button_fire_signal_pressed() -> void:
 	for signal_start in get_tree().get_nodes_in_group("signal_start"):
 		signal_start.spawn_signal()
+	$game_controls/vb/hb/button_fire_signal.disabled = true
 
 func show_win_screen() -> void:
 	$win_popup.show()
@@ -42,11 +43,16 @@ func show_lose_screen(reason := -1) -> void:
 func disable_buttons() -> void:
 	$game_controls/vb/hb/button_next_turn.disabled = true
 	$game_controls/vb/hb/button_fire_signal.disabled = true
+	for unit_icon in $unit_icons/vb/units.get_children():
+		unit_icon.disabled = true
+		unit_icon.modulate.a = 0.1
 
 func enable_buttons() -> void:
 	$game_controls/vb/hb/button_next_turn.disabled = false
 	$game_controls/vb/hb/button_fire_signal.disabled = false
-
+	for unit_icon in $unit_icons/vb/units.get_children():
+		unit_icon.disabled = false
+		unit_icon.modulate.a = 1.0
 
 func set_days_to_harvest(value : int) -> void:
 	var time := 1.0
