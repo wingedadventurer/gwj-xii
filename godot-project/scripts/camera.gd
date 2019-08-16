@@ -14,12 +14,12 @@ var camera_drag_movement_factor := 0.01
 var camera_drag_rotation_factor := 0.01
 
 var move_velocity : Vector2
-
 var rmb_dragging := false
 var mmb_dragging := false
-
 var tilted := false
 var new_tilted := false
+var limit_top_left : Position3D = null
+var limit_bottom_right : Position3D = null
 
 func _ready() -> void:
 	set_zoom(zoom)
@@ -28,6 +28,7 @@ func _ready() -> void:
 func _process(delta : float) -> void:
 	update_velocity(delta)
 	move(move_velocity, delta)
+	limit_position()
 	update_zoom()
 	
 	$pivot.transform.origin = $pivot.transform.origin.linear_interpolate(transform.origin, 0.2)
@@ -67,6 +68,11 @@ func update_zoom() -> void:
 		set_zoom(zoom - zoom_step)
 	if Input.is_action_just_released("camera_zoom_out"):
 		set_zoom(zoom + zoom_step)
+
+func limit_position() -> void:
+	if limit_top_left and limit_bottom_right:
+		global_transform.origin.x = clamp(global_transform.origin.x, limit_top_left.global_transform.origin.x, limit_bottom_right.global_transform.origin.x)
+		global_transform.origin.z = clamp(global_transform.origin.z, limit_top_left.global_transform.origin.z, limit_bottom_right.global_transform.origin.z)
 
 func update_velocity(delta : float) -> void:
 	move_velocity = Vector2()

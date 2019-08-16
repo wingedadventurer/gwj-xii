@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/camera.gd" type="Script" id=1]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "tilt_down"
 length = 0.5
 tracks/0/type = "bezier"
@@ -16,8 +16,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 )
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "tilt_up"
+[sub_resource type="Animation" id=2]
 length = 0.5
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("pivot:rotation_degrees:x")
@@ -44,5 +43,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8 )
 [node name="zoom_tween" type="Tween" parent="."]
 
 [node name="animation_player" type="AnimationPlayer" parent="."]
-anims/tilt_down = SubResource( 2 )
-anims/tilt_up = SubResource( 1 )
+anims/tilt_down = SubResource( 1 )
+anims/tilt_up = SubResource( 2 )

@@ -3,15 +3,13 @@ class_name class_level
 
 const OBJ_TRANSITION_IN = preload("res://scenes/ui/transition_in.tscn")
 const OBJ_LEVEL_INTRO = preload("res://scenes/ui/level_intro.tscn")
+var scene_camera = preload("res://scenes/camera.tscn")
+var cursor_image = preload("res://textures/cursor_carrot.png")
 
 onready var canvas = $canvas_layer
 
 export var title := "<level title>"
 export var subtitle := "<level subtitle>"
-
-var scene_camera = preload("res://scenes/camera.tscn")
-var cursor_image = preload("res://textures/cursor_carrot.png")
-
 export var days_to_harvest := 3 setget set_days_to_harvest
 var number_of_celeries := 0
 var remaining_celeries := 0
@@ -20,8 +18,9 @@ func _ready() -> void:
 	instance_camera()
 	Input.set_custom_mouse_cursor(cursor_image)
 	initialize()
-	
 	do_transition_in()
+	$camera_limit_top_left.visible = false
+	$camera_limit_bottom_right.visible = false
 
 func set_days_to_harvest(value : int) -> void:
 	days_to_harvest = value
@@ -46,6 +45,8 @@ func do_level_intro() -> void:
 func instance_camera() -> void:
 	var camera = scene_camera.instance()
 	add_child(camera)
+	camera.limit_top_left = $camera_limit_top_left
+	camera.limit_bottom_right = $camera_limit_bottom_right
 
 func initialize() -> void:
 	# connect celeries
