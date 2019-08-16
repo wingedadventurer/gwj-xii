@@ -62,6 +62,8 @@ func _ready() -> void:
 	
 		set_rot(rot)
 		$action_indicator.visible = true
+		$move_positions.set_as_toplevel(true)
+		$signal_positions.set_as_toplevel(true)
 
 func _unhandled_input(event) -> void:
 	if event is InputEventMouseButton \
@@ -177,6 +179,9 @@ func move(new_global_origin : Vector3) -> void:
 		$model/animation_player.play("Move")
 		$model/animation_player.queue("Idle")
 	set_action_done(true)
+	
+	$move_positions.global_transform.origin = new_global_origin
+	$signal_positions.global_transform.origin = new_global_origin
 
 func bury(quiet := false) -> void:
 	var anim = $model/animation_player

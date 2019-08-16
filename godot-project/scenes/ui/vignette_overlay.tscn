@@ -4,7 +4,7 @@
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
-shader_param/amount = 0.2
+shader_param/amount = 0.1
 
 [node name="vignette_overlay" type="ColorRect"]
 modulate = Color( 0, 0, 0, 1 )
