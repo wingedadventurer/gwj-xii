@@ -10,6 +10,7 @@ func set_intro_text(title : String, subtitle : String) -> void:
 
 func do_intro() -> void:
 	anim_player.play("intro")
+	$sfx_intro.play()
 
 func _on_animation_player_animation_finished(anim_name) -> void:
 	queue_free()

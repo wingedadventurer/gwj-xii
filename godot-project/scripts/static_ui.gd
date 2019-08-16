@@ -43,6 +43,11 @@ func disable_buttons() -> void:
 	$game_controls/vb/hb/button_next_turn.disabled = true
 	$game_controls/vb/hb/button_fire_signal.disabled = true
 
+func enable_buttons() -> void:
+	$game_controls/vb/hb/button_next_turn.disabled = false
+	$game_controls/vb/hb/button_fire_signal.disabled = false
+
+
 func set_days_to_harvest(value : int) -> void:
 	var time := 1.0
 	$harvest_days_tween.interpolate_method(self, "set_remaining_days", 100.0, float(value), time, Tween.TRANS_CUBIC, Tween.EASE_OUT)
