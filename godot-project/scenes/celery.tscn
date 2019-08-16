@@ -92,6 +92,15 @@ collision_mask = 4
 visible = false
 shape = SubResource( 1 )
 
+[node name="move_blocker" type="Area" parent="." groups=[
+"move_blocker",
+]]
+collision_mask = 0
+
+[node name="collision_shape" type="CollisionShape" parent="move_blocker"]
+visible = false
+shape = SubResource( 1 )
+
 [node name="model" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.4, 0, 6.99382e-008, 0, 0.4, 0, -6.99382e-008, 0, 0.4, 0, 0, 0 )
 
