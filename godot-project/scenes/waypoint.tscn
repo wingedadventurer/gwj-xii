@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 1, 0.0941176, 0.0941176, 1 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 0.05, 0.05, 0.05 )
+
+[node name="waypoint" type="Spatial"]
+
+[node name="mesh" type="MeshInstance" parent="."]
+transform = Transform( 0.40558, -0.819152, 0.40558, 0.579228, 0.573576, 0.579228, -0.707107, 0, 0.707107, 0, 0.1, 0 )
+material_override = SubResource( 1 )
+mesh = SubResource( 2 )
+material/0 = null
