@@ -101,12 +101,14 @@ func _on_celery_caught_signal(celery : class_celery) -> void:
 		win()
 
 func _on_next_turn(static_ui) -> void:
-	# hide and disable stuff
+	# deselect units
 	deselect_all_units()
-	for static_ui in get_tree().get_nodes_in_group("static_ui"):
-		static_ui.disable_buttons()
 	for unit_ui in get_tree().get_nodes_in_group("unit_ui"):
 		unit_ui.hide()
+	
+	# disable buttons
+	for static_ui in get_tree().get_nodes_in_group("static_ui"):
+		static_ui.disable_buttons()
 	
 	# reset stuff
 	for unit in get_tree().get_nodes_in_group("unit"): unit.reset()
@@ -128,6 +130,8 @@ func _on_next_turn(static_ui) -> void:
 	if farmers_queue.size() > 0:
 		farmers_queue[0].do_action()
 		yield(self, "farmers_done")
+	else:
+		enable_all_controls()
 	
 	# update days to harvest
 	set_days_to_harvest(days_to_harvest - 1)
