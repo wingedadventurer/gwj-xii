@@ -69,7 +69,8 @@ icon = ExtResource( 5 )
 stream = ExtResource( 6 )
 
 [node name="unit_icons" parent="." instance=ExtResource( 7 )]
-margin_right = 57.0
+margin_top = -81.0
+margin_bottom = -8.0
 
 [node name="harvest_day" type="PanelContainer" parent="."]
 editor/display_folded = true

@@ -4,12 +4,15 @@
 [ext_resource path="res://scripts/ui/unit_icons.gd" type="Script" id=2]
 
 [node name="unit_icons" type="PanelContainer"]
+anchor_left = 0.5
 anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = -161.0
-margin_right = 66.0
-margin_bottom = -8.0
+margin_left = -29.0
+margin_top = -77.0
+margin_right = 29.0
+margin_bottom = -4.0
+grow_horizontal = 2
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
@@ -17,7 +20,7 @@ script = ExtResource( 2 )
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 50.0
-margin_bottom = 145.0
+margin_bottom = 65.0
 custom_constants/separation = 8
 
 [node name="label" type="Label" parent="vb"]
@@ -25,25 +28,13 @@ modulate = Color( 0.376471, 0.376471, 0.376471, 1 )
 margin_right = 42.0
 margin_bottom = 17.0
 text = "Units"
+align = 1
 uppercase = true
 
-[node name="carrots" type="HBoxContainer" parent="vb"]
+[node name="units" type="HBoxContainer" parent="vb"]
 margin_top = 25.0
 margin_right = 42.0
 margin_bottom = 57.0
 rect_min_size = Vector2( 32, 32 )
 custom_constants/separation = 8
-
-[node name="potatoes" type="HBoxContainer" parent="vb"]
-margin_top = 65.0
-margin_right = 42.0
-margin_bottom = 97.0
-rect_min_size = Vector2( 32, 32 )
-custom_constants/separation = 8
-
-[node name="onions" type="HBoxContainer" parent="vb"]
-margin_top = 105.0
-margin_right = 42.0
-margin_bottom = 137.0
-rect_min_size = Vector2( 32, 32 )
-custom_constants/separation = 8
+alignment = 1
