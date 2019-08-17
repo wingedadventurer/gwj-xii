@@ -18,6 +18,7 @@ var remaining_celeries := 0
 var farmers_queue := []
 
 func _ready() -> void:
+	settings.apply_settings()
 	instance_camera()
 	Input.set_custom_mouse_cursor(cursor_image)
 	initialize()

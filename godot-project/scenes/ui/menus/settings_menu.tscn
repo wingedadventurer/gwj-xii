@@ -38,7 +38,7 @@ alignment = 1
 
 [node name="grid_container" type="GridContainer" parent="vbox"]
 margin_top = 22.0
-margin_right = 301.0
+margin_right = 284.0
 margin_bottom = 93.0
 columns = 2
 
@@ -112,22 +112,22 @@ text = "4x"
 
 [node name="hbox" type="HBoxContainer" parent="vbox"]
 margin_top = 103.0
-margin_right = 301.0
+margin_right = 284.0
 margin_bottom = 124.0
 custom_constants/separation = 10
 alignment = 1
 
 [node name="check_box_bloom" type="CheckBox" parent="vbox/hbox"]
-margin_left = 56.0
-margin_right = 133.0
+margin_left = 47.0
+margin_right = 124.0
 margin_bottom = 21.0
 size_flags_horizontal = 0
 text = "Bloom"
 align = 2
 
 [node name="check_box_fullscreen" type="CheckBox" parent="vbox/hbox"]
-margin_left = 143.0
-margin_right = 245.0
+margin_left = 134.0
+margin_right = 236.0
 margin_bottom = 21.0
 size_flags_horizontal = 0
 text = "Fullscreen"
