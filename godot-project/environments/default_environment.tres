@@ -9,6 +9,7 @@ panorama = ExtResource( 1 )
 background_mode = 2
 background_sky = SubResource( 1 )
 ambient_light_color = Color( 1, 1, 1, 1 )
+ssao_quality = 2
 dof_blur_far_distance = 20.0
 dof_blur_far_amount = 1.0
 dof_blur_far_quality = 2

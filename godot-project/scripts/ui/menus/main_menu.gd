@@ -3,6 +3,8 @@ extends Control
 const OBJ_TRANSITION_IN = preload("res://scenes/ui/transition_in.tscn")
 const OBJ_TRANSITION_OUT = preload("res://scenes/ui/transition_out.tscn")
 
+onready var demo = $demo
+
 func _ready():
 	connect_signals()
 	do_transition_in()
@@ -37,6 +39,7 @@ func _on_play_pressed() -> void:
 
 func _on_settings_pressed() -> void:
 	$title_menu.disappear()
+	demo.move_camera(2)
 	yield(get_tree().create_timer(0.4), "timeout")
 	$settings_menu.appear()
 
@@ -55,6 +58,7 @@ func _on_level_select_back_pressed() -> void:
 
 func _on_settings_back_pressed() -> void:
 	$settings_menu.disappear()
+	demo.move_camera(1)
 	$title_menu.appear()
 
 func _on_credits_back_pressed() -> void:
