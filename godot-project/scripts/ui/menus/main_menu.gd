@@ -6,6 +6,7 @@ const OBJ_TRANSITION_OUT = preload("res://scenes/ui/transition_out.tscn")
 onready var demo = $demo
 
 func _ready():
+	audio_manager.play_music(audio_manager.TRACK.TITLE)
 	connect_signals()
 	do_transition_in()
 	
@@ -45,6 +46,7 @@ func _on_settings_pressed() -> void:
 
 func _on_credits_pressed() -> void:
 	$title_menu.disappear()
+	demo.move_camera(0)
 	yield(get_tree().create_timer(0.4), "timeout")
 	$credits_menu.appear()
 
@@ -63,6 +65,7 @@ func _on_settings_back_pressed() -> void:
 
 func _on_credits_back_pressed() -> void:
 	$credits_menu.disappear()
+	demo.move_camera(1)
 	$title_menu.appear()
 
 func _on_level_selected(level : PackedScene) -> void:

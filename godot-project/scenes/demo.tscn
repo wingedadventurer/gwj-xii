@@ -33,7 +33,7 @@ transform = Transform( 0.641494, 0.227408, -0.732647, -0.149806, 0.973799, 0.171
 transform = Transform( 0.696459, 0, -0.717596, 0, 1, 0, 0.717596, 0, 0.696459, 2.32018, -0.257902, 0.43547 )
 
 [node name="camera" type="Camera" parent="."]
-transform = Transform( 0.866025, -0.211309, -0.453154, 0, 0.906308, -0.422618, 0.5, 0.365998, 0.784886, 2, 5, -1 )
+transform = Transform( 0.809017, -0.181636, -0.559017, 0, 0.951057, -0.309017, 0.587785, 0.25, 0.769421, 4.5, 5, -4 )
 current = true
 fov = 35.0
 
@@ -57,7 +57,7 @@ environment = ExtResource( 8 )
 script = ExtResource( 9 )
 
 [node name="camera_position0" type="Position3D" parent="."]
-transform = Transform( 0.866026, -0.211309, -0.453154, 0, 0.906308, -0.422618, 0.5, 0.365998, 0.784886, 2, 5, -1 )
+transform = Transform( 0.809017, -0.181636, -0.559017, 0, 0.951057, -0.309017, 0.587786, 0.25, 0.769421, 4.5, 5, -4 )
 
 [node name="camera_position1" type="Position3D" parent="."]
 transform = Transform( 0.707107, -0.183013, -0.683013, 0, 0.965926, -0.258819, 0.707107, 0.183013, 0.683013, -4.73, 0.71, 7.7 )

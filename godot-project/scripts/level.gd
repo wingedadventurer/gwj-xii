@@ -5,6 +5,7 @@ signal farmers_done
 
 const OBJ_TRANSITION_IN = preload("res://scenes/ui/transition_in.tscn")
 const OBJ_LEVEL_INTRO = preload("res://scenes/ui/level_intro.tscn")
+const OBJ_PAUSE_SCREEN = preload("res://scenes/ui/menus/pause_screen.tscn")
 var scene_camera = preload("res://scenes/camera.tscn")
 var cursor_image = preload("res://textures/cursor_carrot.png")
 const SCENE_GRASS_PLANE = preload("res://scenes/grass_plane.tscn")
@@ -165,3 +166,8 @@ func _on_farmer_action_done(farmer : class_farmer) -> void:
 func enable_all_controls() -> void:
 	for static_ui in get_tree().get_nodes_in_group("static_ui"):
 		static_ui.enable_buttons()
+
+func _input(event : InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		var pause = OBJ_PAUSE_SCREEN.instance()
+		add_child(pause)
