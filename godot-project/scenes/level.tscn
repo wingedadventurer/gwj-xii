@@ -65,4 +65,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
+[node name="camera_start_position" type="Position3D" parent="."]
+
 [editable path="playable_area"]

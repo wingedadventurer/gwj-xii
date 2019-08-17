@@ -50,6 +50,7 @@ func do_level_intro() -> void:
 
 func instance_camera() -> void:
 	var camera = scene_camera.instance()
+	camera.move_to_transform($camera_start_position.transform)
 	add_child(camera)
 	camera.limit_top_left = $camera_limit_top_left
 	camera.limit_bottom_right = $camera_limit_bottom_right

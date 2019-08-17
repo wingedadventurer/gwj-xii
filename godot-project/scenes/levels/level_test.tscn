@@ -166,11 +166,9 @@ transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, -2, 0, 0 )
 
 [node name="unit_onion" parent="units" index="3" instance=ExtResource( 5 )]
 
-[node name="lights" parent="." index="5"]
-editor/display_folded = true
-
 [node name="directional_light" type="DirectionalLight" parent="lights" index="0"]
 transform = Transform( 0.866025, -0.242405, 0.43731, 0, 0.87462, 0.484809, -0.5, -0.419857, 0.757443, 0, 4, 12 )
+visible = false
 light_energy = 0.2
 shadow_enabled = true
 shadow_bias = 0.0
@@ -217,6 +215,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-007, 0, -1 )
 
 [node name="waypoint_2" parent="farmer_2/waypoints" index="1" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-007, 0, 0 )
+
+[node name="camera_start_position" parent="." index="14"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1 )
 
 [editable path="playable_area"]
 

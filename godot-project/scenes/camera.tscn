@@ -32,6 +32,7 @@ tracks/0/keys = {
 [node name="camera" type="Spatial" groups=[
 "camera",
 ]]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0 )
 script = ExtResource( 1 )
 
 [node name="pivot" type="Position3D" parent="."]
