@@ -35,9 +35,12 @@ func move_if_has_waypoints() -> void:
 		emit_signal("action_done", self)
 
 func has_spotted_unit() -> bool:
-	if $unit_detect_area.get_overlapping_areas().size() > 0:
-		model_animation.play("Alert")
-		return true
+	for detected_unit_area in $unit_detect_area.get_overlapping_areas():
+		if detected_unit_area.name == "farmer_detect_area":
+			var detected_unit = detected_unit_area.get_parent()
+			if not detected_unit.buried:
+				model_animation.play("Alert")
+				return true
 	return false
 
 func do_action() -> void:
