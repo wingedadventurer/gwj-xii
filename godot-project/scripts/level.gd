@@ -28,6 +28,7 @@ func _ready() -> void:
 	$camera_limit_bottom_right.visible = false
 	audio_manager.play_music()
 	audio_manager.play_ambience()
+	$playable_area.visible = true
 
 func set_days_to_harvest(value : int) -> void:
 	days_to_harvest = value
