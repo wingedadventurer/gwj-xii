@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/demo.gd" type="Script" id=1]
+[ext_resource path="res://models/props/barrel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://models/units/carrot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://models/units/onion.tscn" type="PackedScene" id=4]
+[ext_resource path="res://models/units/potato.tscn" type="PackedScene" id=5]
+[ext_resource path="res://models/farmer_model.tscn" type="PackedScene" id=6]
+[ext_resource path="res://models/props/barn.tscn" type="PackedScene" id=7]
+[ext_resource path="res://environments/default_environment.tres" type="Environment" id=8]
+[ext_resource path="res://scripts/environment.gd" type="Script" id=9]
+
+[node name="demo" type="Spatial"]
+transform = Transform( -0.528438, 0, -0.848972, 0, 1, 0, 0.848972, 0, -0.528438, 0, 0, 0 )
+script = ExtResource( 1 )
+
+[node name="barrel" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.81995, 1.06238, -0.0377955 )
+
+[node name="carrot" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.742924, -0.258635, -0.617392, 0.198914, 0.965975, -0.165303, 0.639138, 0, 0.769092, 3.21132, 0.165078, -1.58705 )
+
+[node name="model_onion" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 0.997136, 0.0756245, 0, -0.0756245, 0.997136, 3.81939, 1.94045, -0.385674 )
+
+[node name="potato" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.641494, 0.227408, -0.732647, -0.149806, 0.973799, 0.171093, 0.752359, 0, 0.658754, 4.75491, 0.256967, -0.352007 )
+
+[node name="farmer_model" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.696459, 0, -0.717596, 0, 1, 0, 0.717596, 0, 0.696459, 2.32018, -0.257902, 0.43547 )
+
+[node name="camera" type="Camera" parent="."]
+transform = Transform( 0.866025, -0.211309, -0.453154, 0, 0.906308, -0.422618, 0.5, 0.365998, 0.784886, 2, 5, -1 )
+current = true
+fov = 35.0
+
+[node name="barn" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.495834, 0, -1.14745, 0, 1.25, 0, 1.14745, 0, 0.495834, 14.889, 0, -8.398 )
+
+[node name="directional_light" type="DirectionalLight" parent="."]
+transform = Transform( 0.22817, 0.161855, -0.960074, 0.0142761, 0.985423, 0.169522, 0.973517, -0.0523858, 0.222533, 0, 1.14, 0 )
+visible = false
+shadow_enabled = true
+
+[node name="omni_light" type="OmniLight" parent="."]
+transform = Transform( 1, 0, -2.98023e-008, 0, 1, 0, 2.98023e-008, 0, 1, -0.441, 1.648, -0.236 )
+light_energy = 3.0
+shadow_enabled = true
+
+[node name="world_environment" type="WorldEnvironment" parent="." groups=[
+"environment",
+]]
+environment = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="camera_position0" type="Position3D" parent="."]
+transform = Transform( 0.866026, -0.211309, -0.453154, 0, 0.906308, -0.422618, 0.5, 0.365998, 0.784886, 2, 5, -1 )
+
+[node name="camera_position1" type="Position3D" parent="."]
+transform = Transform( 0.707107, -0.183013, -0.683013, 0, 0.965926, -0.258819, 0.707107, 0.183013, 0.683013, -4.73, 0.71, 7.7 )
+
+[node name="camera_position2" type="Position3D" parent="."]
+transform = Transform( 0.866025, -0.12941, -0.482963, 0, 0.965926, -0.258819, 0.5, 0.224144, 0.836516, -1.52, 0.36, 5.75 )
+
+[node name="tween" type="Tween" parent="."]

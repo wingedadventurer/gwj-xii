@@ -22,3 +22,120 @@ margin_right = 158.0
 margin_bottom = -8.0
 rect_min_size = Vector2( 150, 40 )
 text = "Back"
+
+[node name="vbox" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -480.0
+margin_top = -73.0
+margin_right = -196.0
+margin_bottom = 73.0
+rect_pivot_offset = Vector2( 142, 0 )
+custom_constants/separation = 10
+alignment = 1
+
+[node name="grid_container" type="GridContainer" parent="vbox"]
+margin_top = 22.0
+margin_right = 284.0
+margin_bottom = 93.0
+columns = 2
+
+[node name="label_shadows" type="Label" parent="vbox/grid_container"]
+margin_top = 2.0
+margin_right = 180.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 180, 0 )
+text = "Shadow Quality"
+
+[node name="option_shadows" type="OptionButton" parent="vbox/grid_container"]
+margin_left = 184.0
+margin_right = 284.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 100, 0 )
+text = "Medium"
+
+[node name="label_bloom" type="Label" parent="vbox/grid_container"]
+visible = false
+margin_top = 27.0
+margin_right = 180.0
+margin_bottom = 44.0
+text = "Bloom Quality"
+
+[node name="option_bloom" type="OptionButton" parent="vbox/grid_container"]
+visible = false
+margin_top = 25.0
+margin_right = 180.0
+margin_bottom = 46.0
+text = "Off"
+
+[node name="label_ssao" type="Label" parent="vbox/grid_container"]
+margin_top = 27.0
+margin_right = 180.0
+margin_bottom = 44.0
+text = "Ambient Occlusion"
+
+[node name="option_ssao" type="OptionButton" parent="vbox/grid_container"]
+margin_left = 184.0
+margin_top = 25.0
+margin_right = 284.0
+margin_bottom = 46.0
+text = "Off"
+
+[node name="label_filtering" type="Label" parent="vbox/grid_container"]
+visible = false
+margin_top = 77.0
+margin_right = 180.0
+margin_bottom = 94.0
+text = "Anisotropic Filtering"
+
+[node name="option_filtering" type="OptionButton" parent="vbox/grid_container"]
+visible = false
+margin_top = 75.0
+margin_right = 180.0
+margin_bottom = 96.0
+text = "2x"
+
+[node name="label_msaa" type="Label" parent="vbox/grid_container"]
+margin_top = 52.0
+margin_right = 180.0
+margin_bottom = 69.0
+text = "MSAA"
+
+[node name="option_msaa" type="OptionButton" parent="vbox/grid_container"]
+margin_left = 184.0
+margin_top = 50.0
+margin_right = 284.0
+margin_bottom = 71.0
+text = "4x"
+
+[node name="hbox" type="HBoxContainer" parent="vbox"]
+margin_top = 103.0
+margin_right = 284.0
+margin_bottom = 124.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="check_box_bloom" type="CheckBox" parent="vbox/hbox"]
+margin_left = 47.0
+margin_right = 124.0
+margin_bottom = 21.0
+size_flags_horizontal = 0
+text = "Bloom"
+align = 2
+
+[node name="check_box_fullscreen" type="CheckBox" parent="vbox/hbox"]
+margin_left = 134.0
+margin_right = 236.0
+margin_bottom = 21.0
+size_flags_horizontal = 0
+text = "Fullscreen"
+align = 2
+[connection signal="item_selected" from="vbox/grid_container/option_shadows" to="." method="_on_option_shadows_item_selected"]
+[connection signal="item_selected" from="vbox/grid_container/option_bloom" to="." method="_on_option_bloom_item_selected"]
+[connection signal="item_selected" from="vbox/grid_container/option_ssao" to="." method="_on_option_ssao_item_selected"]
+[connection signal="item_selected" from="vbox/grid_container/option_filtering" to="." method="_on_option_filtering_item_selected"]
+[connection signal="item_selected" from="vbox/grid_container/option_msaa" to="." method="_on_option_msaa_item_selected"]
+[connection signal="toggled" from="vbox/hbox/check_box_bloom" to="." method="_on_check_box_bloom_toggled"]
+[connection signal="toggled" from="vbox/hbox/check_box_fullscreen" to="." method="_on_check_box_fullscreen_toggled"]
