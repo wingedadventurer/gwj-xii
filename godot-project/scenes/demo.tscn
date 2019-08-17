@@ -2,13 +2,16 @@
 
 [ext_resource path="res://scenes/demo.gd" type="Script" id=1]
 [ext_resource path="res://models/props/barrel.tscn" type="PackedScene" id=2]
-[ext_resource path="res://models/units/carrot.tscn" type="PackedScene" id=3]
-[ext_resource path="res://models/units/onion.tscn" type="PackedScene" id=4]
-[ext_resource path="res://models/units/potato.tscn" type="PackedScene" id=5]
+[ext_resource path="res://models/units/carrot_model.tscn" type="PackedScene" id=3]
+[ext_resource path="res://models/units/onion_model.tscn" type="PackedScene" id=4]
+[ext_resource path="res://models/units/potato_model.tscn" type="PackedScene" id=5]
 [ext_resource path="res://models/farmer_model.tscn" type="PackedScene" id=6]
 [ext_resource path="res://models/props/barn.tscn" type="PackedScene" id=7]
 [ext_resource path="res://environments/default_environment.tres" type="Environment" id=8]
 [ext_resource path="res://scripts/environment.gd" type="Script" id=9]
+
+
+
 
 [node name="demo" type="Spatial"]
 transform = Transform( -0.528438, 0, -0.848972, 0, 1, 0, 0.848972, 0, -0.528438, 0, 0, 0 )

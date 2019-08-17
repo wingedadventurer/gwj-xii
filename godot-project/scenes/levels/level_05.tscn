@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/level.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/tiles/tile_dirt.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/units/unit_potato.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/units/unit_onion.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/celery.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/signal_start.tscn" type="PackedScene" id=6]
+[ext_resource path="res://models/tiles/dirt_tile_model.tscn" type="PackedScene" id=2]
+[ext_resource path="res://models/tiles/grass_tile_model.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/units/unit_potato.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/units/unit_onion.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/celery.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/signal_start.tscn" type="PackedScene" id=7]
 
 [node name="level" index="0" instance=ExtResource( 1 )]
 days_to_harvest = 4
@@ -16,234 +17,567 @@ editor/display_folded = false
 [node name="collision_polygon" parent="playable_area" index="0"]
 polygon = PoolVector2Array( -2.39388, -4.35333, 6.372, -4.37243, 6.31471, 0.306525, 2.34237, 0.34472, 2.34237, 4.33616, -3.38696, 4.35525, -3.38696, -0.380996, -2.39388, -0.3428 )
 
-[node name="tiles" parent="." index="3"]
-editor/display_folded = true
+[node name="dirt_tile" parent="tiles" index="0" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 6, 0, -4 )
 
-[node name="tile_dirt" parent="tiles" index="0" instance=ExtResource( 2 )]
+[node name="dirt_tile_21" parent="tiles" index="1" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 2, 0, -4 )
 
-[node name="tile_dirt_60" parent="tiles" index="1" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+[node name="dirt_tile_41" parent="tiles" index="2" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 2, 0, 1 )
 
-[node name="tile_dirt_66" parent="tiles" index="2" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+[node name="dirt_tile_6" parent="tiles" index="3" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 5, 0, -4 )
 
-[node name="tile_dirt_69" parent="tiles" index="3" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
+[node name="dirt_tile_25" parent="tiles" index="4" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 1, 0, -4 )
 
-[node name="tile_dirt_2" parent="tiles" index="4" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+[node name="dirt_tile_43" parent="tiles" index="5" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 1, 0, 1 )
 
-[node name="tile_dirt_61" parent="tiles" index="5" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1 )
+[node name="dirt_tile_12" parent="tiles" index="6" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 4, 0, -4 )
 
-[node name="tile_dirt_64" parent="tiles" index="6" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2 )
+[node name="dirt_tile_27" parent="tiles" index="7" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, -4 )
 
-[node name="tile_dirt_70" parent="tiles" index="7" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3 )
+[node name="dirt_tile_45" parent="tiles" index="8" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 1 )
 
-[node name="tile_dirt_3" parent="tiles" index="8" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
+[node name="dirt_tile_16" parent="tiles" index="9" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 3, 0, -4 )
 
-[node name="tile_dirt_59" parent="tiles" index="9" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1 )
+[node name="dirt_tile_33" parent="tiles" index="10" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -1, 0, -4 )
 
-[node name="tile_dirt_63" parent="tiles" index="10" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2 )
+[node name="dirt_tile_44" parent="tiles" index="11" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -2, 0, -4 )
 
-[node name="tile_dirt_68" parent="tiles" index="11" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 3 )
+[node name="dirt_tile_49" parent="tiles" index="12" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -1, 0, 1 )
 
-[node name="tile_dirt_4" parent="tiles" index="12" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
+[node name="dirt_tile_65" parent="tiles" index="13" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -2, 0, 1 )
 
-[node name="tile_dirt_62" parent="tiles" index="13" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1 )
+[node name="dirt_tile_66" parent="tiles" index="14" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -3, 0, 1 )
 
-[node name="tile_dirt_65" parent="tiles" index="14" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2 )
+[node name="dirt_tile_2" parent="tiles" index="15" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 6, 0, -3 )
 
-[node name="tile_dirt_67" parent="tiles" index="15" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3 )
+[node name="dirt_tile_23" parent="tiles" index="16" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 2, 0, -3 )
 
-[node name="tile_dirt_5" parent="tiles" index="16" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
+[node name="dirt_tile_42" parent="tiles" index="17" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 2, 0, 2 )
 
-[node name="tile_dirt_6" parent="tiles" index="17" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1 )
+[node name="dirt_tile_7" parent="tiles" index="18" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 5, 0, -3 )
 
-[node name="tile_dirt_7" parent="tiles" index="18" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2 )
+[node name="dirt_tile_22" parent="tiles" index="19" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 1, 0, -3 )
 
-[node name="tile_dirt_8" parent="tiles" index="19" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3 )
+[node name="dirt_tile_53" parent="tiles" index="20" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 1, 0, 2 )
 
-[node name="tile_dirt_9" parent="tiles" index="20" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4 )
+[node name="dirt_tile_11" parent="tiles" index="21" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 4, 0, -3 )
 
-[node name="tile_dirt_10" parent="tiles" index="21" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4 )
+[node name="dirt_tile_39" parent="tiles" index="22" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, -3 )
 
-[node name="tile_dirt_11" parent="tiles" index="22" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
+[node name="dirt_tile_60" parent="tiles" index="23" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 2 )
 
-[node name="tile_dirt_12" parent="tiles" index="23" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 4 )
+[node name="dirt_tile_19" parent="tiles" index="24" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 3, 0, -3 )
 
-[node name="tile_dirt_13" parent="tiles" index="24" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4 )
+[node name="dirt_tile_38" parent="tiles" index="25" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -1, 0, -3 )
 
-[node name="tile_dirt_14" parent="tiles" index="25" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 4 )
+[node name="dirt_tile_61" parent="tiles" index="26" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -2, 0, -3 )
 
-[node name="tile_dirt_15" parent="tiles" index="26" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3 )
+[node name="dirt_tile_57" parent="tiles" index="27" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -1, 0, 2 )
 
-[node name="tile_dirt_16" parent="tiles" index="27" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 2 )
+[node name="dirt_tile_64" parent="tiles" index="28" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -2, 0, 2 )
 
-[node name="tile_dirt_17" parent="tiles" index="28" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1 )
+[node name="dirt_tile_68" parent="tiles" index="29" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -3, 0, 2 )
 
-[node name="tile_dirt_18" parent="tiles" index="29" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0 )
+[node name="dirt_tile_3" parent="tiles" index="30" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 6, 0, -2 )
 
-[node name="tile_dirt_19" parent="tiles" index="30" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1 )
+[node name="dirt_tile_24" parent="tiles" index="31" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 2, 0, -2 )
 
-[node name="tile_dirt_20" parent="tiles" index="31" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2 )
+[node name="dirt_tile_54" parent="tiles" index="32" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 2, 0, 3 )
 
-[node name="tile_dirt_21" parent="tiles" index="32" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3 )
+[node name="dirt_tile_8" parent="tiles" index="33" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 5, 0, -2 )
 
-[node name="tile_dirt_22" parent="tiles" index="33" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4 )
+[node name="dirt_tile_30" parent="tiles" index="34" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 1, 0, -2 )
 
-[node name="tile_dirt_23" parent="tiles" index="34" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4 )
+[node name="dirt_tile_46" parent="tiles" index="35" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 1, 0, 3 )
 
-[node name="tile_dirt_24" parent="tiles" index="35" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -4 )
+[node name="dirt_tile_14" parent="tiles" index="36" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 4, 0, -2 )
 
-[node name="tile_dirt_25" parent="tiles" index="36" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4 )
+[node name="dirt_tile_36" parent="tiles" index="37" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, -2 )
 
-[node name="tile_dirt_26" parent="tiles" index="37" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4 )
+[node name="dirt_tile_56" parent="tiles" index="38" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 3 )
 
-[node name="tile_dirt_27" parent="tiles" index="38" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -4 )
+[node name="dirt_tile_18" parent="tiles" index="39" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 3, 0, -2 )
 
-[node name="tile_dirt_31" parent="tiles" index="39" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3 )
+[node name="dirt_tile_35" parent="tiles" index="40" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -1, 0, -2 )
 
-[node name="tile_dirt_36" parent="tiles" index="40" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3 )
+[node name="dirt_tile_58" parent="tiles" index="41" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -2, 0, -2 )
 
-[node name="tile_dirt_39" parent="tiles" index="41" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+[node name="dirt_tile_51" parent="tiles" index="42" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -1, 0, 3 )
 
-[node name="tile_dirt_41" parent="tiles" index="42" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+[node name="dirt_tile_59" parent="tiles" index="43" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -2, 0, 3 )
 
-[node name="tile_dirt_43" parent="tiles" index="43" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0 )
+[node name="dirt_tile_69" parent="tiles" index="44" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -3, 0, 3 )
 
-[node name="tile_dirt_46" parent="tiles" index="44" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -1 )
+[node name="dirt_tile_4" parent="tiles" index="45" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 6, 0, -1 )
 
-[node name="tile_dirt_49" parent="tiles" index="45" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2 )
+[node name="dirt_tile_31" parent="tiles" index="46" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 2, 0, -1 )
 
-[node name="tile_dirt_28" parent="tiles" index="46" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4 )
+[node name="dirt_tile_47" parent="tiles" index="47" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 2, 0, 4 )
 
-[node name="tile_dirt_32" parent="tiles" index="47" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3 )
+[node name="dirt_tile_10" parent="tiles" index="48" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 5, 0, -1 )
 
-[node name="tile_dirt_34" parent="tiles" index="48" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3 )
+[node name="dirt_tile_32" parent="tiles" index="49" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 1, 0, -1 )
 
-[node name="tile_dirt_38" parent="tiles" index="49" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2 )
+[node name="dirt_tile_48" parent="tiles" index="50" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 1, 0, 4 )
 
-[node name="tile_dirt_42" parent="tiles" index="50" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1 )
+[node name="dirt_tile_15" parent="tiles" index="51" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 4, 0, -1 )
 
-[node name="tile_dirt_44" parent="tiles" index="51" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
+[node name="dirt_tile_28" parent="tiles" index="52" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, -1 )
 
-[node name="tile_dirt_47" parent="tiles" index="52" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1 )
+[node name="dirt_tile_55" parent="tiles" index="53" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 4 )
 
-[node name="tile_dirt_51" parent="tiles" index="53" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2 )
+[node name="dirt_tile_17" parent="tiles" index="54" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 3, 0, -1 )
 
-[node name="tile_dirt_29" parent="tiles" index="54" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -4 )
+[node name="dirt_tile_34" parent="tiles" index="55" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -1, 0, -1 )
 
-[node name="tile_dirt_52" parent="tiles" index="55" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3 )
+[node name="dirt_tile_52" parent="tiles" index="56" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -2, 0, -1 )
 
-[node name="tile_dirt_53" parent="tiles" index="56" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -2 )
+[node name="dirt_tile_50" parent="tiles" index="57" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -1, 0, 4 )
 
-[node name="tile_dirt_54" parent="tiles" index="57" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -1 )
+[node name="dirt_tile_63" parent="tiles" index="58" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -2, 0, 4 )
 
-[node name="tile_dirt_55" parent="tiles" index="58" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0 )
+[node name="dirt_tile_67" parent="tiles" index="59" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -3, 0, 4 )
 
-[node name="tile_dirt_56" parent="tiles" index="59" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1 )
+[node name="dirt_tile_5" parent="tiles" index="60" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 6, 0, 0 )
 
-[node name="tile_dirt_57" parent="tiles" index="60" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2 )
+[node name="dirt_tile_29" parent="tiles" index="61" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 2, 0, 0 )
 
-[node name="tile_dirt_58" parent="tiles" index="61" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -3 )
+[node name="dirt_tile_9" parent="tiles" index="62" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 5, 0, 0 )
 
-[node name="tile_dirt_33" parent="tiles" index="62" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -3 )
+[node name="dirt_tile_26" parent="tiles" index="63" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 1, 0, 0 )
 
-[node name="tile_dirt_35" parent="tiles" index="63" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3 )
+[node name="dirt_tile_13" parent="tiles" index="64" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 4, 0, 0 )
 
-[node name="tile_dirt_37" parent="tiles" index="64" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2 )
+[node name="dirt_tile_40" parent="tiles" index="65" instance=ExtResource( 2 )]
 
-[node name="tile_dirt_40" parent="tiles" index="65" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1 )
+[node name="dirt_tile_20" parent="tiles" index="66" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 3, 0, 0 )
 
-[node name="tile_dirt_45" parent="tiles" index="66" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0 )
+[node name="dirt_tile_37" parent="tiles" index="67" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -1, 0, 0 )
 
-[node name="tile_dirt_48" parent="tiles" index="67" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -1 )
+[node name="dirt_tile_62" parent="tiles" index="68" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -2, 0, 0 )
 
-[node name="tile_dirt_50" parent="tiles" index="68" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -2 )
+[node name="dirt_tile_70" parent="tiles" index="69" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -3, 0, 0 )
 
-[node name="tile_dirt_30" parent="tiles" index="69" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -4 )
+[node name="grass_tile" parent="tiles" index="70" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -4, -0.05, -5 )
 
-[node name="unit_potato" parent="units" index="0" instance=ExtResource( 3 )]
+[node name="grass_tile_67" parent="tiles" index="71" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -4, -0.05, -3 )
+
+[node name="grass_tile_71" parent="tiles" index="72" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -4, -0.05, -1 )
+
+[node name="grass_tile_109" parent="tiles" index="73" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -3, -0.05, -1 )
+
+[node name="grass_tile_110" parent="tiles" index="74" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -3, -0.05, -2 )
+
+[node name="grass_tile_111" parent="tiles" index="75" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -3, -0.05, -3 )
+
+[node name="grass_tile_112" parent="tiles" index="76" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -3, -0.05, -4 )
+
+[node name="grass_tile_74" parent="tiles" index="77" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -4, -0.05, 1 )
+
+[node name="grass_tile_79" parent="tiles" index="78" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -4, -0.05, 3 )
+
+[node name="grass_tile_83" parent="tiles" index="79" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 8, -0.05, -5 )
+
+[node name="grass_tile_88" parent="tiles" index="80" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 8, -0.05, -3 )
+
+[node name="grass_tile_90" parent="tiles" index="81" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 8, -0.05, -1 )
+
+[node name="grass_tile_95" parent="tiles" index="82" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 8, -0.05, 1 )
+
+[node name="grass_tile_99" parent="tiles" index="83" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 8, -0.05, 3 )
+
+[node name="grass_tile_104" parent="tiles" index="84" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 8, -0.05, 5 )
+
+[node name="grass_tile_14" parent="tiles" index="85" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, -0.05, -5 )
+
+[node name="grass_tile_21" parent="tiles" index="86" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 4, -0.05, -5 )
+
+[node name="grass_tile_27" parent="tiles" index="87" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 4, -0.05, 2 )
+
+[node name="grass_tile_33" parent="tiles" index="88" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 4, -0.05, 4 )
+
+[node name="grass_tile_41" parent="tiles" index="89" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 4, -0.05, 6 )
+
+[node name="grass_tile_54" parent="tiles" index="90" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, -0.05, 6 )
+
+[node name="grass_tile_63" parent="tiles" index="91" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -4, -0.05, 6 )
+
+[node name="grass_tile_7" parent="tiles" index="92" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -2, -0.05, -5 )
+
+[node name="grass_tile_11" parent="tiles" index="93" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 2, -0.05, -5 )
+
+[node name="grass_tile_17" parent="tiles" index="94" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 6, -0.05, -5 )
+
+[node name="grass_tile_29" parent="tiles" index="95" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 6, -0.05, 2 )
+
+[node name="grass_tile_38" parent="tiles" index="96" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 6, -0.05, 4 )
+
+[node name="grass_tile_48" parent="tiles" index="97" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 6, -0.05, 6 )
+
+[node name="grass_tile_55" parent="tiles" index="98" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 2, -0.05, 6 )
+
+[node name="grass_tile_62" parent="tiles" index="99" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -2, -0.05, 6 )
+
+[node name="grass_tile_2" parent="tiles" index="100" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -4, -0.05, -6 )
+
+[node name="grass_tile_66" parent="tiles" index="101" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -4, -0.05, -4 )
+
+[node name="grass_tile_70" parent="tiles" index="102" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -4, -0.05, -2 )
+
+[node name="grass_tile_75" parent="tiles" index="103" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -4, -0.05, 0 )
+
+[node name="grass_tile_80" parent="tiles" index="104" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -4, -0.05, 2 )
+
+[node name="grass_tile_84" parent="tiles" index="105" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 8, -0.05, -6 )
+
+[node name="grass_tile_85" parent="tiles" index="106" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 8, -0.05, -4 )
+
+[node name="grass_tile_91" parent="tiles" index="107" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 8, -0.05, -2 )
+
+[node name="grass_tile_96" parent="tiles" index="108" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 8, -0.05, 0 )
+
+[node name="grass_tile_100" parent="tiles" index="109" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 8, -0.05, 2 )
+
+[node name="grass_tile_103" parent="tiles" index="110" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 8, -0.05, 4 )
+
+[node name="grass_tile_12" parent="tiles" index="111" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, -0.05, -6 )
+
+[node name="grass_tile_24" parent="tiles" index="112" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 4, -0.05, -6 )
+
+[node name="grass_tile_26" parent="tiles" index="113" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 4, -0.05, 1 )
+
+[node name="grass_tile_36" parent="tiles" index="114" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 4, -0.05, 3 )
+
+[node name="grass_tile_46" parent="tiles" index="115" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 4, -0.05, 5 )
+
+[node name="grass_tile_52" parent="tiles" index="116" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, -0.05, 5 )
+
+[node name="grass_tile_60" parent="tiles" index="117" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -4, -0.05, 5 )
+
+[node name="grass_tile_106" parent="tiles" index="118" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -4, -0.05, 4 )
+
+[node name="grass_tile_108" parent="tiles" index="119" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 8, -0.05, 6 )
+
+[node name="grass_tile_6" parent="tiles" index="120" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -2, -0.05, -6 )
+
+[node name="grass_tile_13" parent="tiles" index="121" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 2, -0.05, -6 )
+
+[node name="grass_tile_20" parent="tiles" index="122" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 6, -0.05, -6 )
+
+[node name="grass_tile_31" parent="tiles" index="123" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 6, -0.05, 1 )
+
+[node name="grass_tile_34" parent="tiles" index="124" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 6, -0.05, 3 )
+
+[node name="grass_tile_42" parent="tiles" index="125" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 6, -0.05, 5 )
+
+[node name="grass_tile_56" parent="tiles" index="126" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 2, -0.05, 5 )
+
+[node name="grass_tile_64" parent="tiles" index="127" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -2, -0.05, 5 )
+
+[node name="grass_tile_3" parent="tiles" index="128" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -5, -0.05, -6 )
+
+[node name="grass_tile_68" parent="tiles" index="129" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -5, -0.05, -4 )
+
+[node name="grass_tile_72" parent="tiles" index="130" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -5, -0.05, -2 )
+
+[node name="grass_tile_76" parent="tiles" index="131" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -5, -0.05, 0 )
+
+[node name="grass_tile_77" parent="tiles" index="132" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -5, -0.05, 2 )
+
+[node name="grass_tile_81" parent="tiles" index="133" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 7, -0.05, -6 )
+
+[node name="grass_tile_87" parent="tiles" index="134" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 7, -0.05, -4 )
+
+[node name="grass_tile_92" parent="tiles" index="135" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 7, -0.05, -2 )
+
+[node name="grass_tile_93" parent="tiles" index="136" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 7, -0.05, 0 )
+
+[node name="grass_tile_98" parent="tiles" index="137" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 7, -0.05, 2 )
+
+[node name="grass_tile_102" parent="tiles" index="138" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 7, -0.05, 4 )
+
+[node name="grass_tile_15" parent="tiles" index="139" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -1, -0.05, -6 )
+
+[node name="grass_tile_23" parent="tiles" index="140" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 3, -0.05, -6 )
+
+[node name="grass_tile_28" parent="tiles" index="141" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 3, -0.05, 1 )
+
+[node name="grass_tile_37" parent="tiles" index="142" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 3, -0.05, 3 )
+
+[node name="grass_tile_44" parent="tiles" index="143" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 3, -0.05, 5 )
+
+[node name="grass_tile_50" parent="tiles" index="144" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -1, -0.05, 5 )
+
+[node name="grass_tile_58" parent="tiles" index="145" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -5, -0.05, 5 )
+
+[node name="grass_tile_105" parent="tiles" index="146" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -5, -0.05, 4 )
+
+[node name="grass_tile_107" parent="tiles" index="147" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 7, -0.05, 6 )
+
+[node name="grass_tile_8" parent="tiles" index="148" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -3, -0.05, -6 )
+
+[node name="grass_tile_16" parent="tiles" index="149" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 1, -0.05, -6 )
+
+[node name="grass_tile_18" parent="tiles" index="150" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 5, -0.05, -6 )
+
+[node name="grass_tile_30" parent="tiles" index="151" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 5, -0.05, 1 )
+
+[node name="grass_tile_39" parent="tiles" index="152" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 5, -0.05, 3 )
+
+[node name="grass_tile_47" parent="tiles" index="153" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 5, -0.05, 5 )
+
+[node name="grass_tile_53" parent="tiles" index="154" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 1, -0.05, 5 )
+
+[node name="grass_tile_61" parent="tiles" index="155" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -3, -0.05, 5 )
+
+[node name="grass_tile_4" parent="tiles" index="156" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -5, -0.05, -5 )
+
+[node name="grass_tile_65" parent="tiles" index="157" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -5, -0.05, -3 )
+
+[node name="grass_tile_69" parent="tiles" index="158" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -5, -0.05, -1 )
+
+[node name="grass_tile_73" parent="tiles" index="159" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -5, -0.05, 1 )
+
+[node name="grass_tile_78" parent="tiles" index="160" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -5, -0.05, 3 )
+
+[node name="grass_tile_82" parent="tiles" index="161" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 7, -0.05, -5 )
+
+[node name="grass_tile_86" parent="tiles" index="162" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 7, -0.05, -3 )
+
+[node name="grass_tile_89" parent="tiles" index="163" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 7, -0.05, -1 )
+
+[node name="grass_tile_94" parent="tiles" index="164" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 7, -0.05, 1 )
+
+[node name="grass_tile_97" parent="tiles" index="165" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 7, -0.05, 3 )
+
+[node name="grass_tile_101" parent="tiles" index="166" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 7, -0.05, 5 )
+
+[node name="grass_tile_10" parent="tiles" index="167" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -1, -0.05, -5 )
+
+[node name="grass_tile_19" parent="tiles" index="168" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 3, -0.05, -5 )
+
+[node name="grass_tile_25" parent="tiles" index="169" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 3, -0.05, 2 )
+
+[node name="grass_tile_35" parent="tiles" index="170" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 3, -0.05, 4 )
+
+[node name="grass_tile_43" parent="tiles" index="171" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 3, -0.05, 6 )
+
+[node name="grass_tile_49" parent="tiles" index="172" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -1, -0.05, 6 )
+
+[node name="grass_tile_57" parent="tiles" index="173" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -5, -0.05, 6 )
+
+[node name="grass_tile_5" parent="tiles" index="174" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -3, -0.05, -5 )
+
+[node name="grass_tile_9" parent="tiles" index="175" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 1, -0.05, -5 )
+
+[node name="grass_tile_22" parent="tiles" index="176" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 5, -0.05, -5 )
+
+[node name="grass_tile_32" parent="tiles" index="177" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 5, -0.05, 2 )
+
+[node name="grass_tile_40" parent="tiles" index="178" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 5, -0.05, 4 )
+
+[node name="grass_tile_45" parent="tiles" index="179" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 5, -0.05, 6 )
+
+[node name="grass_tile_51" parent="tiles" index="180" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 1, -0.05, 6 )
+
+[node name="grass_tile_59" parent="tiles" index="181" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -3, -0.05, 6 )
+
+[node name="unit_potato" parent="units" index="0" instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -3, 0, 2 )
 buried = false
 
-[node name="unit_potato_2" parent="units" index="1" instance=ExtResource( 3 )]
+[node name="unit_potato_2" parent="units" index="1" instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-008, -4.37114e-008, -1, 4.37114e-008, 1, -4.37114e-008, 1, -4.37114e-008, -4.37114e-008, 2, 0, -1 )
 buried = false
 
-[node name="unit_potato_3" parent="units" index="2" instance=ExtResource( 3 )]
+[node name="unit_potato_3" parent="units" index="2" instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -1.19209e-007, 0, 2 )
 buried = false
 
-[node name="unit_onion" parent="units" index="3" instance=ExtResource( 4 )]
+[node name="unit_onion" parent="units" index="3" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1 )
 
-[node name="unit_onion_2" parent="units" index="4" instance=ExtResource( 4 )]
+[node name="unit_onion_2" parent="units" index="4" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
 
 [node name="camera_limit_top_left" parent="." index="7"]
@@ -252,34 +586,34 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -5 )
 [node name="camera_limit_bottom_right" parent="." index="8"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 5 )
 
-[node name="celery" parent="." index="9" instance=ExtResource( 5 )]
+[node name="celery" parent="." index="9" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
 
-[node name="celery_2" parent="." index="10" instance=ExtResource( 5 )]
+[node name="celery_2" parent="." index="10" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
 
-[node name="celery_3" parent="." index="11" instance=ExtResource( 5 )]
+[node name="celery_3" parent="." index="11" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2 )
 
-[node name="celery_4" parent="." index="12" instance=ExtResource( 5 )]
+[node name="celery_4" parent="." index="12" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4 )
 
-[node name="celery_5" parent="." index="13" instance=ExtResource( 5 )]
+[node name="celery_5" parent="." index="13" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -4 )
 
-[node name="celery_6" parent="." index="14" instance=ExtResource( 5 )]
+[node name="celery_6" parent="." index="14" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0 )
 
-[node name="celery_7" parent="." index="15" instance=ExtResource( 5 )]
+[node name="celery_7" parent="." index="15" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2 )
 
-[node name="celery_8" parent="." index="16" instance=ExtResource( 5 )]
+[node name="celery_8" parent="." index="16" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
 
-[node name="celery_9" parent="." index="17" instance=ExtResource( 5 )]
+[node name="celery_9" parent="." index="17" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4 )
 
-[node name="signal_start" parent="." index="18" instance=ExtResource( 6 )]
+[node name="signal_start" parent="." index="18" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2 )
 
 [editable path="playable_area"]

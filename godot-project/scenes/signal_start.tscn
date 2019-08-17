@@ -2,8 +2,9 @@
 
 [ext_resource path="res://scripts/signal_start.gd" type="Script" id=1]
 [ext_resource path="res://scenes/signal_launcher.tscn" type="PackedScene" id=2]
-[ext_resource path="res://models/model_thunder.tscn" type="PackedScene" id=3]
+[ext_resource path="res://models/thunder_model_temp.tscn" type="PackedScene" id=3]
 [ext_resource path="res://audio/sfx/signal/start_signal_2.wav" type="AudioStream" id=4]
+
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.121569, 0.827451, 0.976471, 1 )

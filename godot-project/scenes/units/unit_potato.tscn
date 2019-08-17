@@ -4,10 +4,11 @@
 [ext_resource path="res://scripts/units/unit_potato.gd" type="Script" id=2]
 [ext_resource path="res://audio/sfx/unit/potato/potato_bury.wav" type="AudioStream" id=3]
 [ext_resource path="res://audio/sfx/unit/potato/potato_move.wav" type="AudioStream" id=4]
-[ext_resource path="res://models/units/potato.tscn" type="PackedScene" id=5]
+[ext_resource path="res://models/units/potato_model.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/unit_move_arrow.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/signal_position.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/signal_launcher.tscn" type="PackedScene" id=8]
+
 
 [node name="unit_potato" groups=[
 "potato",

@@ -8,7 +8,8 @@
 [ext_resource path="res://scenes/unit_move_arrow.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/signal_position.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/signal_launcher.tscn" type="PackedScene" id=8]
-[ext_resource path="res://models/units/onion.tscn" type="PackedScene" id=9]
+[ext_resource path="res://models/units/onion_model.tscn" type="PackedScene" id=9]
+
 
 [node name="unit_onion" groups=[
 "onion",

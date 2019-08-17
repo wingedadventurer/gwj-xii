@@ -7,6 +7,7 @@ const OBJ_TRANSITION_IN = preload("res://scenes/ui/transition_in.tscn")
 const OBJ_LEVEL_INTRO = preload("res://scenes/ui/level_intro.tscn")
 var scene_camera = preload("res://scenes/camera.tscn")
 var cursor_image = preload("res://textures/cursor_carrot.png")
+const SCENE_GRASS_PLANE = preload("res://scenes/grass_plane.tscn")
 
 onready var canvas = $canvas_layer
 
@@ -70,6 +71,10 @@ func initialize() -> void:
 	
 	for farmer in get_tree().get_nodes_in_group("farmer"):
 		farmer.connect("action_done", self, "_on_farmer_action_done")
+	
+	# add grass plane
+	var grass_plane = SCENE_GRASS_PLANE.instance()
+	add_child(grass_plane)
 
 func reset_remaining_celery_count() -> void:
 	remaining_celeries = number_of_celeries
