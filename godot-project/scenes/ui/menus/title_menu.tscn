@@ -241,6 +241,7 @@ rect_min_size = Vector2( 150, 40 )
 text = "Quit"
 
 [node name="attribution" type="Label" parent="."]
+visible = false
 modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
 anchor_top = 1.0
 anchor_bottom = 1.0

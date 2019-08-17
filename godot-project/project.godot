@@ -62,7 +62,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Vegetable Chess"
+config/name="The Good, the Bad, and the Veggie"
 run/main_scene="res://scenes/ui/menus/main_menu.tscn"
 boot_splash/image="res://textures/splash.png"
 config/icon="res://icon.png"
