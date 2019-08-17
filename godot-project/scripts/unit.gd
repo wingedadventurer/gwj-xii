@@ -6,6 +6,7 @@ onready var move_tween = $move_tween
 onready var turn_tween = $turn_tween
 
 export var buried := true
+var new_rotation := 0.0
 
 var selectable := true setget set_selectable
 var highlighted := false setget set_highlighted
@@ -15,7 +16,6 @@ var action_done := false setget set_action_done
 var signals_launched := false
 
 var icon : class_unit_icon = null
-var rot := 0.0 setget set_rot
 var mouse_over := false
 
 var move_tween_values := {
@@ -60,10 +60,14 @@ func _ready() -> void:
 		
 		icon.call_deferred("update_icon")
 	
-		set_rot(rot)
 		$action_indicator.visible = true
 		$move_positions.set_as_toplevel(true)
+		$signal_launchers.set_as_toplevel(true)
 		$signal_positions.set_as_toplevel(true)
+		
+		new_rotation = rotation_degrees.y
+		$signal_launchers.rotation_degrees.y = new_rotation
+		$signal_positions.rotation_degrees.y = new_rotation
 
 func _unhandled_input(event) -> void:
 	if event is InputEventMouseButton \
@@ -78,15 +82,6 @@ func _unhandled_input(event) -> void:
 			deselect()
 			for unit_ui in get_tree().get_nodes_in_group("unit_ui"):
 				unit_ui.hide()
-
-func set_rot(value : float) -> void:
-	rot = value
-	
-	turn_tween.interpolate_property($model, "rotation_degrees:y", $model.rotation_degrees.y, rot, 0.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
-	turn_tween.start()
-	
-	$signal_launchers.rotation_degrees.y = rot + 180.0
-	$signal_positions.rotation_degrees.y = rot
 
 func set_action_done(value : bool) -> void:
 	if value:
@@ -181,6 +176,7 @@ func move(new_global_origin : Vector3) -> void:
 	set_action_done(true)
 	
 	$move_positions.global_transform.origin = new_global_origin
+	$signal_launchers.global_transform.origin = new_global_origin
 	$signal_positions.global_transform.origin = new_global_origin
 
 func reset() -> void:
@@ -231,8 +227,14 @@ func _on_signal_receive_area_body_entered(body):
 	launch_signals()
 
 func turn(cw := true) -> void:
-	if cw: set_rot(rot - 90.0)
-	else: set_rot(rot + 90.0)
+	if cw: new_rotation -= 90.0
+	else: new_rotation += 90.0
+	
+	turn_tween.interpolate_property(self, "rotation_degrees:y", rotation_degrees.y, new_rotation, 0.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+	turn_tween.start()
+	
+	$signal_launchers.rotation_degrees.y = new_rotation
+	$signal_positions.rotation_degrees.y = new_rotation
 
 func show_signal_positions() -> void:
 	for signal_position in $signal_positions.get_children():

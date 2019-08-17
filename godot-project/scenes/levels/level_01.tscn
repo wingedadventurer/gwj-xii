@@ -1,0 +1,416 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://models/tiles/dirt_tile.dae" type="PackedScene" id=2]
+[ext_resource path="res://scenes/units/unit_carrot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://models/props/fence_straight.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/celery.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/signal_start.tscn" type="PackedScene" id=6]
+
+[node name="level" index="0" instance=ExtResource( 1 )]
+days_to_harvest = 8
+
+[node name="playable_area" parent="." index="2"]
+editor/display_folded = false
+
+[node name="collision_polygon" parent="playable_area" index="0"]
+polygon = PoolVector2Array( 1.39046, -6.35745, 6.36784, -6.38016, 6.34161, -2.67015, 4.34812, -2.64409, 4.37859, 3.36386, 2.4012, 3.37316, 2.39682, 6.40186, -4.41306, 6.37248, -4.39256, 0.602496, 1.57754, 0.637125, 1.60596, -0.636831, -2.34192, -0.649861, -2.37276, -8.35917, 1.33234, -8.32859 )
+
+[node name="Scene Root" parent="tiles" index="0" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 0, 0, 2 )
+
+[node name="Scene Root_2" parent="tiles" index="1" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="Scene Root_3" parent="tiles" index="2" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1 )
+
+[node name="Scene Root_4" parent="tiles" index="3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2 )
+
+[node name="Scene Root_5" parent="tiles" index="4" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2 )
+
+[node name="Scene Root_6" parent="tiles" index="5" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1 )
+
+[node name="Scene Root_7" parent="tiles" index="6" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
+
+[node name="Scene Root_31" parent="tiles" index="7" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1 )
+
+[node name="Scene Root_32" parent="tiles" index="8" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2 )
+
+[node name="Scene Root_33" parent="tiles" index="9" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2 )
+
+[node name="Scene Root_34" parent="tiles" index="10" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -1 )
+
+[node name="Scene Root_35" parent="tiles" index="11" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1 )
+
+[node name="Scene Root_36" parent="tiles" index="12" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2 )
+
+[node name="Scene Root_37" parent="tiles" index="13" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2 )
+
+[node name="Scene Root_38" parent="tiles" index="14" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1 )
+
+[node name="Scene Root_39" parent="tiles" index="15" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+
+[node name="Scene Root_40" parent="tiles" index="16" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+
+[node name="Scene Root_41" parent="tiles" index="17" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2 )
+
+[node name="Scene Root_42" parent="tiles" index="18" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1 )
+
+[node name="Scene Root_43" parent="tiles" index="19" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1 )
+
+[node name="Scene Root_44" parent="tiles" index="20" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2 )
+
+[node name="Scene Root_45" parent="tiles" index="21" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3 )
+
+[node name="Scene Root_63" parent="tiles" index="22" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4 )
+
+[node name="Scene Root_73" parent="tiles" index="23" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5 )
+
+[node name="Scene Root_78" parent="tiles" index="24" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6 )
+
+[node name="Scene Root_85" parent="tiles" index="25" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -7 )
+
+[node name="Scene Root_91" parent="tiles" index="26" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -8 )
+
+[node name="Scene Root_46" parent="tiles" index="27" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3 )
+
+[node name="Scene Root_60" parent="tiles" index="28" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4 )
+
+[node name="Scene Root_72" parent="tiles" index="29" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5 )
+
+[node name="Scene Root_76" parent="tiles" index="30" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6 )
+
+[node name="Scene Root_89" parent="tiles" index="31" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7 )
+
+[node name="Scene Root_94" parent="tiles" index="32" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
+
+[node name="Scene Root_47" parent="tiles" index="33" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -3 )
+
+[node name="Scene Root_55" parent="tiles" index="34" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -4 )
+
+[node name="Scene Root_65" parent="tiles" index="35" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -5 )
+
+[node name="Scene Root_80" parent="tiles" index="36" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -6 )
+
+[node name="Scene Root_86" parent="tiles" index="37" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -7 )
+
+[node name="Scene Root_90" parent="tiles" index="38" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -8 )
+
+[node name="Scene Root_48" parent="tiles" index="39" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3 )
+
+[node name="Scene Root_64" parent="tiles" index="40" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4 )
+
+[node name="Scene Root_74" parent="tiles" index="41" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5 )
+
+[node name="Scene Root_77" parent="tiles" index="42" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -6 )
+
+[node name="Scene Root_88" parent="tiles" index="43" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -7 )
+
+[node name="Scene Root_92" parent="tiles" index="44" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -8 )
+
+[node name="Scene Root_50" parent="tiles" index="45" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3 )
+
+[node name="Scene Root_56" parent="tiles" index="46" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4 )
+
+[node name="Scene Root_66" parent="tiles" index="47" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5 )
+
+[node name="Scene Root_81" parent="tiles" index="48" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6 )
+
+[node name="Scene Root_51" parent="tiles" index="49" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3 )
+
+[node name="Scene Root_61" parent="tiles" index="50" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -4 )
+
+[node name="Scene Root_67" parent="tiles" index="51" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5 )
+
+[node name="Scene Root_79" parent="tiles" index="52" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -6 )
+
+[node name="Scene Root_52" parent="tiles" index="53" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3 )
+
+[node name="Scene Root_57" parent="tiles" index="54" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4 )
+
+[node name="Scene Root_69" parent="tiles" index="55" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5 )
+
+[node name="Scene Root_83" parent="tiles" index="56" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -6 )
+
+[node name="Scene Root_53" parent="tiles" index="57" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -3 )
+
+[node name="Scene Root_58" parent="tiles" index="58" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -4 )
+
+[node name="Scene Root_71" parent="tiles" index="59" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5 )
+
+[node name="Scene Root_75" parent="tiles" index="60" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -6 )
+
+[node name="Scene Root_54" parent="tiles" index="61" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3 )
+
+[node name="Scene Root_59" parent="tiles" index="62" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -4 )
+
+[node name="Scene Root_70" parent="tiles" index="63" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -5 )
+
+[node name="Scene Root_84" parent="tiles" index="64" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -6 )
+
+[node name="Scene Root_49" parent="tiles" index="65" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3 )
+
+[node name="Scene Root_62" parent="tiles" index="66" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4 )
+
+[node name="Scene Root_68" parent="tiles" index="67" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5 )
+
+[node name="Scene Root_82" parent="tiles" index="68" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -6 )
+
+[node name="Scene Root_87" parent="tiles" index="69" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -7 )
+
+[node name="Scene Root_93" parent="tiles" index="70" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -8 )
+
+[node name="Scene Root_8" parent="tiles" index="71" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0 )
+
+[node name="Scene Root_95" parent="tiles" index="72" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
+
+[node name="Scene Root_96" parent="tiles" index="73" instance=ExtResource( 2 )]
+
+[node name="Scene Root_97" parent="tiles" index="74" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+
+[node name="Scene Root_98" parent="tiles" index="75" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
+
+[node name="Scene Root_9" parent="tiles" index="76" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
+
+[node name="Scene Root_10" parent="tiles" index="77" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1 )
+
+[node name="Scene Root_11" parent="tiles" index="78" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1 )
+
+[node name="Scene Root_12" parent="tiles" index="79" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 2 )
+
+[node name="Scene Root_13" parent="tiles" index="80" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2 )
+
+[node name="Scene Root_14" parent="tiles" index="81" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3 )
+
+[node name="Scene Root_15" parent="tiles" index="82" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3 )
+
+[node name="Scene Root_16" parent="tiles" index="83" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3 )
+
+[node name="Scene Root_101" parent="tiles" index="84" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4 )
+
+[node name="Scene Root_108" parent="tiles" index="85" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 5 )
+
+[node name="Scene Root_124" parent="tiles" index="86" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6 )
+
+[node name="Scene Root_17" parent="tiles" index="87" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
+
+[node name="Scene Root_106" parent="tiles" index="88" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
+
+[node name="Scene Root_113" parent="tiles" index="89" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
+
+[node name="Scene Root_123" parent="tiles" index="90" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6 )
+
+[node name="Scene Root_18" parent="tiles" index="91" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3 )
+
+[node name="Scene Root_104" parent="tiles" index="92" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4 )
+
+[node name="Scene Root_111" parent="tiles" index="93" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 5 )
+
+[node name="Scene Root_122" parent="tiles" index="94" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 6 )
+
+[node name="Scene Root_19" parent="tiles" index="95" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3 )
+
+[node name="Scene Root_105" parent="tiles" index="96" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 4 )
+
+[node name="Scene Root_112" parent="tiles" index="97" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 5 )
+
+[node name="Scene Root_120" parent="tiles" index="98" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 6 )
+
+[node name="Scene Root_20" parent="tiles" index="99" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2 )
+
+[node name="Scene Root_21" parent="tiles" index="100" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1 )
+
+[node name="Scene Root_22" parent="tiles" index="101" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1 )
+
+[node name="Scene Root_23" parent="tiles" index="102" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1 )
+
+[node name="Scene Root_24" parent="tiles" index="103" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1 )
+
+[node name="Scene Root_25" parent="tiles" index="104" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2 )
+
+[node name="Scene Root_26" parent="tiles" index="105" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3 )
+
+[node name="Scene Root_102" parent="tiles" index="106" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4 )
+
+[node name="Scene Root_109" parent="tiles" index="107" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 5 )
+
+[node name="Scene Root_125" parent="tiles" index="108" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 6 )
+
+[node name="Scene Root_27" parent="tiles" index="109" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3 )
+
+[node name="Scene Root_107" parent="tiles" index="110" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 4 )
+
+[node name="Scene Root_114" parent="tiles" index="111" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 5 )
+
+[node name="Scene Root_117" parent="tiles" index="112" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 6 )
+
+[node name="Scene Root_28" parent="tiles" index="113" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 2 )
+
+[node name="Scene Root_29" parent="tiles" index="114" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2 )
+
+[node name="Scene Root_30" parent="tiles" index="115" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 3 )
+
+[node name="Scene Root_103" parent="tiles" index="116" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4 )
+
+[node name="Scene Root_110" parent="tiles" index="117" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 5 )
+
+[node name="Scene Root_119" parent="tiles" index="118" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 6 )
+
+[node name="unit_carrot" parent="units" index="0" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+
+[node name="props" parent="." index="6"]
+editor/display_folded = true
+
+[node name="fence_straight" parent="props" index="0" instance=ExtResource( 4 )]
+
+[node name="fence_straight_2" parent="props" index="1" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1, 0.4, 0 )
+
+[node name="fence_straight_6" parent="props" index="2" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2, 0.4, 4 )
+
+[node name="fence_straight_7" parent="props" index="3" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3, 0.4, 4 )
+
+[node name="fence_straight_8" parent="props" index="4" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4, 0.4, 4 )
+
+[node name="fence_straight_3" parent="props" index="5" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0.4, 0 )
+
+[node name="fence_straight_4" parent="props" index="6" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2, 0.4, 0 )
+
+[node name="fence_straight_5" parent="props" index="7" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2, 0.4, 0 )
+
+[node name="camera_limit_top_left" parent="." index="7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -9 )
+
+[node name="camera_limit_bottom_right" parent="." index="8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 7 )
+
+[node name="celery" parent="." index="9" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7 )
+
+[node name="signal_start" parent="." index="10" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3 )
+
+[editable path="playable_area"]

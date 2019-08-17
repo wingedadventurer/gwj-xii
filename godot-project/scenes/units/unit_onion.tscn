@@ -15,16 +15,16 @@
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="sfx_bury" parent="." index="4"]
+[node name="sfx_bury" parent="." index="5"]
 stream = ExtResource( 3 )
 
-[node name="sfx_move" parent="." index="5"]
+[node name="sfx_move" parent="." index="6"]
 stream = ExtResource( 4 )
 
-[node name="sfx_unbury" parent="." index="6"]
+[node name="sfx_unbury" parent="." index="7"]
 stream = ExtResource( 5 )
 
-[node name="move_positions" parent="." index="8"]
+[node name="move_positions" parent="." index="9"]
 editor/display_folded = true
 
 [node name="unit_move_arrow_5" parent="move_positions" index="0" instance=ExtResource( 6 )]
@@ -80,14 +80,14 @@ visible = false
 dependent_move_position = NodePath("../r1")
 
 [node name="signal_position" parent="signal_positions" index="0" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2 )
 visible = false
 
 [node name="signal_position_2" parent="signal_positions" index="1" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2 )
 visible = false
 
-[node name="signal_launchers" parent="." index="10"]
+[node name="signal_launchers" parent="." index="11"]
 editor/display_folded = true
 
 [node name="signal_launcher" parent="signal_launchers" index="0" instance=ExtResource( 8 )]
@@ -98,5 +98,5 @@ visible = false
 transform = Transform( 0.707107, -0.696364, -0.122788, 0, 0.173648, -0.984808, 0.707107, 0.696364, 0.122788, 0, 0, 0 )
 visible = false
 
-[node name="model" parent="." index="12" instance=ExtResource( 9 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.0434867, 0 )
+[node name="model" parent="." index="15" instance=ExtResource( 9 )]
+transform = Transform( -0.2, 0, -1.74846e-008, 0, 0.2, 0, 1.74846e-008, 0, -0.2, 0, -0.0434867, 0 )

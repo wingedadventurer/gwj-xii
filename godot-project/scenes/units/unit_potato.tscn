@@ -4,49 +4,52 @@
 [ext_resource path="res://scripts/units/unit_potato.gd" type="Script" id=2]
 [ext_resource path="res://audio/sfx/unit/potato/potato_bury.wav" type="AudioStream" id=3]
 [ext_resource path="res://audio/sfx/unit/potato/potato_move.wav" type="AudioStream" id=4]
-[ext_resource path="res://scenes/unit_move_arrow.tscn" type="PackedScene" id=5]
-[ext_resource path="res://models/units/potato.tscn" type="PackedScene" id=6]
+[ext_resource path="res://models/units/potato.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/unit_move_arrow.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/signal_position.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/signal_launcher.tscn" type="PackedScene" id=8]
 
-[node name="unit_potato" groups=[
+[node name="unit_potato" index="0" groups=[
 "potato",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="sfx_bury" parent="." index="4"]
+[node name="sfx_bury" parent="." index="5"]
 stream = ExtResource( 3 )
 
-[node name="sfx_move" parent="." index="5"]
+[node name="sfx_move" parent="." index="6"]
 stream = ExtResource( 4 )
 
-[node name="sfx_unbury" parent="." index="6"]
+[node name="sfx_unbury" parent="." index="7"]
 stream = null
 
-[node name="move_positions" parent="." index="8"]
+[node name="model" parent="." index="9" instance=ExtResource( 5 )]
+transform = Transform( -0.2, 0, -1.74846e-008, 0, 0.2, 0, 1.74846e-008, 0, -0.2, 0, 0, 0 )
+
+[node name="move_positions" parent="." index="10"]
 editor/display_folded = true
 
-[node name="unit_move_arrow" parent="move_positions" index="0" instance=ExtResource( 5 )]
+[node name="unit_move_arrow" parent="move_positions" index="0" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
 visible = false
 
-[node name="unit_move_arrow_2" parent="move_positions" index="1" instance=ExtResource( 5 )]
+[node name="unit_move_arrow_2" parent="move_positions" index="1" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
 visible = false
 
-[node name="unit_move_arrow_3" parent="move_positions" index="2" instance=ExtResource( 5 )]
+[node name="unit_move_arrow_3" parent="move_positions" index="2" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
 visible = false
 
-[node name="unit_move_arrow_4" parent="move_positions" index="3" instance=ExtResource( 5 )]
+[node name="unit_move_arrow_4" parent="move_positions" index="3" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
 visible = false
 
-[node name="model" parent="." index="9" instance=ExtResource( 6 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
+[node name="signal_positions" parent="." index="11"]
+editor/display_folded = true
 
 [node name="signal_position" parent="signal_positions" index="0" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
 visible = false
 
 [node name="signal_position_2" parent="signal_positions" index="1" instance=ExtResource( 7 )]
@@ -57,7 +60,7 @@ visible = false
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
 visible = false
 
-[node name="signal_launchers" parent="." index="11"]
+[node name="signal_launchers" parent="." index="12"]
 editor/display_folded = true
 
 [node name="signal_launcher" parent="signal_launchers" index="0" instance=ExtResource( 8 )]
