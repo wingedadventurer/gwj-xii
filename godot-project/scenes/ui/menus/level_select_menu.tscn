@@ -103,4 +103,6 @@ margin_bottom = -8.0
 rect_min_size = Vector2( 150, 40 )
 text = "Back"
 
+[node name="tween" type="Tween" parent="."]
+
 [editable path="grid_container/level_button"]
