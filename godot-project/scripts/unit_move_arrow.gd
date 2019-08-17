@@ -5,13 +5,10 @@ signal selected(move_arrow)
 
 export (NodePath) var next_position = null
 
-var hidden := false
 var highlighted := false setget set_highlighted
 
 func _ready() -> void:
-	$mesh.scale = Vector3.ZERO
 	visible = true
-	hidden = true
 	$free_check_area.visible = false
 	input_ray_pickable = false
 
@@ -67,11 +64,9 @@ func show_if_free() -> void:
 func appear() -> void:
 	$show_tween.interpolate_property($mesh, "scale", $mesh.scale, Vector3.ONE, 0.2, Tween.TRANS_BACK, Tween.EASE_OUT, rand_range(0.0, 0.1))
 	$show_tween.start()
-	hidden = false
 	input_ray_pickable = true
 
 func disappear() -> void:
 	$show_tween.interpolate_property($mesh, "scale", $mesh.scale, Vector3.ZERO, 0.2, Tween.TRANS_CUBIC, Tween.EASE_OUT, rand_range(0.0, 0.1))
 	$show_tween.start()
-	hidden = true
 	input_ray_pickable = false

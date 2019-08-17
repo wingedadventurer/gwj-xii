@@ -7,7 +7,6 @@
 [ext_resource path="res://scenes/signal_position.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/signal_launcher.tscn" type="PackedScene" id=6]
 
-
 [node name="unit_carrot" groups=[
 "carrot",
 ] instance=ExtResource( 1 )]

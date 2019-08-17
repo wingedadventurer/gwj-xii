@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/level.gd" type="Script" id=1]
 [ext_resource path="res://environments/default_environment.tres" type="Environment" id=2]
 [ext_resource path="res://scenes/ui/vignette_overlay.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/ui/camera_ui.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/ui/game_ui.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/playable_area.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 0.1, 2, 0.1 )
@@ -27,15 +26,13 @@ __meta__ = {
 environment = ExtResource( 2 )
 
 [node name="canvas_layer" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="vignette_overlay" parent="canvas_layer" instance=ExtResource( 3 )]
 
 [node name="camera_ui" parent="canvas_layer" instance=ExtResource( 4 )]
 
 [node name="game_ui" parent="canvas_layer" instance=ExtResource( 5 )]
-
-[node name="playable_area" parent="." instance=ExtResource( 6 )]
-editor/display_folded = true
 
 [node name="tiles" type="Spatial" parent="."]
 __meta__ = {
@@ -50,6 +47,8 @@ __meta__ = {
 [node name="lights" type="Spatial" parent="."]
 
 [node name="props" type="Spatial" parent="."]
+
+[node name="playable_areas" type="Spatial" parent="."]
 
 [node name="camera_limit_top_left" type="Position3D" parent="."]
 editor/display_folded = true
@@ -68,5 +67,3 @@ mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
 [node name="camera_start_position" type="Position3D" parent="."]
-
-[editable path="playable_area"]
