@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/signal_position.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/signal_launcher.tscn" type="PackedScene" id=8]
 
-[node name="unit_potato" index="0" groups=[
+[node name="unit_potato" groups=[
 "potato",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -26,23 +26,28 @@ stream = null
 [node name="model" parent="." index="9" instance=ExtResource( 5 )]
 transform = Transform( -0.2, 0, -1.74846e-008, 0, 0.2, 0, 1.74846e-008, 0, -0.2, 0, 0, 0 )
 
-[node name="move_positions" parent="." index="10"]
-editor/display_folded = true
-
-[node name="unit_move_arrow" parent="move_positions" index="0" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
+[node name="f" parent="move_positions" index="0" groups=[
+"initial",
+] instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
 visible = false
 
-[node name="unit_move_arrow_2" parent="move_positions" index="1" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
-visible = false
-
-[node name="unit_move_arrow_3" parent="move_positions" index="2" instance=ExtResource( 6 )]
+[node name="b" parent="move_positions" index="1" groups=[
+"initial",
+] instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
 visible = false
 
-[node name="unit_move_arrow_4" parent="move_positions" index="3" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+[node name="l" parent="move_positions" index="2" groups=[
+"initial",
+] instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+visible = false
+
+[node name="r" parent="move_positions" index="3" groups=[
+"initial",
+] instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
 visible = false
 
 [node name="signal_positions" parent="." index="11"]

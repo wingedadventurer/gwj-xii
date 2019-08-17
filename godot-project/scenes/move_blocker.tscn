@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.25, 0.25, 0.25 )
+
+[node name="move_blocker" type="Area" groups=[
+"move_blocker",
+]]
+input_ray_pickable = false
+
+[node name="collision_shape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
