@@ -2,8 +2,12 @@ extends Node
 
 var ambience_audio = preload("res://audio/ambience/ambience.wav")
 
-var music_title = preload("res://audio/music/whiskey-on-the-mississippi.ogg")
-var music_ingame = preload("res://audio/music/bama_country.ogg")
+var music := {
+	0: preload("res://audio/music/whiskey-on-the-mississippi.ogg"),
+	1: preload("res://audio/music/bama_country.ogg"),
+	2: preload("res://audio/music/neo-western.ogg"),
+}
+
 
 enum TRACK {TITLE, INGAME}
 
@@ -12,11 +16,9 @@ func play_ambience() -> void:
 	$ambience.play()
 
 func play_music(which : int = TRACK.INGAME) -> void:
-	if which == TRACK.INGAME:
-		$music.stream = music_ingame
-	else:
-		$music.stream = music_title
-	$music.play()
+	if $music.stream != music[which]:
+		$music.stream = music[which]
+		$music.play()
 
 func stop_ambience() -> void:
 	$ambience.stop()

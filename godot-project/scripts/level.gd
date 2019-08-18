@@ -16,7 +16,9 @@ export var title := "<level title>"
 export var subtitle := "<level subtitle>"
 export var days_to_harvest := 3
 export (String, MULTILINE) var level_hint = ""
+# warning-ignore:unused_class_variable
 export (PackedScene) var next_level = null
+export var last := false
 var number_of_celeries := 0
 var remaining_celeries := 0
 var farmers_queue := []
@@ -29,8 +31,12 @@ func _ready() -> void:
 	do_transition_in()
 	$camera_limit_top_left.visible = false
 	$camera_limit_bottom_right.visible = false
-	audio_manager.play_music()
-	audio_manager.play_ambience()
+	if last:
+		audio_manager.play_music(2)
+		audio_manager.stop_ambience()
+	else:
+		audio_manager.play_music(1)
+		audio_manager.play_ambience()
 
 func set_days_to_harvest(value : int) -> void:
 	days_to_harvest = value

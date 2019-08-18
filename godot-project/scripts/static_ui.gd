@@ -41,7 +41,7 @@ func show_win_screen() -> void:
 	$win_popup.show()
 	$sfx_win.play()
 	audio_manager.stop_ambience()
-	audio_manager.stop_music()
+	AudioServer.set_bus_volume_db(1, -20)
 
 func show_lose_screen(reason := -1) -> void:
 	$lose_popup.show()
@@ -53,7 +53,7 @@ func show_lose_screen(reason := -1) -> void:
 			1:
 				$sfx_lose_farmer.play()
 	audio_manager.stop_ambience()
-	audio_manager.stop_music()
+	AudioServer.set_bus_volume_db(1, -20)
 
 func disable_buttons() -> void:
 	$game_controls/vb/hb/button_next_turn.disabled = true
@@ -80,14 +80,17 @@ func _on_harvest_days_tween_tween_completed(object, key):
 	$sfx_ding.play()
 
 func _on_button_menu_pressed() -> void:
+	AudioServer.set_bus_volume_db(1, 0)
 	get_tree().change_scene(scene_menu_path)
 
 func _on_button_next_pressed() -> void:
+	AudioServer.set_bus_volume_db(1, 0)
 	for level in get_tree().get_nodes_in_group("level"):
 		if level.next_level:
 			get_tree().change_scene_to(level.next_level)
 
 func _on_button_retry_pressed() -> void:
+	AudioServer.set_bus_volume_db(1, 0)
 	get_tree().reload_current_scene()
 
 func set_level_hint(text := "") -> void:

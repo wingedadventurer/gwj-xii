@@ -14,7 +14,7 @@
 [ext_resource path="res://scenes/signal_start.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/celery.tscn" type="PackedScene" id=13]
 
-[node name="level" index="0" instance=ExtResource( 1 )]
+[node name="level" instance=ExtResource( 1 )]
 title = "Crop Rotations"
 days_to_harvest = 4
 level_hint = "Great, you now know all the basics of chaining signals to celeries!

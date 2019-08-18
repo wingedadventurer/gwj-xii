@@ -1,7 +1,7 @@
 extends Node
 
 onready var shadows := 2
-onready var ssao := 3
+onready var ssao := 0
 onready var msaa := 0
 onready var bloom := true
 onready var fullscreen := false

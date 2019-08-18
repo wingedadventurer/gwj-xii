@@ -17,7 +17,7 @@
 
 [node name="level" index="0" instance=ExtResource( 1 )]
 title = "Signal Boosting"
-days_to_harvest = 5
+days_to_harvest = 4
 level_hint = "Nice work! Let's keep going!
 
 --------
