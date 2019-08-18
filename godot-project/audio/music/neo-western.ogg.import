@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/neo-western.ogg-3de86b373f64c579ff2504cb3185954f.oggstr"
+
+[deps]
+
+source_file="res://audio/music/neo-western.ogg"
+dest_files=[ "res://.import/neo-western.ogg-3de86b373f64c579ff2504cb3185954f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
