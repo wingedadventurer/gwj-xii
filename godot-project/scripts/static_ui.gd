@@ -83,3 +83,12 @@ func _on_button_next_pressed() -> void:
 
 func _on_button_retry_pressed() -> void:
 	get_tree().reload_current_scene()
+
+func set_level_hint(text := "") -> void:
+	if text == "": return
+	$game_controls/vb/hb/help_button.disabled = false
+	$level_text/text.text = text
+	$game_controls/vb/hb/help_button/animation_player.play("flash")
+
+func _on_help_button_pressed() -> void:
+	$level_text.visible = !$level_text.visible

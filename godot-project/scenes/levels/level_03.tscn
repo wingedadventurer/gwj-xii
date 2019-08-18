@@ -9,9 +9,25 @@
 [ext_resource path="res://scenes/signal_start.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/celery.tscn" type="PackedScene" id=8]
 
-[node name="level" index="0" instance=ExtResource( 1 )]
+[node name="level" instance=ExtResource( 1 )]
 title = "Crop Rotations"
 days_to_harvest = 4
+level_hint = "Great, you now know all the basics of chaining signals to celeries!
+
+It's time to welcome a new vegetable: Onion!
+
+--------
+
+Onion is athletic as well, but more in terms of agility rather than speed.
+Onion can move up to 2 blocks in each direction, and can also move diagonally.
+When he receives a signal, however, he splits it into 2 more signals!
+
+Select the Onion to see where he will send 2 new signals, and find proper position for all units.
+
+Note there are 2 celeries. Both need to be activated AT THE SAME TIME in order to win.
+(Activated celeries become deactivated on next turn.)
+
+Tip: you can deselect a selected unit by clicking on it again, or clicking on X button at top-left."
 
 [node name="tiles" parent="." index="2"]
 editor/display_folded = true

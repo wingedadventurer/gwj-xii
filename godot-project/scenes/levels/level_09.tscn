@@ -15,6 +15,12 @@
 [node name="level" index="0" instance=ExtResource( 1 )]
 title = "Moonlight Hopscotch"
 days_to_harvest = 4
+level_hint = "This is it. Your final mission. You can do this.
+
+Tip? There's nothing more you need to know. You are amazing. You can do this without much effort.
+I believe in you. You believe in you. Nothing can stop you.
+
+You can do this."
 
 [node name="environment" parent="." index="0"]
 environment = ExtResource( 2 )

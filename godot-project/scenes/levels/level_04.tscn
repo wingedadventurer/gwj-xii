@@ -15,6 +15,11 @@
 [node name="level" instance=ExtResource( 1 )]
 title = "Against the Grain"
 days_to_harvest = 5
+level_hint = "This one is a bit tricky. Take your time.
+
+(But not too much; watch out for Harvest Day!)
+
+Tip: units can jump over other units (and sometimes short obstacles)!"
 
 [node name="tiles" parent="." index="2"]
 editor/display_folded = true

@@ -11,6 +11,17 @@
 [node name="level" instance=ExtResource( 1 )]
 title = "Signal Boosting"
 days_to_harvest = 5
+level_hint = "Nice work! Let's keep going!
+
+--------
+
+Signals can be chained infinitely between our beloved veggies.
+Make sure one of the units is aiming at other unit, ie. other unit is standing on blue marker.
+
+If unit is not buried, it can rotate (infinitely) by pressing \"Turn Left\" or \"Turn Right\" buttons.
+Make sure you are properly rotated before burying!
+
+Tip: signal can only be launched once per turn, so save it as a last action."
 
 [node name="tiles" parent="." index="2"]
 editor/display_folded = true

@@ -11,9 +11,39 @@
 [ext_resource path="res://scenes/celery.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/signal_start.tscn" type="PackedScene" id=10]
 
-[node name="level" index="0" instance=ExtResource( 1 )]
+[node name="level" instance=ExtResource( 1 )]
 title = "First Crops"
 days_to_harvest = 8
+level_hint = "Welcome to \"The Good, the Bad, and the Veggie!\"
+
+A strange, mysterious signal arrives from the sky.
+Your job is to transmit that signal to all the celeries with the help of other vegetables.
+
+--------
+
+Move the camera with WSAD keys RMB.
+Rotate the camera with MMB.
+Zoom the camera by scrolling with MMB.
+
+--------
+
+You start with a Carrot unit. It is buried. Select it and unbury it.
+You can only do one action per turn. Press \"Next Turn\" to continue.
+
+When your unit is unburied, select it again and yellow tiles will appear, indicating where the unit can move.
+Click on one of these tiles to move.
+Carrot is very athletic, and can jump up to 3 blocks away!
+
+Get your unit to the blue circle. Be fast because with every turn, Harvest Day comes closer,
+and all your precious crops will be harvested before the mission is completed!
+
+When you reach the destination, bury the unit. Units can only transmit signals further when buried.
+
+Upon pressing \"Launch Signal\" button, a signal from sky will be sent to the blue circle.
+Depending on unit, it will transmit that signal towards blue marks.
+Carrot transmits his signal 4 blocks ahead.
+
+Phew, what a tutorial! Now get going!"
 
 [node name="tiles" parent="." index="2"]
 editor/display_folded = true

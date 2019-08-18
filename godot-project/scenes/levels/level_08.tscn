@@ -19,6 +19,11 @@
 [node name="level" instance=ExtResource( 1 )]
 title = "The River"
 days_to_harvest = 6
+level_hint = "Hey, they can walk! D:
+
+This farmer likes to trot occasionally, so you have a chance to cross his line of sight normally.
+
+Note that the farmer doesn't get alerted if a vegetable is buried. Because why would he?"
 
 [node name="tiles" parent="." index="2"]
 editor/display_folded = true

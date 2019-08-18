@@ -15,9 +15,18 @@
 [ext_resource path="res://scenes/celery.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/signal_start.tscn" type="PackedScene" id=14]
 
-[node name="level" index="0" instance=ExtResource( 1 )]
+[node name="level" instance=ExtResource( 1 )]
 title = "V for Veggetta"
 days_to_harvest = 4
+level_hint = "Freeze!
+
+A farmer is evil. Like very evil.
+If he sees a vegetable in front of him, he will shoot it, and the game ends.
+
+Luckily he has a tunnel vision condition so he only sees veggies on tiles that line up with his sight.
+Units next to that line are completely safe.
+
+Tip: you are only not allowed to LAND in front of the farmer. An athletic veggie can jump over the line unnoticed."
 
 [node name="tiles" parent="." index="2"]
 editor/display_folded = true

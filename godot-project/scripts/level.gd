@@ -15,6 +15,7 @@ onready var canvas = $canvas_layer
 export var title := "<level title>"
 export var subtitle := "<level subtitle>"
 export var days_to_harvest := 3
+export (String, MULTILINE) var level_hint = ""
 var number_of_celeries := 0
 var remaining_celeries := 0
 var farmers_queue := []
@@ -69,6 +70,7 @@ func initialize() -> void:
 	
 	for static_ui in get_tree().get_nodes_in_group("static_ui"):
 		static_ui.connect("next_turn", self, "_on_next_turn")
+		static_ui.set_level_hint(level_hint)
 	
 	for farmer in get_tree().get_nodes_in_group("farmer"):
 		farmer.connect("action_done", self, "_on_farmer_action_done")

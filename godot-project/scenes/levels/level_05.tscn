@@ -15,6 +15,14 @@
 [node name="level" instance=ExtResource( 1 )]
 title = "Raisin the Stakes"
 days_to_harvest = 4
+level_hint = "Well done on the last one!
+
+Here we introduce the final unit: Potato.
+
+Potato is slow. And lazy. It can only move up to one block.
+On the other hand, he transmits 3 signals!
+
+There are lots of celeries on this one. Get to work!"
 
 [node name="tiles" parent="." index="2"]
 editor/display_folded = true
