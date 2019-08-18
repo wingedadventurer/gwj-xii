@@ -1,15 +1,18 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://models/tiles/dirt_tile_model.tscn" type="PackedScene" id=2]
 [ext_resource path="res://models/tiles/grass_tile_model.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/units/unit_onion.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/units/unit_carrot.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/playable_area.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/celery.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/signal_start.tscn" type="PackedScene" id=8]
+[ext_resource path="res://models/props/rock_small.tscn" type="PackedScene" id=6]
+[ext_resource path="res://models/props/rock_medium.tscn" type="PackedScene" id=7]
+[ext_resource path="res://models/props/rock_big.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/playable_area.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/celery.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/signal_start.tscn" type="PackedScene" id=11]
 
-[node name="level" index="0" instance=ExtResource( 1 )]
+[node name="level" instance=ExtResource( 1 )]
 title = "Against the Grain"
 days_to_harvest = 5
 
@@ -705,17 +708,42 @@ buried = false
 transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 2, 0, 2 )
 buried = false
 
-[node name="playable_area" parent="playable_areas" index="0" instance=ExtResource( 6 )]
+[node name="rock_small" parent="props" index="0" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2 )
+
+[node name="rock_small_2" parent="props" index="1" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -1, 0, -1 )
+
+[node name="rock_small_3" parent="props" index="2" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 6, 0, 0 )
+
+[node name="rock_small_4" parent="props" index="3" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 8, 0, 3 )
+
+[node name="rock_medium" parent="props" index="4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -3 )
+
+[node name="rock_big" parent="props" index="5" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
+
+[node name="rock_big_2" parent="props" index="6" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 4, 0, 6 )
+
+[node name="playable_area" parent="playable_areas" index="0" instance=ExtResource( 9 )]
 transform = Transform( 11.3961, 0, 0, 0, 1, 0, 0, 0, 6.41155, 3.45173, 0, 1.03253 )
+visible = false
 
-[node name="playable_area_2" parent="playable_areas" index="1" instance=ExtResource( 6 )]
+[node name="playable_area_2" parent="playable_areas" index="1" instance=ExtResource( 9 )]
 transform = Transform( 8.3, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -3 )
+visible = false
 
-[node name="playable_area_3" parent="playable_areas" index="2" instance=ExtResource( 6 )]
+[node name="playable_area_3" parent="playable_areas" index="2" instance=ExtResource( 9 )]
 transform = Transform( 6.225, 0, 0, 0, 1, 0, 0, 0, 0.6, 4, 0, -4 )
+visible = false
 
-[node name="playable_area_4" parent="playable_areas" index="3" instance=ExtResource( 6 )]
+[node name="playable_area_4" parent="playable_areas" index="3" instance=ExtResource( 9 )]
 transform = Transform( 4.3575, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, 0, 5 )
+visible = false
 
 [node name="camera_limit_top_left" parent="." index="7"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -5 )
@@ -723,14 +751,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -5 )
 [node name="camera_limit_bottom_right" parent="." index="8"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 6 )
 
-[node name="celery" parent="." index="10" instance=ExtResource( 7 )]
+[node name="celery" parent="." index="10" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1 )
 
-[node name="celery_2" parent="." index="11" instance=ExtResource( 7 )]
+[node name="celery_2" parent="." index="11" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 3 )
 
-[node name="celery_3" parent="." index="12" instance=ExtResource( 7 )]
+[node name="celery_3" parent="." index="12" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -1 )
 
-[node name="signal_start" parent="." index="13" instance=ExtResource( 8 )]
+[node name="signal_start" parent="." index="13" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3 )

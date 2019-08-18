@@ -1,19 +1,27 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://themes/main_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/ui/menus/level_select_menu.gd" type="Script" id=2]
 [ext_resource path="res://scenes/ui/level_button.tscn" type="PackedScene" id=3]
-[ext_resource path="res://textures/levels/level_test.png" type="Texture" id=4]
+[ext_resource path="res://textures/levels/level_01.png" type="Texture" id=4]
 [ext_resource path="res://scenes/levels/level_01.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/levels/level_02.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/levels/level_03.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/levels/level_04.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/levels/level_05.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/levels/level_06.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/levels/level_07.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/levels/level_08.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/levels/level_09.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/ui/button.tscn" type="PackedScene" id=14]
+[ext_resource path="res://textures/levels/level_02.png" type="Texture" id=6]
+[ext_resource path="res://scenes/levels/level_02.tscn" type="PackedScene" id=7]
+[ext_resource path="res://textures/levels/level_03.png" type="Texture" id=8]
+[ext_resource path="res://scenes/levels/level_03.tscn" type="PackedScene" id=9]
+[ext_resource path="res://textures/levels/level_04.png" type="Texture" id=10]
+[ext_resource path="res://scenes/levels/level_04.tscn" type="PackedScene" id=11]
+[ext_resource path="res://textures/levels/level_05.png" type="Texture" id=12]
+[ext_resource path="res://scenes/levels/level_05.tscn" type="PackedScene" id=13]
+[ext_resource path="res://textures/levels/level_06.png" type="Texture" id=14]
+[ext_resource path="res://scenes/levels/level_06.tscn" type="PackedScene" id=15]
+[ext_resource path="res://textures/levels/level_07.png" type="Texture" id=16]
+[ext_resource path="res://scenes/levels/level_07.tscn" type="PackedScene" id=17]
+[ext_resource path="res://textures/levels/level_08.png" type="Texture" id=18]
+[ext_resource path="res://scenes/levels/level_08.tscn" type="PackedScene" id=19]
+[ext_resource path="res://textures/levels/level_09.png" type="Texture" id=20]
+[ext_resource path="res://scenes/levels/level_09.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/ui/button.tscn" type="PackedScene" id=22]
 
 [node name="level_select_menu" type="Control"]
 anchor_right = 1.0
@@ -38,6 +46,7 @@ custom_constants/hseparation = 20
 columns = 3
 
 [node name="level_button" parent="grid_container" instance=ExtResource( 3 )]
+editor/display_folded = true
 texture_normal = ExtResource( 4 )
 level = ExtResource( 5 )
 
@@ -45,78 +54,94 @@ level = ExtResource( 5 )
 text = "First Crops"
 
 [node name="level_button_2" parent="grid_container" instance=ExtResource( 3 )]
+editor/display_folded = true
 margin_left = 220.0
 margin_right = 420.0
-level = ExtResource( 6 )
+texture_normal = ExtResource( 6 )
+level = ExtResource( 7 )
 
 [node name="level_name" parent="grid_container/level_button_2" index="1"]
 text = "Signal Boosting"
 
 [node name="level_button_3" parent="grid_container" instance=ExtResource( 3 )]
+editor/display_folded = true
 margin_left = 440.0
 margin_right = 640.0
-level = ExtResource( 7 )
+texture_normal = ExtResource( 8 )
+level = ExtResource( 9 )
 
 [node name="level_name" parent="grid_container/level_button_3" index="1"]
 text = "Crop Rotations"
 
 [node name="level_button_4" parent="grid_container" instance=ExtResource( 3 )]
+editor/display_folded = true
 margin_top = 170.0
 margin_bottom = 320.0
-level = ExtResource( 8 )
+texture_normal = ExtResource( 10 )
+level = ExtResource( 11 )
 
 [node name="level_name" parent="grid_container/level_button_4" index="1"]
 text = "Against the Grain"
 
 [node name="level_button_5" parent="grid_container" instance=ExtResource( 3 )]
+editor/display_folded = true
 margin_left = 220.0
 margin_top = 170.0
 margin_right = 420.0
 margin_bottom = 320.0
-level = ExtResource( 9 )
+texture_normal = ExtResource( 12 )
+level = ExtResource( 13 )
 
 [node name="level_name" parent="grid_container/level_button_5" index="1"]
 text = "Raisin the Stakes"
 
 [node name="level_button_6" parent="grid_container" instance=ExtResource( 3 )]
+editor/display_folded = true
 margin_left = 440.0
 margin_top = 170.0
 margin_right = 640.0
 margin_bottom = 320.0
-level = ExtResource( 10 )
+texture_normal = ExtResource( 14 )
+level = ExtResource( 15 )
 
 [node name="level_name" parent="grid_container/level_button_6" index="1"]
 text = "The Stretch"
 
 [node name="level_button_7" parent="grid_container" instance=ExtResource( 3 )]
+editor/display_folded = true
 margin_top = 340.0
 margin_bottom = 490.0
-level = ExtResource( 11 )
+texture_normal = ExtResource( 16 )
+level = ExtResource( 17 )
 
 [node name="level_name" parent="grid_container/level_button_7" index="1"]
 text = "V for Veggetta"
 
 [node name="level_button_8" parent="grid_container" instance=ExtResource( 3 )]
+editor/display_folded = true
 margin_left = 220.0
 margin_top = 340.0
 margin_right = 420.0
 margin_bottom = 490.0
-level = ExtResource( 12 )
+texture_normal = ExtResource( 18 )
+level = ExtResource( 19 )
 
 [node name="level_name" parent="grid_container/level_button_8" index="1"]
 text = "The River"
 
 [node name="level_button_9" parent="grid_container" instance=ExtResource( 3 )]
+editor/display_folded = true
 margin_left = 440.0
 margin_top = 340.0
 margin_right = 640.0
 margin_bottom = 490.0
-level = ExtResource( 13 )
+texture_normal = ExtResource( 20 )
+level = ExtResource( 21 )
 
 [node name="level_name" parent="grid_container/level_button_9" index="1"]
 text = "Moonlight Hopscotch"
 
-[node name="button_back" parent="." instance=ExtResource( 14 )]
+[node name="button_back" parent="." instance=ExtResource( 22 )]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
