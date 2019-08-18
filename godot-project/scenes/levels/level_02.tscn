@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/signal_start.tscn" type="PackedScene" id=7]
 
 [node name="level" index="0" instance=ExtResource( 1 )]
+title = "Signal Boosting"
 days_to_harvest = 5
 
 [node name="tiles" parent="." index="2"]

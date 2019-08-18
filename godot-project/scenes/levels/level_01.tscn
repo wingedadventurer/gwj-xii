@@ -12,7 +12,7 @@
 [ext_resource path="res://scenes/signal_start.tscn" type="PackedScene" id=10]
 
 [node name="level" index="0" instance=ExtResource( 1 )]
-title = "First Steps"
+title = "First Crops"
 days_to_harvest = 8
 
 [node name="dirt_tile" parent="tiles" index="0" instance=ExtResource( 2 )]

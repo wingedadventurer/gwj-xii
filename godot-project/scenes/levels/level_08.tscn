@@ -17,6 +17,7 @@
 [ext_resource path="res://scenes/celery.tscn" type="PackedScene" id=15]
 
 [node name="level" index="0" instance=ExtResource( 1 )]
+title = "The River"
 days_to_harvest = 6
 
 [node name="tiles" parent="." index="2"]

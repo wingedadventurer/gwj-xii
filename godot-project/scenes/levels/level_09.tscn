@@ -12,7 +12,7 @@
 [ext_resource path="res://scenes/celery.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/signal_start.tscn" type="PackedScene" id=11]
 
-[node name="level" instance=ExtResource( 1 )]
+[node name="level" index="0" instance=ExtResource( 1 )]
 title = "Moonlight Hopscotch"
 days_to_harvest = 4
 
