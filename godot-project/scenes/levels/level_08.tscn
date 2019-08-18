@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/levels/level_09.tscn" type="PackedScene" id=2]
@@ -11,11 +11,13 @@
 [ext_resource path="res://models/props/fence_corner.tscn" type="PackedScene" id=9]
 [ext_resource path="res://models/props/fence_threeway.tscn" type="PackedScene" id=10]
 [ext_resource path="res://models/props/fence_straight.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/playable_area.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/farmer.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/waypoint.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/signal_start.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scenes/celery.tscn" type="PackedScene" id=16]
+[ext_resource path="res://models/props/barrel_with_tv.tscn" type="PackedScene" id=12]
+[ext_resource path="res://models/props/barrel.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/playable_area.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/farmer.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/waypoint.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/signal_start.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/celery.tscn" type="PackedScene" id=18]
 
 [node name="level" index="0" instance=ExtResource( 1 )]
 title = "The River"
@@ -419,9 +421,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1 )
 [node name="unit_carrot" parent="units" index="2" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1 )
 
-[node name="props" parent="." index="5"]
-editor/display_folded = true
-
 [node name="Fenceend" parent="props" index="0" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.1, 2 )
 
@@ -479,15 +478,21 @@ transform = Transform( -2.18557e-008, -2.18557e-008, -0.5, 2.18557e-008, 0.5, -2
 [node name="fence_straight_8" parent="props" index="18" instance=ExtResource( 11 )]
 transform = Transform( -2.18557e-008, -2.18557e-008, -0.5, 2.18557e-008, 0.5, -2.18557e-008, 0.5, -2.18557e-008, -2.18557e-008, 7, 0.4, 3 )
 
-[node name="playable_area" parent="playable_areas" index="0" instance=ExtResource( 12 )]
+[node name="barrel_with_tv" parent="props" index="19" instance=ExtResource( 12 )]
+transform = Transform( -2.18557e-008, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-008, -2, 0.6, 0 )
+
+[node name="barrel" parent="props" index="20" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.6, 4 )
+
+[node name="playable_area" parent="playable_areas" index="0" instance=ExtResource( 14 )]
 transform = Transform( 6.65, 0, 0, 0, 1, 0, 0, 0, 2.65, 5, 0, 0 )
 visible = false
 
-[node name="playable_area_2" parent="playable_areas" index="1" instance=ExtResource( 12 )]
+[node name="playable_area_2" parent="playable_areas" index="1" instance=ExtResource( 14 )]
 transform = Transform( 4.655, 0, 0, 0, 1, 0, 0, 0, 0.795, 4, 0, 3 )
 visible = false
 
-[node name="playable_area_3" parent="playable_areas" index="2" instance=ExtResource( 12 )]
+[node name="playable_area_3" parent="playable_areas" index="2" instance=ExtResource( 14 )]
 transform = Transform( 2.56025, 0, 0, 0, 1, 0, 0, 0, 0.795, 4, 0, 2 )
 visible = false
 
@@ -497,32 +502,32 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2 )
 [node name="camera_limit_bottom_right" parent="." index="8"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 4 )
 
-[node name="farmer" parent="." index="10" instance=ExtResource( 13 )]
+[node name="farmer" parent="." index="10" instance=ExtResource( 15 )]
 transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 0, 0, 0 )
 
-[node name="waypoint" parent="farmer/waypoints" index="0" instance=ExtResource( 14 )]
+[node name="waypoint" parent="farmer/waypoints" index="0" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37114e-008, 0, -1 )
 
-[node name="waypoint_2" parent="farmer/waypoints" index="1" instance=ExtResource( 14 )]
+[node name="waypoint_2" parent="farmer/waypoints" index="1" instance=ExtResource( 16 )]
 
-[node name="waypoint_3" parent="farmer/waypoints" index="2" instance=ExtResource( 14 )]
+[node name="waypoint_3" parent="farmer/waypoints" index="2" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.37114e-008, 0, 1 )
 
-[node name="waypoint_4" parent="farmer/waypoints" index="3" instance=ExtResource( 14 )]
+[node name="waypoint_4" parent="farmer/waypoints" index="3" instance=ExtResource( 16 )]
 
-[node name="signal_start" parent="." index="11" instance=ExtResource( 15 )]
+[node name="signal_start" parent="." index="11" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -1 )
 
-[node name="celery" parent="." index="12" instance=ExtResource( 16 )]
+[node name="celery" parent="." index="12" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1 )
 
-[node name="celery_2" parent="." index="13" instance=ExtResource( 16 )]
+[node name="celery_2" parent="." index="13" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -1 )
 
-[node name="celery_3" parent="." index="14" instance=ExtResource( 16 )]
+[node name="celery_3" parent="." index="14" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 3 )
 
-[node name="celery_4" parent="." index="15" instance=ExtResource( 16 )]
+[node name="celery_4" parent="." index="15" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3 )
 
 [editable path="farmer"]

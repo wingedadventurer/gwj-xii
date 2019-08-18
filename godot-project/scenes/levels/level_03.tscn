@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/levels/level_04.tscn" type="PackedScene" id=2]
@@ -6,9 +6,13 @@
 [ext_resource path="res://models/tiles/grass_tile_model.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/units/unit_carrot.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/units/unit_onion.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/playable_area.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/signal_start.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/celery.tscn" type="PackedScene" id=9]
+[ext_resource path="res://models/props/rock_big.tscn" type="PackedScene" id=7]
+[ext_resource path="res://models/props/rock_medium.tscn" type="PackedScene" id=8]
+[ext_resource path="res://models/props/rock_small.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/playable_area.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/jump_blocker.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/signal_start.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/celery.tscn" type="PackedScene" id=13]
 
 [node name="level" index="0" instance=ExtResource( 1 )]
 title = "Crop Rotations"
@@ -406,17 +410,44 @@ buried = false
 transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -2, 0, -2 )
 buried = false
 
-[node name="playable_area" parent="playable_areas" index="0" instance=ExtResource( 7 )]
+[node name="rock_big" parent="props" index="0" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2 )
+
+[node name="rock_big_2" parent="props" index="1" instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-008, 3.61999e-006, 1, -3.61999e-006, 1, -3.61999e-006, -1, -3.61999e-006, -4.36983e-008, 0, 0, -3 )
+
+[node name="rock_medium" parent="props" index="2" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1 )
+
+[node name="rock_medium_2" parent="props" index="3" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -5, 0, 5 )
+
+[node name="rock_small" parent="props" index="4" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4 )
+
+[node name="rock_small_2" parent="props" index="5" instance=ExtResource( 9 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -4, 0, -2 )
+
+[node name="rock_small_3" parent="props" index="6" instance=ExtResource( 9 )]
+transform = Transform( -1, 3.61999e-006, -8.74228e-008, 3.61999e-006, 1, -3.61999e-006, 8.74097e-008, -3.61999e-006, -1, 2, 0, -4 )
+
+[node name="rock_small_4" parent="props" index="7" instance=ExtResource( 9 )]
+transform = Transform( 1.31121e-007, -3.61999e-006, -1, 3.61999e-006, 1, -3.61999e-006, 1, -3.61999e-006, 1.31134e-007, -1, 0, -5 )
+
+[node name="playable_area" parent="playable_areas" index="0" instance=ExtResource( 10 )]
 transform = Transform( 5.08792, 0, 0, 0, 1, 0, 0, 0, 4.25599, -0.487682, 0, 0 )
 
-[node name="playable_area_2" parent="playable_areas" index="1" instance=ExtResource( 7 )]
+[node name="playable_area_2" parent="playable_areas" index="1" instance=ExtResource( 10 )]
 transform = Transform( 3.33598, 0, 0, 0, 1, 0, 0, 0, 0.83654, -1.50608, 0, 2.86868 )
 
-[node name="playable_area_3" parent="playable_areas" index="2" instance=ExtResource( 7 )]
+[node name="playable_area_3" parent="playable_areas" index="2" instance=ExtResource( 10 )]
 transform = Transform( 2.47446, 0, 0, 0, 1, 0, 0, 0, 0.83654, -2.00823, 0, -2.9276 )
 
-[node name="playable_area_4" parent="playable_areas" index="3" instance=ExtResource( 7 )]
+[node name="playable_area_4" parent="playable_areas" index="3" instance=ExtResource( 10 )]
 transform = Transform( 2.47446, 0, 0, 0, 1, 0, 0, 0, 2.48082, 1.83683, 0, -2.05242 )
+
+[node name="jump_blocker" parent="playable_areas" index="4" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2 )
 
 [node name="camera_limit_top_left" parent="." index="7"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4 )
@@ -424,10 +455,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4 )
 [node name="camera_limit_bottom_right" parent="." index="8"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4 )
 
-[node name="signal_start" parent="." index="10" instance=ExtResource( 8 )]
+[node name="signal_start" parent="." index="10" instance=ExtResource( 12 )]
 
-[node name="celery" parent="." index="11" instance=ExtResource( 9 )]
+[node name="celery" parent="." index="11" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2 )
 
-[node name="celery_2" parent="." index="12" instance=ExtResource( 9 )]
+[node name="celery_2" parent="." index="12" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2 )

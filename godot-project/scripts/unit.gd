@@ -64,6 +64,9 @@ func _ready() -> void:
 		$move_positions.set_as_toplevel(true)
 		$signal_launchers.set_as_toplevel(true)
 		$signal_positions.set_as_toplevel(true)
+		$mouse_detect_area.set_as_toplevel(true)
+		$signal_receive_area.set_as_toplevel(true)
+		$farmer_detect_area.set_as_toplevel(true)
 		
 		new_rotation = rotation_degrees.y
 		$signal_launchers.rotation_degrees.y = new_rotation
@@ -179,6 +182,9 @@ func move(new_global_origin : Vector3) -> void:
 	$move_positions.global_transform.origin = new_global_origin
 	$signal_launchers.global_transform.origin = new_global_origin
 	$signal_positions.global_transform.origin = new_global_origin
+	$mouse_detect_area.global_transform.origin = new_global_origin
+	$signal_receive_area.global_transform.origin = new_global_origin
+	$farmer_detect_area.global_transform.origin = new_global_origin
 
 func reset() -> void:
 	if not action_done:

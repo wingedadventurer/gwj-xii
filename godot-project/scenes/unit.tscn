@@ -31,7 +31,6 @@ editor/display_folded = true
 
 [node name="collision_shape" type="CollisionShape" parent="mouse_detect_area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0 )
-visible = false
 shape = SubResource( 1 )
 
 [node name="signal_receive_area" type="Area" parent="."]
