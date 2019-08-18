@@ -181,7 +181,8 @@ func move(new_global_origin : Vector3) -> void:
 	$signal_positions.global_transform.origin = new_global_origin
 
 func reset() -> void:
-	action_done = false
+	if not action_done:
+		set_action_done(true)
 	signals_launched = false
 
 func bury(quiet := false) -> void:

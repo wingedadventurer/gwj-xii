@@ -143,6 +143,9 @@ func _on_next_turn(static_ui) -> void:
 	else:
 		enable_all_controls()
 	
+	for unit in get_tree().get_nodes_in_group("unit"):
+		unit.set_action_done(false)
+	
 	# update days to harvest
 	set_days_to_harvest(days_to_harvest - 1)
 
