@@ -15,6 +15,10 @@ var lose_reasons := {
 func _ready() -> void:
 	$win_popup.hide()
 	$lose_popup.hide()
+	
+	for level in get_tree().get_nodes_in_group("level"):
+		if not level.next_level:
+			$win_popup/vb/hb/button_next.visible = false
 
 func set_remaining_days(value) -> void:
 	# warning-ignore:narrowing_conversion
@@ -79,7 +83,9 @@ func _on_button_menu_pressed() -> void:
 	get_tree().change_scene(scene_menu_path)
 
 func _on_button_next_pressed() -> void:
-	pass
+	for level in get_tree().get_nodes_in_group("level"):
+		if level.next_level:
+			get_tree().change_scene_to(level.next_level)
 
 func _on_button_retry_pressed() -> void:
 	get_tree().reload_current_scene()

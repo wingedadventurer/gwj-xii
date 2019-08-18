@@ -16,6 +16,7 @@ export var title := "<level title>"
 export var subtitle := "<level subtitle>"
 export var days_to_harvest := 3
 export (String, MULTILINE) var level_hint = ""
+export (PackedScene) var next_level = null
 var number_of_celeries := 0
 var remaining_celeries := 0
 var farmers_queue := []
