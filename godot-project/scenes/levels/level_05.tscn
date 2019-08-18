@@ -17,8 +17,9 @@
 [ext_resource path="res://scenes/celery.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/signal_start.tscn" type="PackedScene" id=16]
 
-[node name="level" instance=ExtResource( 1 )]
+[node name="level" index="0" instance=ExtResource( 1 )]
 title = "Raisin the Stakes"
+subtitle = "... but not before I add subtitles"
 days_to_harvest = 4
 level_hint = "Well done on the last one!
 
