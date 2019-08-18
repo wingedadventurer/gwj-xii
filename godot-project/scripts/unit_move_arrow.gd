@@ -67,6 +67,7 @@ func appear() -> void:
 	input_ray_pickable = true
 
 func disappear() -> void:
-	$show_tween.interpolate_property($mesh, "scale", $mesh.scale, Vector3.ZERO, 0.2, Tween.TRANS_CUBIC, Tween.EASE_OUT, rand_range(0.0, 0.1))
-	$show_tween.start()
+#	$show_tween.interpolate_property($mesh, "scale", $mesh.scale, Vector3.ZERO, 0.2, Tween.TRANS_CUBIC, Tween.EASE_OUT, rand_range(0.0, 0.1))
+#	$show_tween.start()
+	$mesh.scale = Vector3.ZERO
 	input_ray_pickable = false
